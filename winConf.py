@@ -7,3 +7,5 @@ def window(msg='[Null]', style='basic'):
     line(len(msg) + 10, style)
     print(f'|    {msg}    |')
     line(len(msg) + 10, style)
+
+if __name__ == '__main__': print('You need to open: main.py!')
