@@ -32,7 +32,7 @@ emulator in folder and run the command:
 
     sudo python3 Main.py
 
-You nee to open with sudo because some libraries doesn't work without super user (I don't know why this is happening but I will fix it soon).
+You need to open with sudo because some libraries doesn't work without super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ## Why use?
