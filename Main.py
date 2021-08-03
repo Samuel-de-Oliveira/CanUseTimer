@@ -1,4 +1,4 @@
-from lib.lib import *
+from lib import *
 from time import sleep
 from winConf import *
 from lib.Shufflers import *
@@ -20,7 +20,7 @@ while True:
         window('Start')
         startTimer()
 
-    if console == 2: window('Change modality')
+    if console == 2: window('Change modality,\nJust coming soon...')
     if console == 3: break
     print()
 
