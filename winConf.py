@@ -1,6 +1,6 @@
 def line(size=40, style='basic'):
     if style == 'basic': print('-' * size)
-    if style == 'doble_line': print('=' * size)
+    if style == 'double_line': print('=' * size)
     if style == 'hashtag': print('#' * size)
 
 def window(msg='[Null]', style='basic'):

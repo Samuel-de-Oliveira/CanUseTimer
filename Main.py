@@ -7,11 +7,11 @@ print('CanUseTimer Terminal\'s version: 0.1 BETA')
 
 while True:
     sleep(0.3)
-    line(style='doble_line')
+    line(style='double_line')
     print("1: Start\n"
           "2: Change modality\n"
           "3: Exit")
-    line(style='doble_line')
+    line(style='double_line')
 
     console = Console(size=3)
 
