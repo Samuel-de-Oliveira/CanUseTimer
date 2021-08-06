@@ -1,12 +1,10 @@
 from lib import *
-from time import sleep
 from winConf import *
 from lib.Shufflers import *
 
-print('CanUseTimer Terminal\'s version: 0.1 BETA')
+print('CanUseTimer Terminal\'s version: 0.1.1 BETA')
 
 while True:
-    sleep(0.3)
     line(style='double_line')
     print("1: Start\n"
           "2: Change modality\n"
@@ -17,10 +15,13 @@ while True:
 
     print()
     if console == 1:
-        window('Start')
+        window('Starting timer...')
         startTimer()
 
-    if console == 2: window('Change modality,\nJust coming soon...')
+    if console == 2:
+        window('Change modality')
+        defModality()
+
     if console == 3: break
     print()
 
