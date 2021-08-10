@@ -2,7 +2,7 @@ from lib import *
 from winConf import *
 from lib.Shufflers import *
 
-print('CanUseTimer Terminal\'s version: 0.1.1 BETA')
+print('CanUseTimer Terminal\'s version: 0.1.2 BETA')
 
 while True:
     line(style='double_line')

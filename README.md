@@ -58,6 +58,6 @@ You need to open with sudo because some libraries doesn't work without super use
 
 ---
 ---
-**Version: 0.1.1 BETA**
+**Version: 0.1.2 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*

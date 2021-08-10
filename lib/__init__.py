@@ -3,7 +3,8 @@ from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
 
-modalities = {'3x3': Salete(size=20)}
+modalities = {'3x3': Salete(size=20),
+              '2x2': Salete(size=10)}
 modality = '3x3'
 
 def Console(text='>>: ', size=2):
@@ -16,7 +17,13 @@ def Console(text='>>: ', size=2):
         except KeyboardInterrupt: exit()
         except: print('Digit a valid value')
 
-def defModality(): print('Not done...')
+def defModality():
+    print(modalities.keys())
+    x = input('Digit the modality name: ')
+
+    if x in modalities.keys(): 
+        modality = x
+    else: print('this modality doesn\'t exist')
 
 def startTimer():
     print(f'The actual modality is: {modality}\n'
