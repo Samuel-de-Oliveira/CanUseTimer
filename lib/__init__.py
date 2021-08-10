@@ -3,6 +3,8 @@ from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
 
+# Criar uma classe aqui depois...
+
 modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10)}
 modality = '3x3'
