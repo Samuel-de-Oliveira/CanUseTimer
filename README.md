@@ -8,7 +8,7 @@ in probally any computer with bad hardware and any operational
 system (Windows, Linux and MacOS X).
 
 ---
-## Release notes (0.1.2.1)
+## Release notes (0.1.2.1) 🗒️
 
 - new modality added: 2X2;
 - Timer need 0.85sec space pressed to start and not 1sec;
@@ -49,8 +49,8 @@ You need to open with sudo because some libraries doesn't work without super use
 
 ---
 ## Why use?
-- Soft program; 🪶
-- Run all platforms (Windows 🪟, Linux :penguin:, MacOS X 🍎);
+- Soft program;
+- Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you cant update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
 - Open source. 🔓 
