@@ -49,14 +49,14 @@ You need to open with sudo because some libraries doesn't work without super use
 
 ---
 ## Why use?
-- Soft program;
-- Run all platforms (Windows, Linux, MacOS X);
+- Soft program; 🪶
+- Run all platforms (Windows 🪟, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you cant update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
-- Open source.
+- Open source. 🔓 
 
 ---
-## Some warnings!
+## Some warnings! ⚠️
 
 - This is the terminal version without grafical interface;
 - This program is tested only in Linux and Windows, and not in outher else;
