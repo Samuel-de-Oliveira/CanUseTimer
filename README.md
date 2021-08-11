@@ -8,6 +8,13 @@ in probally any computer with bad hardware and any operational
 system (Windows, Linux and MacOS X).
 
 ---
+## Release notes (0.1.2.1)
+
+- new modality added: 2X2;
+- Timer need 0.85sec space pressed to start and not 1sec;
+- Bug fixes;
+
+---
 ## How it work?
 First you need to install Python 3.8 or higher on your machine,
 if you use Linux or MacOS not is required to install, if you don't
@@ -22,9 +29,9 @@ anything to program the numbers are:
 
 ### How to open in Windows?
 For a while Windows not have an install version, to run you need to
-have Python 3.8 or higher installed, is recommended you install in
-windows store, after this you need to open the `Main.py` file to
-start the program, else this will do nothing.
+have Python 3.8 or higher installed, is recommended you install
+Python in windows store, after this you need to open the `Main.py`
+file to start the program, else this will do nothing.
 Later you need do open cmd and digit:
 
     pip install keyboard
@@ -32,9 +39,9 @@ Later you need do open cmd and digit:
 and the program will start in a black window normaly.
 
 ### How to open in Linux?
-For a while Linux not have an install version, to run you need to have
-Python 3.8 or higher installed, after this you need to open your terminal
-emulator in folder and run the command:
+For a while Linux not have an install version, to run you need to check if 
+you have Python 3.8 or higher installed, after this you need to open your 
+terminal emulator in folder and run the command:
 
     sudo python3 Main.py
 
@@ -51,13 +58,13 @@ You need to open with sudo because some libraries doesn't work without super use
 ---
 ## Some warnings!
 
-- This is the terminal version without interface;
+- This is the terminal version without grafical interface;
 - This program is tested only in Linux and Windows, and not in outher else;
 - this is a BETA version, it's not done yet;
 - If you found bugs please report to fast fixing.
 
 ---
 ---
-**Version: 0.1.2 BETA**
+**Version: 0.1.2.1 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*

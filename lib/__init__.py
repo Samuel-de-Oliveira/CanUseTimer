@@ -3,11 +3,8 @@ from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
 
-# Criar uma classe aqui depois...
-
 modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10)}
-modality = '3x3'
 
 def Console(text='>>: ', size=2):
     while True:
@@ -19,23 +16,24 @@ def Console(text='>>: ', size=2):
         except KeyboardInterrupt: exit()
         except: print('Digit a valid value')
 
-def defModality():
+def defModality(modality):
     print(modalities.keys())
     x = input('Digit the modality name: ')
 
-    if x in modalities.keys(): 
-        modality = x
-    else: print('this modality doesn\'t exist')
+    if x in modalities.keys(): return x
+    else:
+        print('this modality doesn\'t exist')
+        return modality
 
-def startTimer():
+def startTimer(modality):
     print(f'The actual modality is: {modality}\n'
-          f'Scrable: {Salete(20)}')
+          f'Scrable: {modalities[modality]}')
 
     print('Press spacebar to start timer...')
     while True:
         if is_pressed('space'):
             print('Continue pressing...')
-            sleep(1)
+            sleep(0.85)
             if is_pressed('space'):
                 while is_pressed('space'): timer = time()
 

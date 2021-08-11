@@ -2,7 +2,12 @@ from lib import *
 from winConf import *
 from lib.Shufflers import *
 
-print('CanUseTimer Terminal\'s version: 0.1.2 BETA')
+print('CanUseTimer Terminal\'s version: 0.1.2.1 BETA.\n'
+      'Created by: Samuel de Oliveira©.\n')
+print('This software is open to free use and study code,\n'
+      'for more info: github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
+
+modality = '3x3'
 
 while True:
     line(style='double_line')
@@ -16,11 +21,11 @@ while True:
     print()
     if console == 1:
         window('Starting timer...')
-        startTimer()
+        startTimer(modality)
 
     if console == 2:
         window('Change modality')
-        defModality()
+        modality = defModality(modality)
 
     if console == 3: break
     print()
