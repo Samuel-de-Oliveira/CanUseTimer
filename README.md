@@ -37,22 +37,29 @@ Later you need do open cmd and digit:
 
 and the program will start in a black window normaly.
 
-### How to open in Linux?
-You can install using the `install.sh` file. To start it you need to open the terminal in the directory and digit:
+### How to install in Linux?
+You can install using the `install.sh` file. To start it you need to
+open the terminal in the directory and digit:
 
     sudo ./install
 
-after this the program will install all the libraries needed, to start you can digit in your terminal:
+after this the program will install all the libraries needed, to start
+you can digit in your terminal:
 
     sudo canusetimer
 
-You need to open with sudo because some libraries doesn't work without super user (I don't know why this is happening but I will fix it soon).
+You need to open with sudo because some libraries doesn't work without
+super user (I don't know why this is happening but I will fix it soon).
 
-If you want to open with python (Not recommended if you are a casusual user) you need to check if you have python3.8 or higher installed in your machine with `python3 --version` commmand, after this you need to open the the terminal in directory and run:
+If you want to open with python (Not recommended if you are a casusual
+user) you need to check if you have python3.8 or higher installed in
+your machine with `python3 --version` commmand, after this you need to
+open the the terminal in directory and run:
 
     sudo python3 Main.py
 
-You need to open with sudo because some libraries doesn't work without super user (I don't know why this is happening but I will fix it soon).
+You need to open with sudo because some libraries doesn't work without
+super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ## Why use?
