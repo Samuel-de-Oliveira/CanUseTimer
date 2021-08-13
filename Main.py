@@ -2,7 +2,7 @@ from lib import *
 from winConf import *
 from lib.Shufflers import *
 
-print('CanUseTimer Terminal\'s version: 0.1.2.1 BETA.\n'
+print('CanUseTimer Terminal\'s version: 0.1.2.2 BETA.\n'
       'Created by: Samuel de Oliveira©.\n')
 print('This software is open to free use and study code,\n'
       'for more info: github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')

@@ -8,11 +8,10 @@ in probally any computer with bad hardware and any operational
 system (Windows, Linux and MacOS X).
 
 ---
-## Release notes (0.1.2.1) 🗒️
+## Release notes (0.1.2.2) 🗒️
 
-- new modality added: 2X2;
-- Timer need 0.85sec space pressed to start and not 1sec;
-- Bug fixes;
+- New modality added: pyranmix;
+- Bug fixes and interface settings.
 
 ---
 ## How it work?
@@ -24,7 +23,7 @@ After install and open you need to press numbers and enter to do
 anything to program the numbers are:
 
 1. Start the timer
-1. Change modality (Not working yet)
+1. Change modality
 1. Exit program
 
 ### How to open in Windows?
@@ -39,9 +38,17 @@ Later you need do open cmd and digit:
 and the program will start in a black window normaly.
 
 ### How to open in Linux?
-For a while Linux not have an install version, to run you need to check if 
-you have Python 3.8 or higher installed, after this you need to open your 
-terminal emulator in folder and run the command:
+You can install using the `install.sh` file. To start it you need to open the terminal in the directory and digit:
+
+    sudo ./install
+
+after this the program will install all the libraries needed, to start you can digit in your terminal:
+
+    sudo canusetimer
+
+You need to open with sudo because some libraries doesn't work without super user (I don't know why this is happening but I will fix it soon).
+
+If you want to open with python (Not recommended if you are a casusual user) you need to check if you have python3.8 or higher installed in your machine with `python3 --version` commmand, after this you need to open the the terminal in directory and run:
 
     sudo python3 Main.py
 
@@ -51,7 +58,7 @@ You need to open with sudo because some libraries doesn't work without super use
 ## Why use?
 - Soft program;
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
-- Don't need internet (but you cant update it);
+- Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
 - Open source. 🔓 
 
@@ -65,6 +72,6 @@ You need to open with sudo because some libraries doesn't work without super use
 
 ---
 ---
-**Version: 0.1.2.1 BETA**
+**Version: 0.1.2.2 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*

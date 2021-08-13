@@ -4,7 +4,8 @@ from time import time, sleep
 from lib.Shufflers import *
 
 modalities = {'3x3': Salete(size=20),
-              '2x2': Salete(size=10)}
+              '2x2': Salete(size=10),
+              'pyra': Cida(size=4)}
 
 def Console(text='>>: ', size=2):
     while True:
@@ -17,7 +18,11 @@ def Console(text='>>: ', size=2):
         except: print('Digit a valid value')
 
 def defModality(modality):
-    print(modalities.keys())
+
+    print('All modalities:', end='')
+    for m in modalities.keys(): print(f' {m}', end=' ')
+
+    print()
     x = input('Digit the modality name: ')
 
     if x in modalities.keys(): return x
@@ -43,6 +48,6 @@ def startTimer(modality):
 
                 window(f'Time: {time() - timer:.2f}', 'double_line')
                 break
-            else: print('The timer not start, you need press until 1sec.')
+            else: print('The timer not start, you need press until 0.85secs.')
     
 if __name__ == '__main__': print('You need to open: main.py!')

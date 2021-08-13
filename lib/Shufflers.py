@@ -52,3 +52,66 @@ def Salete(size):
         if x == 3: pass # do nothing "\_(シ)_/"
 
     return moves
+
+#-*-------------- Cida shuffler --------------*-#
+#                                               #
+#   This shuffler work in: pyranmix             #
+#   To use then size=4                          #
+#   this arguments are in lib/__init__ file     #
+#   Version of Cida: 1.0                        #
+#                                               #
+#-*-------------------------------------------*-#
+def Cida(size):
+    moves = [] # Letters enter here
+    old = 0 # variable to not repeat letter
+    for move in range(1, 1+size):
+        while True:
+            m = randint(1, 4) # the pyranmix have 4 initial moves these are:
+
+            if not m == old:
+                if m == 1:
+                    old = m
+                    moves.append('U') # Up
+                    break
+                if m == 2:
+                    old = m
+                    moves.append('R') # Right
+                    break
+                if m == 3:
+                    old = m
+                    moves.append('L') # Left
+                    break
+                if m == 4:
+                    old = m
+                    moves.append('B') # Back
+                    break
+
+    for move in range(1, 1+size):
+        while True:
+            m = randint(1, 4) # the pyranmix have 3 final moves these are:
+
+            if not m == old:
+                if m == 1:
+                    old = m
+                    moves.append('u') # Up tip
+                    break
+                if m == 2:
+                    old = m
+                    moves.append('r') # Right
+                    break
+                if m == 3:
+                    old = m
+                    moves.append('l') # Left
+                    break
+                if m == 4:
+                    old = m
+                    moves.append('b') # Back
+                    break
+
+    # Here is to add apostruphe(') to the letters randomly
+    for letter in range(0, size*2):
+        x = randint(1, 2)
+        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
+        if x == 2: pass # do nothing "\_(シ)_/"
+
+    return moves
