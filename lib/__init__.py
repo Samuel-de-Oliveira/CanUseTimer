@@ -5,7 +5,7 @@ from lib.Shufflers import *
 
 modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10),
-              'pyra': Cida(size=4)}
+              'pyra': Cida(size=8, corner=5)}
 
 def Console(text='>>: ', size=2):
     while True:

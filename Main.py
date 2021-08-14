@@ -16,18 +16,16 @@ while True:
           "3: Exit")
     line(style='double_line')
 
-    console = Console(size=3)
+    console = Console(size=3).strip
 
     print()
     if console == 1:
         window('Starting timer...')
         startTimer(modality)
-
     if console == 2:
         window('Change modality')
         modality = defModality(modality)
-
-    if console == 3: break
+    if console == 3:
+        print('Bye, bye!')
+        break
     print()
-
-print('Bye, bye!')

@@ -51,7 +51,7 @@ you can digit in your terminal:
 You need to open with sudo because some libraries doesn't work without
 super user (I don't know why this is happening but I will fix it soon).
 
-If you want to open with python (Not recommended if you are a casusual
+If you want to open with python (Not recommended if you are a casual
 user) you need to check if you have python3.8 or higher installed in
 your machine with `python3 --version` commmand, after this you need to
 open the the terminal in directory and run:

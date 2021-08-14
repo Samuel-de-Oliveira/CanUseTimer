@@ -61,7 +61,7 @@ def Salete(size):
 #   Version of Cida: 1.0                        #
 #                                               #
 #-*-------------------------------------------*-#
-def Cida(size):
+def Cida(size, corner):
     moves = [] # Letters enter here
     old = 0 # variable to not repeat letter
     for move in range(1, 1+size):
@@ -86,7 +86,7 @@ def Cida(size):
                     moves.append('B') # Back
                     break
 
-    for move in range(1, 1+size):
+    for move in range(1, 1+corner):
         while True:
             m = randint(1, 4) # the pyranmix have 3 final moves these are:
 
@@ -109,7 +109,7 @@ def Cida(size):
                     break
 
     # Here is to add apostruphe(') to the letters randomly
-    for letter in range(0, size*2):
+    for letter in range(0, size + corner):
         x = randint(1, 2)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: pass # do nothing "\_(シ)_/"
