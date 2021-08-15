@@ -7,11 +7,15 @@ this the program is soft and run anywhere, it means that can run
 in probally any computer with bad hardware and any operational
 system (Windows, Linux and MacOS X).
 
----
-## Release notes (0.1.2.2) 🗒️
+- [Windows install]()
+- [Linux install]()
 
-- New modality added: pyranmix;
-- Bug fixes and interface settings.
+---
+## Release notes (0.1.2.3) 🗒️
+
+- new functions added to Timer;
+- Linux installer updated;
+- Bug fixes.
 
 ---
 ## How it work?
@@ -51,16 +55,6 @@ you can digit in your terminal:
 You need to open with sudo because some libraries doesn't work without
 super user (I don't know why this is happening but I will fix it soon).
 
-If you want to open with python (Not recommended if you are a casual
-user) you need to check if you have python3.8 or higher installed in
-your machine with `python3 --version` commmand, after this you need to
-open the the terminal in directory and run:
-
-    sudo python3 Main.py
-
-You need to open with sudo because some libraries doesn't work without
-super user (I don't know why this is happening but I will fix it soon).
-
 ---
 ## Why use?
 - Soft program;
@@ -79,6 +73,6 @@ super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.2.2 BETA**
+**Version: 0.1.2.3 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*

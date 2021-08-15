@@ -18,7 +18,6 @@ def Console(text='>>: ', size=2):
         except: print('Digit a valid value')
 
 def defModality(modality):
-
     print('All modalities:', end='')
     for m in modalities.keys(): print(f' {m}', end=' ')
 
@@ -34,7 +33,7 @@ def startTimer(modality):
     print(f'The actual modality is: {modality}\n'
           f'Scrable: {modalities[modality]}')
 
-    print('Press spacebar to start timer...')
+    print('Press spacebar to start timer... (Press esc to exit)')
     while True:
         if is_pressed('space'):
             print('Continue pressing...')
@@ -49,5 +48,7 @@ def startTimer(modality):
                 window(f'Time: {time() - timer:.2f}', 'double_line')
                 break
             else: print('The timer not start, you need press until 0.85secs.')
+        
+        if is_pressed('escape'): break
     
 if __name__ == '__main__': print('You need to open: main.py!')

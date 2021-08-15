@@ -2,10 +2,10 @@ from lib import *
 from winConf import *
 from lib.Shufflers import *
 
-print('CanUseTimer Terminal\'s version: 0.1.2.2 BETA.\n'
+print('CanUseTimer Terminal\'s version: 0.1.2.3 BETA.\n'
       'Created by: Samuel de Oliveira©.\n')
 print('This software is open to free use and study code,\n'
-      'for more info: github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
+      'for more info: https://github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
 
 modality = '3x3'
 
@@ -16,7 +16,7 @@ while True:
           "3: Exit")
     line(style='double_line')
 
-    console = Console(size=3).strip
+    console = Console(size=3)
 
     print()
     if console == 1:

@@ -1,8 +1,9 @@
 def line(size=40, style='basic'):
     if style == 'basic': print('-' * size)
-    if style == 'double_line': print('=' * size)
-    if style == 'hashtag': print('#' * size)
-    else: NameError
+    elif style == 'double_line': print('=' * size)
+    elif style == 'hashtag': print('#' * size)
+    elif style == 'zigzag': print('W' * size)
+    else: raise NameError(f'The style \'{style}\' doesn\'t exist.')
 
 def window(msg='[Null]', style='basic'):
     line(len(msg) + 10, style)
