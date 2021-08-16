@@ -10,4 +10,4 @@ def window(msg='[Null]', style='basic'):
     print(f'|    {msg}    |')
     line(len(msg) + 10, style)
 
-if __name__ == '__main__': print('You need to open: main.py!')
+if __name__ == '__main__': print('You need to open: Main.py!')

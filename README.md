@@ -11,7 +11,7 @@ system (Windows, Linux and MacOS X).
 - [Linux install]()
 
 ---
-## Release notes (0.1.2.3) 🗒️
+## Release notes (0.1.3) 🗒️
 
 - new functions added to Timer;
 - Linux installer updated;
@@ -73,6 +73,6 @@ super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.2.3 BETA**
+**Version: 0.1.3 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*
