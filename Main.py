@@ -1,9 +1,8 @@
 from lib import *
 from winConf import *
 from lib.Shufflers import *
-import os
 
-os.system('clear')
+consoleClear()
 print('CanUseTimer Terminal\'s version: 0.1.3 BETA.\n'
       'Created by: Samuel de Oliveira©.\n')
 print('This software is open to free use and study code,\n'

@@ -15,6 +15,7 @@ system (Windows, Linux and MacOS X).
 
 - new functions added to Timer;
 - Linux installer updated;
+- stetic of program
 - Bug fixes.
 
 ---

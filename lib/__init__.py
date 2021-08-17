@@ -8,11 +8,11 @@ modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10),
               'pyra': Cida(size=9, corner=4)}
 
-def consoleClear():
+def consoleClear() -> None:
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
 
-def Console(text='>>: ', size=2):
+def Console(text='>>: ', size=2) -> int:
     while True:
         try:
             read = int(input(text))
@@ -22,7 +22,7 @@ def Console(text='>>: ', size=2):
         except KeyboardInterrupt: exit()
         except: print('Digit a valid value')
 
-def defModality(modality):
+def defModality(modality) -> str:
     print('All modalities:', end='')
     for m in modalities.keys(): print(f' {m}', end=' ')
 
@@ -38,7 +38,7 @@ def defModality(modality):
         window('this modality doesn\'t exist.')
         return modality
 
-def startTimer(modality):
+def startTimer(modality) -> None:
     print(f'The actual modality is: {modality}\n'
           'Scrable: ', end='')
     for move in modalities[modality]: print(move ,end=' ')
