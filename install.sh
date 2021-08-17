@@ -14,14 +14,13 @@ else # if your Linux distro is not supported exit
 fi
 
 echo "Creating executer..."
-chmod a+wrx lib/canusetimer
-sudo cp lib/canusetimer /bin/
+sudo cp lib/canusetimer-terminal /bin/
 
 echo "Creting directories and files..."
 if [ ! -d /opt/CanUseTimer ]; then
-    sudo mkdir /opt/CanUseTimer
+    sudo mkdir /opt/CanUseTimer-terminal
 fi
-sudo cp *.py /opt/CanUseTimer/
-sudo cp -rf lib/ /opt/CanUseTimer/
+sudo cp *.py /opt/CanUseTimer-terminal/
+sudo cp -rf lib/ /opt/CanUseTimer-terminal/
 
 echo "Everything is done!"

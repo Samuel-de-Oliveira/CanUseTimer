@@ -6,7 +6,7 @@ import os
 
 modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10),
-              'pyra': Cida(size=8, corner=5)}
+              'pyra': Cida(size=9, corner=4)}
 
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
@@ -40,9 +40,10 @@ def defModality(modality):
 
 def startTimer(modality):
     print(f'The actual modality is: {modality}\n'
-          f'Scrable: {modalities[modality]}')
+          'Scrable: ', end='')
+    for move in modalities[modality]: print(move ,end=' ')
 
-    print('Press spacebar to start timer... (Press esc to exit)')
+    print('\nPress spacebar to start timer... (Press escape to exit)')
     while True:
         if is_pressed('space'):
             print('Continue pressing...')
