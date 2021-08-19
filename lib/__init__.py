@@ -22,6 +22,14 @@ def Console(text='>>: ', size=2) -> int:
         except KeyboardInterrupt: exit()
         except: print('Digit a valid value')
 
+def timeFormat(time):
+    x = int(time // 60)
+    y = time % 60
+    if y < 10:
+        y = '0' + f'{y:.2f}'
+        return f'{x}:{y}' 
+    else: return f'{x}:{y:.2f}'
+
 def defModality(modality) -> str:
     print('All modalities:', end='')
     for m in modalities.keys(): print(f' {m}', end=' ')
@@ -56,7 +64,12 @@ def startTimer(modality) -> None:
                     if is_pressed('space'): break
 
                 consoleClear()
-                window(f'Time: {time() - timer:.2f}', 'double_line')
+                totalTime = time() - timer
+                if totalTime >= 60:
+                    totalTime = timeFormat(totalTime)
+                    window(f'Time: {totalTime}', 'double_line')
+                else: window(f'Time: {totalTime:.2f}', 'double_line')
+
                 break
             else: print('The timer not start, you need press until 0.85secs.')
         

@@ -1,6 +1,5 @@
 from lib import *
 from winConf import *
-from lib.Shufflers import *
 
 consoleClear()
 print('CanUseTimer Terminal\'s version: 0.1.3 BETA.\n'
@@ -13,6 +12,7 @@ modality = '3x3'
 while True:
 
     line(style='double_line')
+    print('Digit one of these numbers and press return...')
     print("1: Start\n"
           "2: Change modality\n"
           "3: Exit")
