@@ -9,8 +9,8 @@ probally any computer with bad hardware and any operating system
 interface based in this, but I don't know a good grafical interface
 Library or API to use in my project
 
-- [Windows install]()
-- [Linux install]()
+- [Windows install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-open-in-windows)
+- [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
 ## Release notes (0.1.3) 🗒️
