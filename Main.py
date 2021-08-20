@@ -15,10 +15,11 @@ while True:
     print('Digit one of these numbers and press return...')
     print("1: Start\n"
           "2: Change modality\n"
-          "3: Exit")
+          "3: Credits\n"
+          "4: Exit")
     line(style='double_line')
 
-    console = Console(size=3)
+    console = Console(size=4)
 
     print()
     if console == 1:
@@ -30,6 +31,12 @@ while True:
         window('Change modality')
         modality = defModality(modality)
     if console == 3:
+        consoleClear()
+        window('Credits to:')
+        line()
+        print('The creator: Samuel de Oliveira')
+        line()
+    if console == 4:
         print('Bye, bye!')
         break
     print()

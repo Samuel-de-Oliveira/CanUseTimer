@@ -17,10 +17,10 @@ echo "Creating executer..."
 sudo cp lib/canusetimer-terminal /bin/
 
 echo "Creting directories and files..."
-if [ ! -d /opt/CanUseTimer-terminal ]; then
-    sudo mkdir /opt/CanUseTimer-terminal
+if [ ! -d /opt/CanUseTimer-Terminal ]; then
+    sudo mkdir /opt/CanUseTimer-Terminal
 fi
-sudo cp *.py /opt/CanUseTimer-terminal/
-sudo cp -rf lib/ /opt/CanUseTimer-terminal/
+sudo cp *.py /opt/CanUseTimer-Terminal/
+sudo cp -rf lib/ /opt/CanUseTimer-Terminal/
 
 echo "Everything is done!"
