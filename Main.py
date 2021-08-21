@@ -32,11 +32,11 @@ while True:
         modality = defModality(modality)
     if console == 3:
         consoleClear()
-        window('Credits to:')
+        window('Credits to:', 'double_line')
         line()
         print('The creator: Samuel de Oliveira')
         line()
     if console == 4:
-        print('Bye, bye!')
+        consoleClear()
         break
     print()

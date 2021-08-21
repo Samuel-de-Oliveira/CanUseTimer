@@ -39,14 +39,14 @@ anything to program the numbers are:
 
 ### How to open in Windows?
 For a while Windows not have an install version, to run you need to
-have Python 3.8 or higher installed, is recommended you install
-Python in windows store, after this you need to open the `Main.py`
-file to start the program, else this will do nothing.
-Later you need do open cmd and digit:
+have Python 3.8 or higher installed, is recommended you install Python
+in windows store, after this you need to open cmd or WindowsPowersehll
+and digit the command:
 
     pip install keyboard
 
-and the program will start in a black window normaly.
+And now you can open the program with a double click in the `Main.py`
+file to start the program in a cmd window normaly.
 
 ### How to install in Linux?
 You can install using the `install.sh` file. To start it you need to
@@ -68,13 +68,13 @@ super user (I don't know why this is happening but I will fix it soon).
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
-- Open source. 🔓 
+- Open source (Read the GPLv3 licensse for more info). 🔓 
 
 ---
 ## Some warnings! ⚠️
 
 - This is the terminal version without grafical interface;
-- This program is tested only in Linux and Windows, and not in outher else;
+- This program is tested only in Linux and Windows, and not in other else;
 - this is a BETA version, it's not done yet;
 - If you found bugs please report to fast fixing.
 
