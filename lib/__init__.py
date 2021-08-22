@@ -25,6 +25,7 @@ def Console(text='>>: ', size=2) -> int:
 def timeFormat(time):
     x = int(time // 60)
     y = time % 60
+
     if y < 10:
         y = '0' + f'{y:.2f}'
         return f'{x}:{y}' 
@@ -59,12 +60,13 @@ def startTimer(modality) -> None:
             if is_pressed('space'):
                 while is_pressed('space'): timer = time()
 
-                print('Timer start...\n')
                 while True:
+                    totalTime = time() - timer
                     if is_pressed('space'): break
-
+                    consoleClear()
+                    window(f'{totalTime:.2f}', 'double_line')
+                    
                 consoleClear()
-                totalTime = time() - timer
                 if totalTime >= 60:
                     totalTime = timeFormat(totalTime)
                     window(f'Time: {totalTime}', 'double_line')

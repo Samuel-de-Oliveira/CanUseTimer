@@ -13,12 +13,10 @@ Library or API to use in my project
 - [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
-## Release notes (0.1.3) 🗒️
+## Release notes (0.1.3.1) 🗒️
 
-- New functions added to Timer;
-- Timer can show minutes now;
-- Linux installer updated;
-- Stetic of program updated;
+- Timer window added;
+- Linux installer fixed;
 - Bug fixes.
 
 ---
@@ -57,7 +55,12 @@ open the terminal in the directory and digit:
 after this the program will install all the libraries needed and itself,
 to start you can digit in your terminal:
 
+for debian distribuitions:
+
     sudo canusetimer-terminal
+
+for arch distribuitions:
+    canusetimer-terminal
 
 You need to open with sudo because some libraries doesn't work without
 super user (I don't know why this is happening but I will fix it soon).
@@ -80,6 +83,6 @@ super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.3 BETA**
+**Version: 0.1.3.1 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*
