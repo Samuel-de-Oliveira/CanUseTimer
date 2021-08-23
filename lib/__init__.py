@@ -59,18 +59,20 @@ def startTimer(modality) -> None:
             sleep(0.85)
             if is_pressed('space'):
                 while is_pressed('space'): timer = time()
+                try:
+                    while not is_pressed('space'):
+                            totalTime = time() - timer
+                            consoleClear()
+                            if totalTime >= 60: window(timeFormat(totalTime), 'double_line')
+                            else: window(f'{totalTime:.2f}', 'double_line')
 
-                while True:
-                    totalTime = time() - timer
-                    if is_pressed('space'): break
+
                     consoleClear()
-                    window(f'{totalTime:.2f}', 'double_line')
-                    
-                consoleClear()
-                if totalTime >= 60:
-                    totalTime = timeFormat(totalTime)
-                    window(f'Time: {totalTime}', 'double_line')
-                else: window(f'Time: {totalTime:.2f}', 'double_line')
+                    if totalTime >= 60: window(f'Time: {timeFormat(totalTime)}', 'double_line')
+                    else: window(f'Time: {totalTime:.2f}', 'double_line')
+
+                except KeyboardInterrupt: window('Timer Aborted!')
+                except: window('Oops, something gone wrong')
 
                 break
             else: print('The timer not start, you need press until 0.85secs.')
