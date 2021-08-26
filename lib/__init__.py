@@ -8,6 +8,8 @@ modalities = {'3x3': Salete(size=20),
               '2x2': Salete(size=10),
               'pyra': Cida(size=9, corner=4)}
 
+timesSave = []
+
 def consoleClear() -> None:
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
@@ -23,13 +25,16 @@ def Console(text='>>: ', size=2) -> int:
         except: print('Digit a valid value')
 
 def timeFormat(time):
-    x = int(time // 60)
-    y = time % 60
-
-    if y < 10:
-        y = '0' + f'{y:.2f}'
-        return f'{x}:{y}' 
-    else: return f'{x}:{y:.2f}'
+    
+    if time < 60: return f'{time:.2f}'
+    else:
+        x = int(time // 60)
+        y = time % 60
+    
+        if y < 10:
+            y = '0' + f'{y:.2f}'
+            return f'{x}:{y}' 
+        else: return f'{x}:{y:.2f}'
 
 def defModality(modality) -> str:
     print('All modalities:', end='')
@@ -63,20 +68,20 @@ def startTimer(modality) -> None:
                     while not is_pressed('space'):
                             totalTime = time() - timer
                             consoleClear()
-                            if totalTime >= 60: window(timeFormat(totalTime), 'double_line')
-                            else: window(f'{totalTime:.2f}', 'double_line')
-
+                            window(timeFormat(totalTime), 'double_line')
 
                     consoleClear()
-                    if totalTime >= 60: window(f'Time: {timeFormat(totalTime)}', 'double_line')
-                    else: window(f'Time: {totalTime:.2f}', 'double_line')
+                    window(f'Time: {timeFormat(totalTime)}', 'double_line')
+                    
 
                 except KeyboardInterrupt: window('Timer Aborted!')
                 except: window('Oops, something gone wrong')
-
+                
+                timesSave.append(timeFormat(totalTime))
+                print(f'Avarage: {timesSave}')
                 break
             else: print('The timer not start, you need press until 0.85secs.')
         
         if is_pressed('escape'): consoleClear(); break
-    
+
 if __name__ == '__main__': print('You need to open: Main.py!')
