@@ -13,10 +13,9 @@ Library or API to use in my project
 - [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
-## Release notes (0.1.3.1) 🗒️
+## Release notes (0.1.3.2) 🗒️
 
-- Timer window added;
-- Linux installer fixed;
+- Avarage calculator added;
 - Bug fixes.
 
 ---
@@ -38,7 +37,7 @@ anything to program the numbers are:
 ### How to open in Windows?
 For a while Windows not have an install version, to run you need to
 have Python 3.8 or higher installed, is recommended you install Python
-in windows store, after this you need to open cmd or WindowsPowersehll
+in windows store, after this you need to open cmd or WindowsPowerShell
 and digit the command:
 
     pip install keyboard
@@ -60,10 +59,12 @@ for debian distribuitions:
     sudo canusetimer-terminal
 
 for arch distribuitions:
+
     canusetimer-terminal
 
 You need to open with sudo because some libraries doesn't work without
-super user (I don't know why this is happening but I will fix it soon).
+super user (I don't know why this is happening but I will fix it soon)
+in arch distribuitions this is not required.
 
 ---
 ## Why use?
