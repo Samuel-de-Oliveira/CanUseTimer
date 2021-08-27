@@ -15,6 +15,7 @@ Library or API to use in my project
 ---
 ## Release notes (0.1.3.2) 🗒️
 
+- times list added;
 - Avarage calculator added;
 - Bug fixes.
 
@@ -84,6 +85,6 @@ in arch distribuitions this is not required.
 
 ---
 ---
-**Version: 0.1.3.1 BETA**
+**Version: 0.1.3.2 BETA**
 
 ##### Created by: *Samuel de Oliveira© 2021*

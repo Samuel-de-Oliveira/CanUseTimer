@@ -36,6 +36,16 @@ def timeFormat(time):
             return f'{x}:{y}' 
         else: return f'{x}:{y:.2f}'
 
+def showAverage():
+    if len(timesSave) >= 5:
+        timesUse = 0
+        for t in timesSave: timesUse += float(t)
+        timesUse -= float(max(timesSave))
+        timesUse -= float(min(timesSave))
+        timesUse /= 3
+
+        return f'{timesUse:.2f}'
+
 def defModality(modality) -> str:
     print('All modalities:', end='')
     for m in modalities.keys(): print(f' {m}', end=' ')
@@ -78,7 +88,12 @@ def startTimer(modality) -> None:
                 except: window('Oops, something gone wrong')
                 
                 timesSave.append(timeFormat(totalTime))
-                print(f'Avarage: {timesSave}')
+                print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
+                for n, t in enumerate(timesSave): print(f'{n+1} - {t}')
+                print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+
+                print(f'Average: {showAverage()}')
+
                 break
             else: print('The timer not start, you need press until 0.85secs.')
         
