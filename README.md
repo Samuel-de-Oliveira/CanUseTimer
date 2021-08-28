@@ -16,6 +16,7 @@ Library or API to use in my project
 ## Release notes (0.1.3.2) 🗒️
 
 - times list added;
+- Clear timer list function added;
 - Avarage calculator added;
 - Bug fixes.
 
@@ -33,6 +34,7 @@ anything to program the numbers are:
 1. Start the timer
 1. Change modality
 1. Credits
+1. Clear times
 1. Exit program
 
 ### How to open in Windows?

@@ -16,10 +16,11 @@ while True:
     print("1: Start\n"
           "2: Change modality\n"
           "3: Credits\n"
-          "4: Exit")
+          "4: Clear list\n"
+          "5: Exit")
     line(style='double_line')
 
-    console = Console(size=4)
+    console = Console(size=5)
 
     print()
     if console == 1:
@@ -37,6 +38,10 @@ while True:
         print('The creator: Samuel de Oliveira')
         line()
     if console == 4:
+        timesSave.clear()
+        consoleClear()
+        window('The cube\'s times is cleared!')
+    if console == 5:
         consoleClear()
         break
     print()

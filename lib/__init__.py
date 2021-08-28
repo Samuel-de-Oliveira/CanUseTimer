@@ -75,11 +75,11 @@ def startTimer(modality) -> None:
             if is_pressed('space'):
                 while is_pressed('space'): timer = time()
                 try:
-                    while not is_pressed('space'):
-                            totalTime = time() - timer
-                            consoleClear()
-                            window(timeFormat(totalTime), 'double_line')
-
+                    while True:
+                        totalTime = time() - timer
+                        if is_pressed('space'): break
+                        consoleClear()
+                        window(timeFormat(totalTime), 'double_line')
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}', 'double_line')
                     
