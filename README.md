@@ -48,6 +48,11 @@ and digit the command:
 And now you can open the program with a double click in the `Main.py`
 file to start the program in a cmd window normaly.
 
+If it doesn't work try open cmd go to the repository directory and run
+the command:
+
+	python3 Main.py
+
 ### How to install in Linux?
 You can install using the `install.sh` file. To start it you need to
 open the terminal in the directory and digit:
@@ -57,17 +62,10 @@ open the terminal in the directory and digit:
 after this the program will install all the libraries needed and itself,
 to start you can digit in your terminal:
 
-for debian distribuitions:
-
     sudo canusetimer-terminal
 
-for arch distribuitions:
-
-    canusetimer-terminal
-
 You need to open with sudo because some libraries doesn't work without
-super user (I don't know why this is happening but I will fix it soon)
-in arch distribuitions this is not required.
+super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ## Why use?
