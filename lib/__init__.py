@@ -25,16 +25,16 @@ def Console(text='>>: ', size=2) -> int:
         except: print('Digit a valid value')
 
 def timeFormat(time):
+    if not time == None:
+         if time < 60: return f'{time:.2f}'
+         else:
+             x = int(time // 60)
+             y = time % 60
     
-    if time < 60: return f'{time:.2f}'
-    else:
-        x = int(time // 60)
-        y = time % 60
-    
-        if y < 10:
-            y = '0' + f'{y:.2f}'
-            return f'{x}:{y}' 
-        else: return f'{x}:{y:.2f}'
+             if y < 10:
+                 y = '0' + f'{y:.2f}'
+                 return f'{x}:{y}' 
+             else: return f'{x}:{y:.2f}'
 
 def showAverage():
     if len(timesSave) >= 5:
