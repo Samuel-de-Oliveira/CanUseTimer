@@ -13,11 +13,8 @@ Library or API to use in my project
 - [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
-## Release notes (0.1.3.2) 🗒️
+## Release notes (0.1.3.3) 🗒️
 
-- times list added;
-- Clear timer list function added;
-- Avarage calculator added;
 - Bug fixes.
 
 ---
@@ -85,6 +82,6 @@ super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.3.2 BETA**
+**Version: 0.1.3.3 BETA**
 
-##### Created by: *Samuel de Oliveira© 2021*
+##### Created by: *Samuel de Oliveira 2021*
