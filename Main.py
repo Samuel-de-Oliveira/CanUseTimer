@@ -2,7 +2,7 @@ from lib import *
 from winConf import *
 
 consoleClear()
-print('CanUseTimer Terminal\'s version: 0.1.3.2 BETA.\n'
+print('CanUseTimer Terminal\'s version: 0.1.3.3 BETA.\n'
       'Created by: Samuel de Oliveira©.\n')
 print('This software is open to free use and study code,\n'
       'for more info: https://github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
@@ -12,7 +12,7 @@ modality = '3x3'
 while True:
 
     line(style='double_line')
-    print('Digit one of these numbers and press return...')
+    print('Digit a one of these numbers:')
     print("1: Start\n"
           "2: Change modality\n"
           "3: Credits\n"
