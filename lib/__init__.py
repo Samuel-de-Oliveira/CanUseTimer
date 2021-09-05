@@ -26,15 +26,16 @@ def Console(text='>>: ', size=2) -> int:
 
 def timeFormat(time):
     if not time == None:
-         if time < 60: return f'{time:.2f}'
-         else:
-             x = int(time // 60)
-             y = time % 60
+        time = time
+        if time < 60: return f'{time:.2f}'
+        else:
+            x = int(time // 60)
+            y = time % 60
     
-             if y < 10:
-                 y = '0' + f'{y:.2f}'
-                 return f'{x}:{y}' 
-             else: return f'{x}:{y:.2f}'
+            if y < 10:
+                y = '0' + f'{y:.2f}'
+                return f'{x}:{y}' 
+            else: return f'{x}:{y:.2f}'
 
 def showAverage():
     if len(timesSave) >= 5:
@@ -44,7 +45,8 @@ def showAverage():
         timesUse -= float(min(timesSave))
         timesUse /= 3
 
-        return f'{timesUse:.2f}'
+        return float(f'{timesUse:.2f}')
+    
 
 def defModality(modality) -> str:
     print('All modalities:', end='')
