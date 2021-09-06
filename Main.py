@@ -2,8 +2,8 @@ from lib import *
 from winConf import *
 
 consoleClear()
-print('CanUseTimer Terminal\'s version: 0.1.3.3 BETA.\n'
-      'Created by: Samuel de Oliveira©.\n')
+print('CanUseTimer Terminal\'s version: 0.1.4 BETA.\n'
+      'The lightweight to speed cubers!\n')
 print('This software is open to free use and study code,\n'
       'for more info: https://github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
 

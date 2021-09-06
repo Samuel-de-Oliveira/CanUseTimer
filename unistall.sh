@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "Are you sure you want to unistall? [Y/n]"; read num
+echo "Everything in /opt/canUseTimer-Terminal will be removed, are you sure? [Y/n]"; read num
 
 if [ $num == 'y' ] || [$num == 'Y']; then
 echo -e "Removing the program..."
-sudo pip3 uninstall keyboard # unistalling keyboard library.
+
 if [ -f /bin/canusetimer-terminal ]; then
     sudo rm /bin/canusetimer-terminal # removing executer.
 fi

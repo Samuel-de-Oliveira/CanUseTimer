@@ -13,8 +13,9 @@ Library or API to use in my project
 - [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
-## Release notes (0.1.3.3) 🗒️
+## Release notes (0.1.4) 🗒️
 
+- Linux installer more faster;
 - Bug fixes.
 
 ---
@@ -37,13 +38,8 @@ anything to program the numbers are:
 ### How to open in Windows?
 For a while Windows not have an install version, to run you need to
 have Python 3.8 or higher installed, is recommended you install Python
-in windows store, after this you need to open cmd or WindowsPowerShell
-and digit the command:
-
-    pip install keyboard
-
-And now you can open the program with a double click in the `Main.py`
-file to start the program in a cmd window normaly.
+in windows store, after this you can open the program with a double
+click in the `Main.py` file to start the program normaly.
 
 If it doesn't work try open cmd go to the repository directory and run
 the command:
@@ -62,11 +58,11 @@ to start you can digit in your terminal:
     sudo canusetimer-terminal
 
 You need to open with sudo because some libraries doesn't work without
-super user (I don't know why this is happening but I will fix it soon).
+super user (I don't know why this is hapening but I will fix it soon).
 
 ---
 ## Why use?
-- Soft program;
+- Lightweight program (Almost 240Kb of space);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
@@ -82,6 +78,6 @@ super user (I don't know why this is happening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.3.3 BETA**
+**Version: 0.1.4 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
