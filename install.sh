@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#-*-------------- The installer for Linux distros --------------*-#
+
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
@@ -7,9 +9,12 @@ echo -e "and will create a folder in /opt/"
 echo -e "\nEstimated space used: 160Kb\nAre you sure you want to install? [Y/n]:";read num
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
+
+	# The program only move the python files to /opt/ and create a executer in /bin/
+	# Is more simple then you think
 	echo "The installing starts!"
 	
-	echo "Creating directories and files..."
+	echo "Creating directories and files..." 
 	if [ ! -d /opt/CanUseTimer-Terminal ]; then
              sudo mkdir /opt/CanUseTimer-Terminal
 	fi
