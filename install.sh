@@ -12,23 +12,26 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	# The program only move the python files to /opt/ and create a executer in /bin/
 	# Is more simple then you think
-	echo "The installing starts!"
+	echo -e "\nThe installing starts!\n"
 	
 	echo "Creating directories and files..." 
-	if [ ! -d /opt/CanUseTimer-Terminal ]; then
+	if [ ! -d /opt/CanUseTimer-Terminal/ ]; then
              sudo mkdir /opt/CanUseTimer-Terminal
 	fi
 	
-	echo "Creating Keyboard Python lib"
+	echo "Creating Keyboard Python lib..."
 	sudo cp -rf python-libs/keyboard/ /opt/CanUseTimer-Terminal/
 
 	echo "Creating executer..."
 	sudo cp lib/canusetimer-terminal /bin/
-
+	
+	echo "Coping files..."
 	sudo cp *.py /opt/CanUseTimer-Terminal/
+
+	echo "Coping libs..."
 	sudo cp -rf lib/ /opt/CanUseTimer-Terminal/
 	
-	echo "Everything is done!"
+	echo -e "\nEverything is done!\n"
 
 else
        	echo "abort!"
