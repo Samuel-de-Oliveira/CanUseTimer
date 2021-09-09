@@ -6,7 +6,7 @@ echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
 
-echo -e "\nEstimated space used: 160Kb\nAre you sure you want to install? [Y/n]:";read num
+echo -e "\nEstimated space used: 160Kb\nVersion of Program: 0.1.4\nAre you sure you want to install? [Y/n]:"; read num
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
@@ -14,9 +14,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	# Is more simple then you think
 	echo -e "\nThe installing starts!\n"
 	
-	echo "Creating directories and files..." 
 	if [ ! -d /opt/CanUseTimer-Terminal/ ]; then
-             sudo mkdir /opt/CanUseTimer-Terminal
+		echo "Creating main directories in /opt/..." 
+        	sudo mkdir /opt/CanUseTimer-Terminal
 	fi
 	
 	echo "Creating Keyboard Python lib..."
