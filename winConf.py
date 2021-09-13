@@ -1,3 +1,7 @@
+# -*- Here is all the windows config from the program. -*- #
+#     If you undestand what is here you can make your      #
+#     window personal settings for program.                #
+
 def line(size=40, style='basic') -> None:
     if style == 'basic': print('-' * size)
     elif style == 'double_line': print('=' * size)

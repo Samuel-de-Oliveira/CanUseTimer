@@ -13,9 +13,9 @@ Library or API to use in my project
 - [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
 
 ---
-## Release notes (0.1.4) 🗒️
+## Release notes (0.1.4.1) 🗒️
 
-- Linux installer more faster;
+- 
 - Bug fixes.
 
 ---
