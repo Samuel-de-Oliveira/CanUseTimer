@@ -1,15 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-This is the Windows backend for keyboard events, and is implemented by
-invoking the Win32 API through the ctypes module. This is error prone
-and can introduce very unpythonic failure modes, such as segfaults and
-low level memory leaks. But it is also dependency-free, very performant
-well documented on Microsoft's website and scattered examples.
-
-# TODO:
-- Keypad numbers still print as numbers even when numlock is off.
-- No way to specify if user wants a keypad key or not in `map_char`.
-"""
 from __future__ import unicode_literals
 import re
 import atexit
@@ -19,14 +7,8 @@ from collections import defaultdict
 
 from ._keyboard_event import KeyboardEvent, KEY_DOWN, KEY_UP
 from ._canonical_names import normalize_name
-try:
-    # Force Python2 to convert to unicode and not to str.
-    chr = unichr
-except NameError:
-    pass
-
-# This part is just declaring Win32 API structures using ctypes. In C
-# this would be simply #include "windows.h".
+try: chr = unichr
+except NameError: pass
 
 import ctypes
 from ctypes import c_short, c_char, c_uint8, c_int32, c_int, c_uint, c_uint32, c_long, Structure, CFUNCTYPE, POINTER
@@ -39,8 +21,6 @@ GetModuleHandleW = kernel32.GetModuleHandleW
 GetModuleHandleW.restype = HMODULE
 GetModuleHandleW.argtypes = [LPCWSTR]
 
-#https://github.com/boppreh/mouse/issues/1
-#user32 = ctypes.windll.user32
 user32 = ctypes.WinDLL('user32', use_last_error = True)
 
 VK_PACKET = 0xE7
@@ -59,7 +39,6 @@ class KBDLLHOOKSTRUCT(Structure):
                 ("time", c_int),
                 ("dwExtraInfo", ULONG_PTR)]
 
-# Included for completeness.
 class MOUSEINPUT(ctypes.Structure):
     _fields_ = (('dx', LONG),
                 ('dy', LONG),
@@ -96,7 +75,6 @@ SetWindowsHookEx.argtypes = [c_int, LowLevelKeyboardProc, HINSTANCE , DWORD]
 SetWindowsHookEx.restype = HHOOK
 
 CallNextHookEx = user32.CallNextHookEx
-#CallNextHookEx.argtypes = [c_int , c_int, c_int, POINTER(KBDLLHOOKSTRUCT)]
 CallNextHookEx.restype = c_int
 
 UnhookWindowsHookEx = user32.UnhookWindowsHookEx
@@ -137,7 +115,6 @@ SendInput = user32.SendInput
 SendInput.argtypes = [c_uint, POINTER(INPUT), c_int]
 SendInput.restype = c_uint
 
-# https://msdn.microsoft.com/en-us/library/windows/desktop/ms646307(v=vs.85).aspx
 MAPVK_VK_TO_CHAR = 2
 MAPVK_VK_TO_VSC = 0
 MAPVK_VSC_TO_VK = 1
@@ -152,11 +129,8 @@ LLKHF_INJECTED = 0x00000010
 
 WM_KEYDOWN = 0x0100
 WM_KEYUP = 0x0101
-WM_SYSKEYDOWN = 0x104 # Used for ALT key
+WM_SYSKEYDOWN = 0x104 
 WM_SYSKEYUP = 0x105
-
-
-# This marks the end of Win32 API declarations. The rest is ours.
 
 keyboard_event_types = {
     WM_KEYDOWN: KEY_DOWN,
@@ -165,8 +139,6 @@ keyboard_event_types = {
     WM_SYSKEYUP: KEY_UP,
 }
 
-# List taken from the official documentation, but stripped of the OEM-specific keys.
-# Keys are virtual key codes, values are pairs (name, is_keypad).
 official_virtual_keys = {
     0x03: ('control-break processing', False),
     0x08: ('backspace', False),
@@ -316,7 +288,6 @@ official_virtual_keys = {
     0xbc: (',', False),
     0xbd: ('-', False),
     0xbe: ('.', False),
-    #0xbe:('/', False), # Used for miscellaneous characters; it can vary by keyboard. For the US standard keyboard, the '/?.
     0xe5: ('ime process', False),
     0xf6: ('attn', False),
     0xf7: ('crsel', False),
@@ -363,10 +334,6 @@ def get_event_names(scan_code, vk, is_extended, modifiers):
     unicode_ret = ToUnicode(vk, scan_code, keyboard_state, unicode_buffer, len(unicode_buffer), 0)
     if unicode_ret and unicode_buffer.value:
         yield unicode_buffer.value
-        # unicode_ret == -1 -> is dead key
-        # ToUnicode has the side effect of setting global flags for dead keys.
-        # Therefore we need to call it twice to clear those flags.
-        # If your 6 and 7 keys are named "^6" and "^7", this is the reason.
         ToUnicode(vk, scan_code, keyboard_state, unicode_buffer, len(unicode_buffer), 0)
 
     name_ret = GetKeyNameText(scan_code << 16 | is_extended << 24, name_buffer, 1024)
@@ -381,46 +348,24 @@ def get_event_names(scan_code, vk, is_extended, modifiers):
         yield official_virtual_keys[vk][0]
 
 def _setup_name_tables():
-    """
-    Ensures the scan code/virtual key code/name translation tables are
-    filled.
-    """
     with tables_lock:
         if to_name: return
-
-        # Go through every possible scan code, and map them to virtual key codes.
-        # Then vice-versa.
         all_scan_codes = [(sc, user32.MapVirtualKeyExW(sc, MAPVK_VSC_TO_VK_EX, 0)) for sc in range(0x100)]
         all_vks =        [(user32.MapVirtualKeyExW(vk, MAPVK_VK_TO_VSC_EX, 0), vk) for vk in range(0x100)]
         for scan_code, vk in all_scan_codes + all_vks:
-            # `to_name` and `from_name` entries will be a tuple (scan_code, vk, extended, shift_state).
-            if (scan_code, vk, 0, 0, 0) in to_name:
-                continue
+            if (scan_code, vk, 0, 0, 0) in to_name: continue
+            if scan_code not in scan_code_to_vk: scan_code_to_vk[scan_code] = vk
 
-            if scan_code not in scan_code_to_vk:
-                scan_code_to_vk[scan_code] = vk
-
-            # Brute force all combinations to find all possible names.
             for extended in [0, 1]:
                 for modifiers in distinct_modifiers:
                     entry = (scan_code, vk, extended, modifiers)
-                    # Get key names from ToUnicode, GetKeyNameText, MapVirtualKeyW and official virtual keys.
                     names = list(get_event_names(*entry))
                     if names:
-                        # Also map lowercased key names, but only after the properly cased ones.
                         lowercase_names = [name.lower() for name in names]
                         to_name[entry] = names + lowercase_names
-                        # Remember the "id" of the name, as the first techniques
-                        # have better results and therefore priority.
                         for i, name in enumerate(map(normalize_name, names + lowercase_names)):
                             from_name[name].append((i, entry))
 
-        # TODO: single quotes on US INTL is returning the dead key (?), and therefore
-        # not typing properly.
-
-        # Alt gr is way outside the usual range of keys (0..127) and on my
-        # computer is named as 'ctrl'. Therefore we add it manually and hope
-        # Windows is consistent in its inconsistency.
         for extended in [0, 1]:
             for modifiers in distinct_modifiers:
                 to_name[(541, 162, extended, modifiers)] = ['alt gr']
@@ -435,12 +380,8 @@ def _setup_name_tables():
     for name, entries in list(from_name.items()):
         from_name[name] = sorted(set(entries), key=order_key)
 
-# Called by keyboard/__init__.py
 init = _setup_name_tables
-
-# List created manually.
 keypad_keys = [
-    # (scan_code, virtual_key_code, is_extended)
     (126, 194, 0),
     (126, 194, 0),
     (28, 13, 1),
@@ -484,22 +425,10 @@ altgr_is_pressed = False
 ignore_next_right_alt = False
 shift_vks = set([0x10, 0xa0, 0xa1])
 def prepare_intercept(callback):
-    """
-    Registers a Windows low level keyboard hook. The provided callback will
-    be invoked for each high-level keyboard event, and is expected to return
-    True if the key event should be passed to the next program, or False if
-    the event is to be blocked.
-
-    No event is processed until the Windows messages are pumped (see
-    start_intercept).
-    """
     _setup_name_tables()
     
     def process_key(event_type, vk, scan_code, is_extended):
         global shift_is_pressed, altgr_is_pressed, ignore_next_right_alt
-        #print(event_type, vk, scan_code, is_extended)
-
-        # Pressing alt-gr also generates an extra "right alt" event
         if vk == 0xA5 and ignore_next_right_alt:
             ignore_next_right_alt = False
             return True
@@ -517,8 +446,6 @@ def prepare_intercept(callback):
 
         names = to_name[entry]
         name = names[0] if names else None
-
-        # TODO: inaccurate when holding multiple different shifts.
         if vk in shift_vks:
             shift_is_pressed = event_type == KEY_DOWN
         if scan_code == 541 and vk == 162:
@@ -531,9 +458,7 @@ def prepare_intercept(callback):
     def low_level_keyboard_handler(nCode, wParam, lParam):
         try:
             vk = lParam.contents.vk_code
-            # Ignore the second `alt` DOWN observed in some cases.
             fake_alt = (LLKHF_INJECTED | 0x20)
-            # Ignore events generated by SendInput with Unicode.
             if vk != VK_PACKET and lParam.contents.flags & fake_alt != fake_alt:
                 event_type = keyboard_event_types[wParam]
                 is_extended = lParam.contents.flags & 1
@@ -553,8 +478,6 @@ def prepare_intercept(callback):
     thread_id = DWORD(0)
     keyboard_hook = SetWindowsHookEx(WH_KEYBOARD_LL, keyboard_callback, handle, thread_id)
 
-    # Register to remove the hook when the interpreter exits. Unfortunately a
-    # try/finally block doesn't seem to work here.
     atexit.register(UnhookWindowsHookEx, keyboard_callback)
 
 def listen(callback):
@@ -576,26 +499,17 @@ def map_name(name):
 
 def _send_event(code, event_type):
     if code == 541:
-        # Alt-gr is made of ctrl+alt. Just sending even 541 doesn't do anything.
         user32.keybd_event(0x11, code, event_type, 0)
         user32.keybd_event(0x12, code, event_type, 0)
     elif code > 0:
         vk = scan_code_to_vk.get(code, 0)
         user32.keybd_event(vk, code, event_type, 0)
-    else:
-        # Negative scan code is a way to indicate we don't have a scan code,
-        # and the value actually contains the Virtual key code.
-        user32.keybd_event(-code, 0, event_type, 0)
+    else: user32.keybd_event(-code, 0, event_type, 0)
 
-def press(code):
-    _send_event(code, 0)
-
-def release(code):
-    _send_event(code, 2)
+def press(code): _send_event(code, 0)
+def release(code): _send_event(code, 2)
 
 def type_unicode(character):
-    # This code and related structures are based on
-    # http://stackoverflow.com/a/11910555/252218
     surrogates = bytearray(character.encode('utf-16le'))
     presses = []
     releases = []
@@ -617,4 +531,3 @@ if __name__ == '__main__':
     import pprint
     pprint.pprint(to_name)
     pprint.pprint(from_name)
-    #listen(lambda e: print(e.to_json()) or True)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import struct
 import traceback
 from time import time as now
@@ -7,44 +6,26 @@ from ._keyboard_event import KeyboardEvent, KEY_DOWN, KEY_UP
 from ._canonical_names import all_modifiers, normalize_name
 from ._nixcommon import EV_KEY, aggregate_devices, ensure_root
 
-# TODO: start by reading current keyboard state, as to not missing any already pressed keys.
-# See: http://stackoverflow.com/questions/3649874/how-to-get-keyboard-state-in-linux
-
 def cleanup_key(name):
-    """ Formats a dumpkeys format to our standard. """
     name = name.lstrip('+')
     is_keypad = name.startswith('KP_')
     for mod in ('Meta_', 'Control_', 'dead_', 'KP_'):
-        if name.startswith(mod):
-            name = name[len(mod):]
+        if name.startswith(mod): name = name[len(mod):]
 
-    # Dumpkeys is weird like that.
-    if name == 'Remove':
-        name = 'Delete'
-    elif name == 'Delete':
-        name = 'Backspace'
+    if name == 'Remove': name = 'Delete'
+    elif name == 'Delete': name = 'Backspace'
 
-    if name.endswith('_r'):
-        name = 'right ' + name[:-2]
-    if name.endswith('_l'):
-        name = 'left ' + name[:-2]
-
+    if name.endswith('_r'): name = 'right ' + name[:-2]
+    if name.endswith('_l'):name = 'left ' + name[:-2]
 
     return normalize_name(name), is_keypad
 
 def cleanup_modifier(modifier):
     modifier = normalize_name(modifier)
-    if modifier in all_modifiers:
-        return modifier
-    if modifier[:-1] in all_modifiers:
-        return modifier[:-1]
+    if modifier in all_modifiers: return modifier
+    if modifier[:-1] in all_modifiers: return modifier[:-1]
     raise ValueError('Unknown modifier {}'.format(modifier))
 
-"""
-Use `dumpkeys --keys-only` to list all scan codes and their names. We
-then parse the output and built a table. For each scan code and modifiers we
-have a list of names and vice-versa.
-"""
 from subprocess import check_output
 from collections import defaultdict
 import re
@@ -54,10 +35,8 @@ from_name = defaultdict(list)
 keypad_scan_codes = set()
 
 def register_key(key_and_modifiers, name):
-    if name not in to_name[key_and_modifiers]:
-        to_name[key_and_modifiers].append(name)
-    if key_and_modifiers not in from_name[name]:
-        from_name[name].append(key_and_modifiers)
+    if name not in to_name[key_and_modifiers]: to_name[key_and_modifiers].append(name)
+    if key_and_modifiers not in from_name[name]: from_name[name].append(key_and_modifiers)
 
 def build_tables():
     if to_name and from_name: return
@@ -81,15 +60,11 @@ def build_tables():
                 keypad_scan_codes.add(scan_code)
                 register_key((scan_code, modifiers), 'keypad ' + name)
 
-    # dumpkeys consistently misreports the Windows key, sometimes
-    # skipping it completely or reporting as 'alt. 125 = left win,
-    # 126 = right win.
     if (125, ()) not in to_name or to_name[(125, ())] == 'alt':
         register_key((125, ()), 'windows')
     if (126, ()) not in to_name or to_name[(126, ())] == 'alt':
         register_key((126, ()), 'windows')
 
-    # The menu key is usually skipped altogether, so we also add it manually.
     if (127, ()) not in to_name:
         register_key((127, ()), 'menu')
 
@@ -121,8 +96,7 @@ def listen(callback):
 
     while True:
         time, type, code, value, device_id = device.read_event()
-        if type != EV_KEY:
-            continue
+        if type != EV_KEY: continue
 
         scan_code = code
         event_type = KEY_DOWN if value else KEY_UP # 0 = UP, 1 = DOWN, 2 = HOLD
@@ -146,19 +120,14 @@ def write_event(scan_code, is_down):
 
 def map_name(name):
     build_tables()
-    for entry in from_name[name]:
-        yield entry
+    for entry in from_name[name]: yield entry
 
     parts = name.split(' ', 1)
     if len(parts) > 1 and parts[0] in ('left', 'right'):
-        for entry in from_name[parts[1]]:
-            yield entry
+        for entry in from_name[parts[1]]: yield entry
 
-def press(scan_code):
-    write_event(scan_code, True)
-
-def release(scan_code):
-    write_event(scan_code, False)
+def press(scan_code): write_event(scan_code, True)
+def release(scan_code): write_event(scan_code, False)
 
 def type_unicode(character):
     codepoint = ord(character)
@@ -178,6 +147,5 @@ def type_unicode(character):
         release(scan_code)
 
 if __name__ == '__main__':
-    def p(e):
-        print(e)
+    def p(e): print(e)
     listen(p)

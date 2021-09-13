@@ -1,13 +1,9 @@
-# -*- coding: utf-8 -*-
-
 from time import time as now
 import json
 from ._canonical_names import canonical_names, normalize_name
 
-try:
-    basestring
-except NameError:
-    basestring = str
+try: basestring
+except NameError: basestring = str
 
 KEY_DOWN = 'down'
 KEY_UP = 'up'
@@ -28,8 +24,7 @@ class KeyboardEvent(object):
         self.device = device
         self.is_keypad = is_keypad
         self.modifiers = modifiers
-        if name:
-            self.name = normalize_name(name)
+        if name: self.name = normalize_name(name)
 
     def to_json(self, ensure_ascii=False):
         attrs = dict(
@@ -38,8 +33,7 @@ class KeyboardEvent(object):
         )
         return json.dumps(attrs, ensure_ascii=ensure_ascii)
 
-    def __repr__(self):
-        return 'KeyboardEvent({} {})'.format(self.name or 'Unknown {}'.format(self.scan_code), self.event_type)
+    def __repr__(self): return 'KeyboardEvent({} {})'.format(self.name or 'Unknown {}'.format(self.scan_code), self.event_type)
 
     def __eq__(self, other):
         return (
