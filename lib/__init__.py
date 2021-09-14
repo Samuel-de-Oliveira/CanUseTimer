@@ -84,8 +84,13 @@ def startTimer(modality) -> None:
                     window(timeFormat(totalTime), 'double_line')
 
                 consoleClear()
-                window(f'Time: {timeFormat(totalTime)}', 'double_line')
+                window(f'Time: {timeFormat(totalTime)}')
+                plustwo = str(input('Is this a +2? [Y/n]'))
+                if plustwo == 'y': totalTime = float(totalTime) + 2
                 
+                consoleClear()
+                window(f'Time: {timeFormat(totalTime)}', 'double_line')
+
                 timesSave.append(totalTime)
                 print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
                 for n, t in enumerate(timesSave): print(f'{n+1} - {timeFormat(t)}')

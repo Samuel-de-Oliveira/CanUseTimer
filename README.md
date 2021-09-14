@@ -1,4 +1,5 @@
 # CanUseTimer-Terminal ![Logo](Images/CanUseTimerLogo.png)
+
 ---
 ## What is it?
 CanUseTimer-Terminal is an open source writed in Python speedcubing
@@ -15,7 +16,7 @@ Library or API to use in my project
 ---
 ## Release notes (0.1.4.1) 🗒️
 
-- 
+- Times List updated;
 - Bug fixes.
 
 ---
@@ -24,7 +25,7 @@ First you need to install Python 3.8 or higher on your machine,
 if you use Linux or MacOS not is required to install, if you don't
 have in Windows you can install in the [Python's official website](https://www.python.org/downloads/)
 and download the [.zip file](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal/archive/refs/heads/main.zip)
-or clone repository. The program have an installer only for Linux, more installer will come soon
+or clone repository. The program have an installer only for Linux, more installers will come soon.
 
 After install and open you need to press numbers and enter to do 
 anything to program the numbers are:
@@ -50,19 +51,19 @@ the command:
 You can install using the `install.sh` file. To start it you need to
 open the terminal in the directory and digit:
 
-    sudo ./install.sh
+	sudo ./install.sh
 
 after this the program will install all the libraries needed and itself,
 to start you can digit in your terminal:
 
-    sudo canusetimer-terminal
+	sudo canusetimer-terminal
 
 You need to open with sudo because some libraries doesn't work without
 super user (I don't know why this is hapening but I will fix it soon).
 
 ---
 ## Why use?
-- Lightweight program (Almost 240Kb of space);
+- Lightweight program (Almost 120Kb of space);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
@@ -78,6 +79,6 @@ super user (I don't know why this is hapening but I will fix it soon).
 
 ---
 ---
-**Version: 0.1.4 BETA**
+**Version: 0.1.4.1 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
