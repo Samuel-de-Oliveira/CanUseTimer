@@ -17,6 +17,7 @@ Library or API to use in my project
 ## Release notes (0.1.4.1) 🗒️
 
 - Times List updated;
+- +2 added;
 - Bug fixes.
 
 ---
