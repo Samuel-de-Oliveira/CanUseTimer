@@ -12,22 +12,22 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	# Is more simple than you think
 	echo -e "\nThe installing starts!\n"
 	
-	if [ ! -d /opt/CanUseTimer-Terminal/ ]; then
+	if [ ! -d /opt/CanUseTimer/ ]; then
 		echo "Creating main directorie in /opt/..."
-        	sudo mkdir /opt/CanUseTimer-Terminal
+        	sudo mkdir /opt/CanUseTimer
 	fi
 	
 	echo "Creating Keyboard Python lib..."
-	sudo cp -rf python-libs/keyboard/ /opt/CanUseTimer-Terminal/
+	sudo cp -rf python-libs/keyboard/ /opt/CanUseTimer/
 
 	echo "Creating executer..."
-	sudo cp lib/canusetimer-terminal /usr/bin/
+	sudo cp lib/canusetimer /usr/bin/
 	
 	echo "Coping files..."
-	sudo cp *.py /opt/CanUseTimer-Terminal/
+	sudo cp *.py /opt/CanUseTimer/
 
 	echo "Coping libs..."
-	sudo cp -rf lib/ /opt/CanUseTimer-Terminal/
+	sudo cp -rf lib/ /opt/CanUseTimer/
 	
 	echo -e "\nEverything is done!\n"
 

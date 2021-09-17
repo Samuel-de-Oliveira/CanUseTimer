@@ -1,4 +1,4 @@
-# CanUseTimer-Terminal ![Logo](Images/CanUseTimerLogo.png)
+# CanUseTimer ![Logo](Images/CanUseTimerLogo.png)
 
 ---
 ## What is it?
@@ -8,17 +8,22 @@ this the program is soft and run anywhere, it means that can run in
 probally any computer with bad hardware and any operating system
 (Windows, Linux and MacOS X). In future I will create a grafical
 interface based in it, but I don't know a good grafical interface
-Library or API to use in my project
+Library or API to use in my project, but probally not will come in
+few days.
+
+If you want to know how to install or configure or do something in
+the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer-terminal/wiki)
+to know more about the program, have wiki for every OS. If you want
+to help with something you can make forks or report errors in github
+site, you will help a lot :wink:.
 
 ---
 ## Release notes (0.1.4.1) 🗒️
 - Times List updated;
+- config file added(read wiki to know more about);
+- The name of project is CanUseTimer and not CanUseTimer-Terminal anymore (The terminal version will be official);
 - +2 penalty added;
 - Bug fixes.
-
----
-### How to install?
-To install you need see the [wiki](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal/wiki)
 
 ---
 ## Why use?
@@ -41,3 +46,4 @@ To install you need see the [wiki](https://github.com/Samuel-de-Oliveira/CanUseT
 **Version: 0.1.4.1 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
+##### follow me for more!

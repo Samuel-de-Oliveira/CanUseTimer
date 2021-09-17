@@ -4,9 +4,9 @@ import json
 
 with open('lib/setting.json', 'r') as f: setting = json.loads(f.read())
 consoleClear()
-print('CanUseTimer Terminal\'s version: 0.1.4.1 BETA.\n'
+print('CanUseTimer\'s version: 0.1.4.1 BETA.\n'
       'This software is open to free use and study code,\n'
-      'for more info: https://github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
+      'for more info: https://github.com/samuel-de-oliveira/CanUseTimer.\n')
 
 while True:
     line(style='double_line')
