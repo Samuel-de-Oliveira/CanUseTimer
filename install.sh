@@ -14,7 +14,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	
 	if [ ! -d /opt/CanUseTimer/ ]; then
 		echo "Creating main directorie in /opt/..."
-        	sudo mkdir /opt/CanUseTimer
+        	sudo mkdir /opt/CanUseTimer/
 	fi
 	
 	echo "Creating Keyboard Python lib..."
