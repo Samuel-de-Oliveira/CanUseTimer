@@ -12,7 +12,7 @@ Library or API to use in my project, but probally not will come in
 few days.
 
 If you want to know how to install or configure or do something in
-the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer-terminal/wiki)
+the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer/wiki)
 to know more about the program, have wiki for every OS. If you want
 to help with something you can make forks or report errors in github
 site, you will help a lot :wink:.
