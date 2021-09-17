@@ -1,6 +1,4 @@
-# -*- Here is all the windows config from the program. -*- #
-#     If you undestand what is here you can make your      #
-#     window personal settings for program.                #
+# -*- To edit borders you need to edit settings.json file. -*- #
 
 def line(size=40, style='basic') -> None:
     if style == 'basic': print('-' * size)

@@ -1,11 +1,9 @@
-#!/bin/bash
-
-#-*-------------- The installer for Linux distros --------------*-#
+#!/usr/bin/bash
+#-*-------------- The installer for GNU/Linux --------------*-#
 
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-
 echo -e "\nEstimated space used: 120Kb\nVersion of Program: 0.1.4.1\nAre you sure you want to install? [Y/n]:"; read num
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
@@ -15,7 +13,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	echo -e "\nThe installing starts!\n"
 	
 	if [ ! -d /opt/CanUseTimer-Terminal/ ]; then
-		echo "Creating main directories in /opt/..."
+		echo "Creating main directorie in /opt/..."
         	sudo mkdir /opt/CanUseTimer-Terminal
 	fi
 	
@@ -23,7 +21,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	sudo cp -rf python-libs/keyboard/ /opt/CanUseTimer-Terminal/
 
 	echo "Creating executer..."
-	sudo cp lib/canusetimer-terminal /bin/
+	sudo cp lib/canusetimer-terminal /usr/bin/
 	
 	echo "Coping files..."
 	sudo cp *.py /opt/CanUseTimer-Terminal/

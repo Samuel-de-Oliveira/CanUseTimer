@@ -10,57 +10,15 @@ probally any computer with bad hardware and any operating system
 interface based in it, but I don't know a good grafical interface
 Library or API to use in my project
 
-- [Windows install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-open-in-windows)
-- [Linux install](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal#how-to-install-in-linux)
-
 ---
 ## Release notes (0.1.4.1) 🗒️
-
 - Times List updated;
-- +2 added;
+- +2 penalty added;
 - Bug fixes.
 
 ---
-## How it work?
-First you need to install Python 3.8 or higher on your machine,
-if you use Linux or MacOS not is required to install, if you don't
-have in Windows you can install in the [Python's official website](https://www.python.org/downloads/)
-and download the [.zip file](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal/archive/refs/heads/main.zip)
-or clone repository. The program have an installer only for Linux, more installers will come soon.
-
-After install and open you need to press numbers and enter to do 
-anything to program the numbers are:
-
-1. Start the timer
-1. Change modality
-1. Credits
-1. Clear times
-1. Exit program
-
-### How to open in Windows?
-For a while Windows not have an install version, to run you need to
-have Python 3.8 or higher installed, is recommended you install Python
-in windows store, after this you can open the program with a double
-click in the `Main.py` file to start the program normaly.
-
-If it doesn't work try open cmd go to the repository directory and run
-the command:
-
-	python3 Main.py
-
-### How to install in Linux?
-You can install using the `install.sh` file. To start it you need to
-open the terminal in the directory and digit:
-
-	sudo ./install.sh
-
-after this the program will install all the libraries needed and itself,
-to start you can digit in your terminal:
-
-	sudo canusetimer-terminal
-
-You need to open with sudo because some libraries doesn't work without
-super user (I don't know why this is hapening but I will fix it soon).
+### How to install?
+To install you need see the [wiki](https://github.com/Samuel-de-Oliveira/CanUseTimer-Terminal/wiki)
 
 ---
 ## Why use?

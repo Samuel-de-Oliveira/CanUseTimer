@@ -3,18 +3,17 @@ from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
 import os
-
-modalities = {'3x3': Salete(size=20),
-              '2x2': Salete(size=10),
-              'pyra': Cida(size=9, corner=4)}
+import json
 
 timesSave = []
 
-def consoleClear() -> None:
+class settings(): pass
+
+def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
 
-def Console(text='>>: ', size=2) -> int:
+def Console(text='>>: ', size=2):
     while True:
         try:
             read = int(input(text))
@@ -26,7 +25,6 @@ def Console(text='>>: ', size=2) -> int:
 
 def timeFormat(time):
     if not time == None:
-        time = time
         if time < 60: return f'{time:.2f}'
         else:
             x = int(time // 60)
@@ -46,25 +44,28 @@ def showAverage():
         timesUse /= 3
 
         return float(f'{timesUse:.2f}')
-    
 
-def defModality(modality) -> str:
+def defModality(modality):
+    modals = ['3x3', '2x2', 'pyra']
     print('All modalities:', end='')
-    for m in modalities.keys(): print(f' {m}', end=' ')
+    for m in modals: print(f' {m}', end=' ')
 
     print()
     x = input('Digit the modality name: ')
-
-    if x in modalities.keys():
-        consoleClear()
+    consoleClear()
+    if x in modals:
+        timesSave.clear()
         window('Modality changed!')
         return x
     else:
-        consoleClear()
         window('this modality doesn\'t exist.')
         return modality
 
-def startTimer(modality) -> None:
+def startTimer(modality):
+    modalities = {'3x3': Salete(size=20),
+                  '2x2': Salete(size=10),         
+                  'pyra': Cida(size=9, corner=4)}
+
     print(f'The actual modality is: {modality}\n'
           'Scrable: ', end='')
     for move in modalities[modality]: print(move ,end=' ')
@@ -94,12 +95,10 @@ def startTimer(modality) -> None:
                 print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
                 for n, t in enumerate(timesSave): print(f'{n+1} - {timeFormat(t)}')
                 print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
-
                 print(f'Average: {timeFormat(showAverage())}')
 
                 break
-            else: print('The timer not start, you need press until 0.85secs.')
-        
+            else: print('The timer not start, you need press until 0.85secs.') 
         if is_pressed('escape'): consoleClear(); break
 
 if __name__ == '__main__': print('You need to open: Main.py!')

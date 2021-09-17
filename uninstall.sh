@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #-*------------------ The CanUseTimer Uninstaller ------------------*-#
 
 echo -e "\nEverything in /opt/CanUseTimer-Terminal will be removed, are you sure? [Y/n]"; read num
@@ -10,9 +9,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	echo -e "\nRemoving the program...\n"
 
-	if [ -f /bin/canusetimer-terminal ]; then
+	if [ -f /usr/bin/canusetimer-terminal ]; then
 		echo "Removing executer..."
-    		sudo rm /bin/canusetimer-terminal
+    		sudo rm /usr/bin/canusetimer-terminal
 	fi
 	if [ -d /opt/CanUseTimer-Terminal/ ]; then
 		echo "Removing directory..."
