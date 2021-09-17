@@ -5,9 +5,9 @@ from lib.Shufflers import *
 import os
 import json
 
-timesSave = []
+with open('lib/setting.json', 'r') as f: setting = json.loads(f.read())
 
-class settings(): pass
+timesSave = []
 
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
@@ -56,6 +56,8 @@ def defModality(modality):
     if x in modals:
         timesSave.clear()
         window('Modality changed!')
+        setting['modality'] = x
+        with open('lib/setting.json', 'w') as f: f.write(json.dumps(setting, indent=True))
         return x
     else:
         window('this modality doesn\'t exist.')
@@ -76,7 +78,6 @@ def startTimer(modality):
             print('Continue pressing...')
             sleep(0.85)
             if is_pressed('space'):
-
                 while is_pressed('space'): timer = time()
                 while True:
                     totalTime = time() - timer
@@ -84,10 +85,11 @@ def startTimer(modality):
                     consoleClear()
                     window(timeFormat(totalTime), 'double_line')
 
-                consoleClear()
-                window(f'Time: {timeFormat(totalTime)}')
-                plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
-                if plustwo in 'yY': totalTime = float(totalTime) + 2
+                if setting['ask+2']:
+                    consoleClear()
+                    window(f'Time: {timeFormat(totalTime)}')
+                    plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
+                    if plustwo in 'yY': totalTime = float(totalTime) + 2
                 
                 consoleClear()
                 window(f'Time: {timeFormat(totalTime)}', 'double_line')

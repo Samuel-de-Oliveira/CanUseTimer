@@ -1,11 +1,12 @@
 from lib import *
 from winConf import *
+import json
 
+with open('lib/setting.json', 'r') as f: setting = json.loads(f.read())
 consoleClear()
 print('CanUseTimer Terminal\'s version: 0.1.4.1 BETA.\n'
       'This software is open to free use and study code,\n'
       'for more info: https://github.com/samuel-de-oliveira/CanUseTimer-Terminal.\n')
-modality = '3x3'
 
 while True:
     line(style='double_line')
@@ -20,10 +21,10 @@ while True:
     consoleClear()
     if console == 1:
         window('Starting timer...')
-        startTimer(modality)
+        startTimer(setting['modality'])
     if console == 2:
         window('Change modality')
-        modality = defModality(modality)
+        setting['modality'] = defModality(setting['modality'])
     if console == 3:
         window('Credits to:', 'double_line')
         print('The creator: Samuel de Oliveira')
