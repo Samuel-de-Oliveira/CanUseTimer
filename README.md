@@ -18,11 +18,10 @@ to help with something you can make forks or report errors in github
 site, you will help a lot :wink:.
 
 ---
-## Release notes (0.1.4.1) 🗒️
-- Times List updated;
-- config file added(read wiki to know more about);
-- The name of project is CanUseTimer and not CanUseTimer-Terminal anymore (The terminal version will be official);
-- +2 penalty added;
+## Release notes (0.1.4.2) 🗒️
+
+- Setting manager added;
+- New modalities added;
 - Bug fixes.
 
 ---

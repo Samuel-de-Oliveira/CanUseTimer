@@ -6,7 +6,6 @@ import os
 import json
 
 with open('lib/setting.json', 'r') as f: setting = json.loads(f.read())
-
 timesSave = []
 
 def consoleClear():
@@ -21,7 +20,7 @@ def Console(text='>>: ', size=2):
             else: print(f'Digit a value in range of 1 to {size}')
         
         except KeyboardInterrupt: exit()
-        except: print('Digit a valid value')
+        except: print('Digit a valid value!')
 
 def timeFormat(time):
     if not time == None:
@@ -45,6 +44,28 @@ def showAverage():
 
         return float(f'{timesUse:.2f}')
 
+def askP2():
+    if setting['ask+2']: setting['ask+2'] = False
+    else: setting['ask+2'] = True
+    with open('lib/setting.json', 'w+') as f: f.write(json.dumps(setting, indent=True))
+    window(f'ask +2 now is: {setting["ask+2"]}', 'double_line')
+
+def settingManager():
+    while True:
+        print('1: Change Modality\n'
+              f'2: ask +2 >> {setting["ask+2"]}\n'
+              '3: Close\n')
+        numget = Console(size=3)
+        
+        consoleClear()
+        if numget == 1:
+            window('Change modality.')
+            defModality(setting['modality'])
+        if numget == 2: askP2()
+        if numget == 3:
+            window('Settings\'s closed', 'double_line')
+            break
+
 def defModality(modality):
     modals = ['3x3', '2x2', 'pyra']
     print('All modalities:', end='')
@@ -55,12 +76,12 @@ def defModality(modality):
     consoleClear()
     if x in modals:
         timesSave.clear()
-        window('Modality changed!')
+        window('Modality changed!', 'double_line')
         setting['modality'] = x
         with open('lib/setting.json', 'w') as f: f.write(json.dumps(setting, indent=True))
         return x
     else:
-        window('this modality doesn\'t exist.')
+        window('this modality doesn\'t exist.', 'double_line')
         return modality
 
 def startTimer(modality):

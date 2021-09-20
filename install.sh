@@ -4,7 +4,7 @@
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 120Kb\nVersion of Program: 0.1.4.1\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 125Kb\nVersion of Program: 0.1.4.2\nAre you sure you want to install? [Y/n]:"; read num
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
