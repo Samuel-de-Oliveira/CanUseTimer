@@ -50,7 +50,6 @@ def Salete(size):
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
         if x == 3: pass # do nothing "\_(シ)_/"
-
     return moves
 
 #-*-------------- Cida shuffler --------------*-#
@@ -113,13 +112,12 @@ def Cida(size, corner):
         x = randint(1, 2)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: pass # do nothing "\_(シ)_/"
-
     return moves
 
 def Lucia(size):
     moves = []
     old = 0
-    for moves in range(1, 1+size):
+    for move in range(1, 1+size):
         while True:
             m = randint(1, 6)
 
@@ -149,4 +147,3 @@ def Lucia(size):
                     moves.append('B')
                     break
     return moves
-    
