@@ -28,7 +28,7 @@ def timeFormat(time):
         else:
             x = int(time // 60)
             y = time % 60
-    
+
             if y < 10:
                 y = '0' + f'{y:.2f}'
                 return f'{x}:{y}' 
@@ -56,7 +56,7 @@ def settingManager():
               f'2: ask +2 >> {setting["ask+2"]}\n'
               '3: Close\n')
         numget = Console(size=3)
-        
+
         consoleClear()
         if numget == 1:
             window('Change modality.')
@@ -67,7 +67,7 @@ def settingManager():
             break
 
 def defModality(modality):
-    modals = ['3x3', '2x2', 'pyra']
+    modals = ['3x3', '2x2', '4x4', 'pyra']
     print('All modalities:', end='')
     for m in modals: print(f' {m}', end=' ')
 
@@ -86,7 +86,8 @@ def defModality(modality):
 
 def startTimer(modality):
     modalities = {'3x3': Salete(size=20),
-                  '2x2': Salete(size=10),         
+                  '2x2': Salete(size=10),
+                  '4x4': Lucia(size=30),
                   'pyra': Cida(size=9, corner=4)}
 
     print(f'The actual modality is: {modality}\n'
@@ -111,7 +112,7 @@ def startTimer(modality):
                     window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
-                
+
                 consoleClear()
                 window(f'Time: {timeFormat(totalTime)}', 'double_line')
                 timesSave.append(totalTime)

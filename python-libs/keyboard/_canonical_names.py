@@ -1,7 +1,7 @@
 from __future__ import unicode_literals
 try:basestring
-except NameError:basestring = str
-import _platform
+except NameError: basestring = str
+import platform
 canonical_names = {
     'escape': 'esc',
     'del': 'delete',

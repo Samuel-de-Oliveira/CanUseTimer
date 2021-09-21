@@ -148,4 +148,5 @@ def Lucia(size):
                     old = m
                     moves.append('B')
                     break
-
+    return moves
+    
