@@ -88,7 +88,7 @@ def Cida(size, corner):
 
     for move in range(1, 1+corner):
         while True:
-            m = randint(1, 4) # the pyranmix have 3 final moves these are:
+            m = randint(1, 4) # the pyranmix have 4 final moves these are:
 
             if not m == old:
                 if m == 1:
@@ -115,3 +115,37 @@ def Cida(size, corner):
         if x == 2: pass # do nothing "\_(シ)_/"
 
     return moves
+
+def Lucia(size):
+    moves = []
+    old = 0
+    for moves in range(1, 1+size):
+        while True:
+            m = randint(1, 6)
+
+            if not m == old:
+                if m == 1:
+                    old = m
+                    moves.append('U')
+                    break
+                if m == 2:
+                    old = m
+                    moves.append('R')
+                    break
+                if m == 3:
+                    old = m
+                    moves.append('L')
+                    break
+                if m == 4:
+                    old = m
+                    moves.append('D')
+                    break
+                if m == 5:
+                    old = m
+                    moves.append('F')
+                    break
+                if m == 6:
+                    old = m
+                    moves.append('B')
+                    break
+
