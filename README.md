@@ -23,7 +23,8 @@ lot :wink:.
 ## Release notes (0.1.4.2) 🗒️
 
 - Setting manager added;
-- New modalities added;
+- timer's completion more accurated;
+- New modality added (4x4x4 Cube);
 - Bug fixes.
 
 ---
@@ -37,7 +38,7 @@ lot :wink:.
 ---
 ## Some warnings! ⚠️
 
-- This is the terminal version without grafical interface;
+- This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not in other else;
 - this is a BETA version, it's not done yet;
 - If you found bugs please report to fast fixing.

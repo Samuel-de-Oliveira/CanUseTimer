@@ -146,4 +146,16 @@ def Lucia(size):
                     old = m
                     moves.append('B')
                     break
+    for letter in range(0, size):
+        x = randint(1, 3)
+        if moves[letter] in 'RFU':
+            if x == 1: moves[letter] = f'{moves[letter]}w'
+            if x == 2: moves[letter] = f'{moves[letter]}w2'
+            if x == 3: pass # do nothing "\_(シ)_/"
+
+        x = randint(1, 3)
+        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
+        if x == 2: moves[letter] = f'2{moves[letter]}' # add two
+        if x == 3: pass # do nothing "\_(シ)_/"
+
     return moves

@@ -48,7 +48,7 @@ def askP2():
     if setting['ask+2']: setting['ask+2'] = False
     else: setting['ask+2'] = True
     with open('lib/setting.json', 'w+') as f: f.write(json.dumps(setting, indent=True))
-    window(f'ask +2 now is: {setting["ask+2"]}', 'double_line')
+    window(f'ask +2 now is: {setting["ask+2"]}', 'double_line') 
 
 def settingManager():
     while True:
@@ -67,7 +67,7 @@ def settingManager():
             break
 
 def defModality(modality):
-    modals = ['3x3', '2x2', '4x4', 'pyra']
+    modals = ('3x3', '2x2', '4x4', 'pyra')
     print('All modalities:', end='')
     for m in modals: print(f' {m}', end=' ')
 
@@ -105,16 +105,17 @@ def startTimer(modality):
                     totalTime = time() - timer
                     if is_pressed('space'): break
                     consoleClear()
-                    window(timeFormat(totalTime), 'double_line')
+                    window(timeFormat(totalTime)) 
+                    if is_pressed('space'): break
 
                 if setting['ask+2']:
                     consoleClear()
-                    window(f'Time: {timeFormat(totalTime)}')
+                    window(f'Time: {timeFormat(totalTime)}') 
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
 
                 consoleClear()
-                window(f'Time: {timeFormat(totalTime)}', 'double_line')
+                window(f'Time: {timeFormat(totalTime)}', 'double_line') 
                 timesSave.append(totalTime)
                 print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
                 for n, t in enumerate(timesSave): print(f'{n+1} - {timeFormat(t)}')

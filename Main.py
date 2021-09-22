@@ -27,7 +27,7 @@ while True:
         settingManager()
     if console == 3:
         timesSave.clear() 
-        window('The cube\'s times is cleared!')
+        window('The cube\'s times is cleared!', 'double_line')
     if console == 4:
         window('Credits to:', 'double_line')
         print('The creator: Samuel de Oliveira')
