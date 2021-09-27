@@ -19,7 +19,7 @@ to learn, have wiki for every OS. If you want to help with something
 you can make forks or report errors in github site, you will help a
 lot :wink:.
 
-You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/canusetimer-web/)
+You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
 ## Release notes (0.1.4.2) 🗒️
