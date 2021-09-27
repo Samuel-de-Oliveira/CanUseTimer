@@ -19,6 +19,8 @@ to learn, have wiki for every OS. If you want to help with something
 you can make forks or report errors in github site, you will help a
 lot :wink:.
 
+You can too see our website: [**Fast link!**](samuel-de-oliveira.github.io/canusetimer-web/)
+
 ---
 ## Release notes (0.1.4.2) 🗒️
 
@@ -40,12 +42,13 @@ lot :wink:.
 
 - This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not in other else;
+- This program only have installer for Linux (the outhers will come soon);
 - this is a BETA version, it's not done yet;
 - If you found bugs please report to fast fixing.
 
 ---
 ---
-**Version: 0.1.4.1 BETA**
+**Version: 0.1.4.2 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
 ##### follow me for more!
