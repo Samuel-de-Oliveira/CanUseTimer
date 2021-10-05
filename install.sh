@@ -1,10 +1,11 @@
 #!/usr/bin/bash
 #-*-------------- The installer for GNU/Linux --------------*-#
-
+clear
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 125Kb\nVersion of Program: 0.1.4.2\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 125Kb\nVersion of Program: 0.1.4.3\nAre you sure you want to install? [Y/n]:"; read num
+clear 
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
@@ -30,7 +31,8 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	sudo cp -rf lib/ /opt/CanUseTimer/
 	
 	echo -e "\nEverything is done!\n"
-
+	echo "Press return to exit..."; read
+	clear
 else
        	echo "abort!"
 fi

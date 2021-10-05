@@ -22,11 +22,10 @@ lot :wink:.
 You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
-## Release notes (0.1.4.2) 🗒️
+## Release notes (0.1.4.3) 🗒️
 
-- Setting manager added;
-- timer's completion more accurated;
-- New modality added (4x4x4 Cube);
+- Modalities shufflers updated;
+- New modalities added (5x5x5 Cube and skewb);
 - Bug fixes.
 
 ---
@@ -48,7 +47,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ---
-**Version: 0.1.4.2 BETA**
+**Version: 0.1.4.3 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
 ##### follow me for more!

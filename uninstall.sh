@@ -1,7 +1,9 @@
 #!/bin/bash
 #-*------------------ The CanUseTimer Uninstaller ------------------*-#
 
+clear
 echo -e "\nEverything in /opt/CanUseTimer will be removed, are you sure? [Y/n]"; read num
+clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
@@ -18,7 +20,8 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
     		sudo rm -rf /opt/CanUseTimer/
 	fi
 	echo -e "\nEverything is removed!\n"
-
+	echo "Press return to exit..."; read
+	clear
 else
        	echo "Abort!"
 fi

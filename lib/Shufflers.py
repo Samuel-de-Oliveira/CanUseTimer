@@ -5,18 +5,23 @@ from random import randint  #
 #-*-------------- Salete shuffler --------------*-#
 #                                                 #
 #   This shuffler work in: 2x2 and 3x3 puzzles    #
-#   to use in 3x3 then size=20                    #
-#   to 2x2 then size=9                            #
-#   this arguments are in lib.py file             #
-#   Version of salete: 1.0                        #
+#   the arguments are in lib/__init__.py file     #
+#   Version of salete: 1.1                        #
 #                                                 #
 #-*---------------------------------------------*-#
-def Salete(size):
+def Salete(cube):
     moves = [] # Letters enter here
     old = 0 # variable to not repeat letter
-    for move in range(1, 1+size):
+    if cube == '2x2':
+        size = 10
+        w = 3
+    else:
+        size = 21
+        w = 6
+
+    for move in range(1, size):
         while True:
-            m = randint(1, 6) # the cube have 6 moves these are:
+            m = randint(1, w) # the cube have 6 moves these are:
 
             if not m == old:
                 if m == 1:
@@ -29,7 +34,7 @@ def Salete(size):
                     break
                 if m == 3:
                     old = m
-                    moves.append('L') # Left
+                    moves.append('F') # Front
                     break
                 if m == 4:
                     old = m
@@ -37,7 +42,7 @@ def Salete(size):
                     break
                 if m == 5:
                     old = m
-                    moves.append('F') # Front
+                    moves.append('L') # Left
                     break
                 if m == 6:
                     old = m
@@ -45,27 +50,29 @@ def Salete(size):
                     break
 
     # Here is to add apostruphe('), two(2) to the letters randomly
-    for letter in range(0, size):
+    for letter in range(0, size - 1):
         x = randint(1, 3)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
         if x == 3: pass # do nothing "\_(シ)_/"
     return moves
 
-#-*-------------- Cida shuffler --------------*-#
-#                                               #
-#   This shuffler work in: pyranmix             #
-#   To use then size=4                          #
-#   this arguments are in lib/__init__ file     #
-#   Version of Cida: 1.0                        #
-#                                               #
-#-*-------------------------------------------*-#
-def Cida(size, corner):
+#-*--------------- Cida shuffler ---------------*-#
+#                                                 #
+#   This shuffler work in: pyranmix and skewb     #
+#   The arguments are in lib/__init__.py file     #
+#   Version of Cida: 1.1                          #
+#                                                 #
+#-*---------------------------------------------*-#
+def Cida(cube):
     moves = [] # Letters enter here
     old = 0 # variable to not repeat letter
-    for move in range(1, 1+size):
+
+    if cube == 'pyra': w = 11
+    else: w = 9
+    for move in range(1, 10):
         while True:
-            m = randint(1, 4) # the pyranmix have 4 initial moves these are:
+            m = randint(1, 4) # the pyranmix and skewb have 4 initial moves these are:
 
             if not m == old:
                 if m == 1:
@@ -85,39 +92,51 @@ def Cida(size, corner):
                     moves.append('B') # Back
                     break
 
-    for move in range(1, 1+corner):
-        while True:
-            m = randint(1, 4) # the pyranmix have 4 final moves these are:
+    if cube == 'pyra':
+        for move in range(1, 4):
+            while True:
+                m = randint(1, 5) # the pyranmix have 4 cap moves these are:
 
-            if not m == old:
-                if m == 1:
-                    old = m
-                    moves.append('u') # Up tip
-                    break
-                if m == 2:
-                    old = m
-                    moves.append('r') # Right
-                    break
-                if m == 3:
-                    old = m
-                    moves.append('l') # Left
-                    break
-                if m == 4:
-                    old = m
-                    moves.append('b') # Back
-                    break
+                if not m == old:
+                    if m == 1:
+                        old = m
+                        moves.append('u') # Up Cap
+                        break
+                    if m == 2:
+                        old = m
+                        moves.append('r') # Right
+                        break
+                    if m == 3:
+                        old = m
+                        moves.append('l') # Left
+                        break
+                    if m == 4:
+                        old = m
+                        moves.append('b') # Back
+                        break
 
     # Here is to add apostruphe(') to the letters randomly
-    for letter in range(0, size + corner):
+    for letter in range(0, w):
         x = randint(1, 2)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: pass # do nothing "\_(シ)_/"
     return moves
 
-def Lucia(size):
+#-*---------------- Lucia shuffler ---------------*-#
+#                                                   #
+#     This shuffler work in: 4x4 and 5x5 puzzles.   #
+#     The arguments are in lib/__init__.py file     #
+#     Version of Lucia: 1.0                         #
+#                                                   #
+#-*-----------------------------------------------*-#
+
+def Lucia(cube):
     moves = []
     old = 0
-    for move in range(1, 1+size):
+    if cube == '4x4': size = 41
+    else: size = 61
+
+    for move in range(1, size):
         while True:
             m = randint(1, 6)
 
@@ -146,16 +165,20 @@ def Lucia(size):
                     old = m
                     moves.append('B')
                     break
-    for letter in range(0, size):
-        x = randint(1, 3)
-        if moves[letter] in 'RFU':
+    for letter in range(0, size-1):
+        x = randint(1, 2)
+        if cube == '4x4':
+            if moves[letter] in 'RFU':
+                if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
+                if x == 2: pass # do nothing "\_(シ)_/"
+        else:
             if x == 1: moves[letter] = f'{moves[letter]}w'
-            if x == 2: moves[letter] = f'{moves[letter]}w2'
-            if x == 3: pass # do nothing "\_(シ)_/"
+            if x == 2: pass # do nothing "\_(シ)_/"
 
         x = randint(1, 3)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-        if x == 2: moves[letter] = f'2{moves[letter]}' # add two
+        if x == 2: moves[letter] = f'{moves[letter]}2' # add two
         if x == 3: pass # do nothing "\_(シ)_/"
 
     return moves
+

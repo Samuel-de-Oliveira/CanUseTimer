@@ -40,7 +40,7 @@ def showAverage():
         for t in timesSave: timesUse += float(t)
         timesUse -= float(max(timesSave))
         timesUse -= float(min(timesSave))
-        timesUse /= 3
+        timesUse /= len(timesSave) - 2
 
         return float(f'{timesUse:.2f}')
 
@@ -67,7 +67,7 @@ def settingManager():
             break
 
 def defModality(modality):
-    modals = ('3x3', '2x2', '4x4', 'pyra')
+    modals = ('3x3', '2x2', '4x4', '5x5', 'pyra', 'skewb')
     print('All modalities:', end='')
     for m in modals: print(f' {m}', end=' ')
 
@@ -85,10 +85,12 @@ def defModality(modality):
         return modality
 
 def startTimer(modality):
-    modalities = {'3x3': Salete(size=20),
-                  '2x2': Salete(size=10),
-                  '4x4': Lucia(size=30),
-                  'pyra': Cida(size=9, corner=4)}
+    modalities = {'3x3': Salete('3x3'),
+                  '2x2': Salete('2x2'),
+                  '4x4': Lucia('4x4'),
+                  '5x5': Lucia('5x5'),
+                  'pyra': Cida('pyra'),
+                  'skewb': Cida('skewb')}
 
     print(f'The actual modality is: {modality}\n'
           'Scrable: ', end='')
@@ -105,6 +107,7 @@ def startTimer(modality):
                     totalTime = time() - timer
                     if is_pressed('space'): break
                     consoleClear()
+                    if is_pressed('space'): break
                     window(timeFormat(totalTime)) 
                     if is_pressed('space'): break
 
@@ -120,7 +123,7 @@ def startTimer(modality):
                 print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
                 for n, t in enumerate(timesSave): print(f'{n+1} - {timeFormat(t)}')
                 print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
-                print(f'Average: {timeFormat(showAverage())}')
+                print(f'Average of 5: {timeFormat(showAverage())}')
 
                 break
             else: print('The timer not start, you need press until 0.85secs.') 
