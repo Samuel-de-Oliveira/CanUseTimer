@@ -1,5 +1,6 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 #-*-------------- The installer for GNU/Linux --------------*-#
+
 clear
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
@@ -16,6 +17,14 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	if [ ! -d /opt/CanUseTimer/ ]; then
 		echo "Creating main directorie in /opt/..."
         	sudo mkdir /opt/CanUseTimer/
+	else
+	# Remove cache
+		if [ -d /opt/CanUseTimer/__pycache__ ]; then
+			sudo rm -rf /opt/CanUseTimer/__pycache__
+		fi
+		if [ -d /opt/CanUseTimer/lib/__pycache__ ]; then
+			sudo rm -rf /opt/CanUseTimer/lib/__pycache__
+		fi
 	fi
 	
 	echo "Creating Keyboard Python lib..."
