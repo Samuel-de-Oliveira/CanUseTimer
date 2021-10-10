@@ -108,12 +108,12 @@ def startTimer(modality):
                     if is_pressed('space'): break
                     consoleClear()
                     if is_pressed('space'): break
-                    window(timeFormat(totalTime)) 
+                    window(f'\033[31m{timeFormat(totalTime)}\033[m')
                     if is_pressed('space'): break
 
                 if setting['ask+2']:
                     consoleClear()
-                    window(f'Time: {timeFormat(totalTime)}') 
+                    window(f'\033[32mTime: {timeFormat(totalTime)}\033[m')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
 

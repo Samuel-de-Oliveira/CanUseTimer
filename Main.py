@@ -3,7 +3,7 @@ from winConf import *
 import json
 
 consoleClear()
-print('CanUseTimer\'s version: 0.1.4.3 BETA.\n'
+print('CanUseTimer\'s version: 0.2 BETA.\n'
       'This software is open to free use and study code,\n'
       'for more info: https://github.com/samuel-de-oliveira/CanUseTimer.\n')
 
