@@ -5,8 +5,39 @@ from lib.Shufflers import *
 import os
 import json
 
-with open('lib/setting.json', 'r') as f: setting = json.loads(f.read())
 timesSave = []
+class settings():
+    def __init__(self):
+        with open('lib/setting.json', 'r') as f: self.s = json.loads(f.read())
+        if len(self.s) >= 2:
+            with open('lib/setting.json', 'r') as f:
+                json.dump({'modality': '3x3', 'ask+2': True}, indent=True)
+                self.s = json.loads(f.read())
+
+    def manager(self): 
+        while True:
+            line(style='double_line')
+            print('\033[36m1: Change Modality\n'
+                  f'2: ask +2 >> {self.s["ask+2"]}\n'
+                '3: Close\033[m')
+            line(style='double_line')
+            numget = Console(size=3)
+
+            consoleClear()
+            if numget == 1:
+                window('Change modality.')
+                defModality(self.s['modality'])
+            if numget == 2: self.askP2()
+            if numget == 3:
+                window('Settings\'s closed', 'double_line')
+                break
+
+    def askP2():
+        if self.s['ask+2']: self.s['ask+2'] = False
+        else: self.s['ask+2'] = True
+
+        with open('lib/setting.json', 'w+') as f: f.write(json.dumps(self.s, indent=True))
+        window(f'ask +2 now is: {self.s["ask+2"]}', 'double_line')
 
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
@@ -44,29 +75,8 @@ def showAverage():
 
         return float(f'{timesUse:.2f}')
 
-def askP2():
-    if setting['ask+2']: setting['ask+2'] = False
-    else: setting['ask+2'] = True
-    with open('lib/setting.json', 'w+') as f: f.write(json.dumps(setting, indent=True))
-    window(f'ask +2 now is: {setting["ask+2"]}', 'double_line') 
 
-def settingManager():
-    while True:
-        line(style='double_line')
-        print('\033[36m1: Change Modality\n'
-              f'2: ask +2 >> {setting["ask+2"]}\n'
-              '3: Close\033[m')
-        line(style='double_line')
-        numget = Console(size=3)
 
-        consoleClear()
-        if numget == 1:
-            window('Change modality.')
-            defModality(setting['modality'])
-        if numget == 2: askP2()
-        if numget == 3:
-            window('Settings\'s closed', 'double_line')
-            break
 
 def defModality(modality):
     modals = ('3x3', '2x2', '4x4', '5x5', 'pyra', 'skewb')
@@ -113,7 +123,7 @@ def startTimer(modality):
                     window(timeFormat(totalTime))
                     if is_pressed('space'): break
 
-                if setting['ask+2']:
+                if setting.ask2:
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')

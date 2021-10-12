@@ -38,6 +38,7 @@ if len(param) == 0:
         if console == 5: break
 
 elif param[0] == '--change-modality' or '-c':
+    print(type(param[0]))
     try:
         print(param[1])
         if param[1] in ('3x3', '2x2', '4x4', '5x5', 'pyra', 'skewb'):
