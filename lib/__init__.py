@@ -1,4 +1,4 @@
-from winConf import window
+from winConf import *
 from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
@@ -17,10 +17,10 @@ def Console(text='>>: ', size=2):
         try:
             read = int(input(text))
             if 0 < read <= size: return read
-            else: print(f'Digit a value in range of 1 to {size}')
+            else: print(f'\033[1;31mDigit a value in range of 1 to {size}\033[m')
         
         except KeyboardInterrupt: exit()
-        except: print('Digit a valid value!')
+        except: print('\033[1;31mDigit a valid value!\033[m')
 
 def timeFormat(time):
     if not time == None:
@@ -52,9 +52,11 @@ def askP2():
 
 def settingManager():
     while True:
-        print('1: Change Modality\n'
+        line(style='double_line')
+        print('\033[36m1: Change Modality\n'
               f'2: ask +2 >> {setting["ask+2"]}\n'
-              '3: Close\n')
+              '3: Close\033[m')
+        line(style='double_line')
         numget = Console(size=3)
 
         consoleClear()
@@ -93,10 +95,10 @@ def startTimer(modality):
                   'skewb': Cida('skewb')}
 
     print(f'The actual modality is: {modality}\n'
-          'Scrable: ', end='')
+          'Scrable: \033[1;34m', end='')
     for move in modalities[modality]: print(move ,end=' ')
 
-    print('\nPress spacebar to start timer... (Press escape to exit)')
+    print('\033[m\nPress spacebar to start timer... (Press escape to exit)')
     while True:
         if is_pressed('space'):
             print('Continue pressing...')
@@ -108,12 +110,12 @@ def startTimer(modality):
                     if is_pressed('space'): break
                     consoleClear()
                     if is_pressed('space'): break
-                    window(f'\033[31m{timeFormat(totalTime)}\033[m')
+                    window(timeFormat(totalTime))
                     if is_pressed('space'): break
 
                 if setting['ask+2']:
                     consoleClear()
-                    window(f'\033[32mTime: {timeFormat(totalTime)}\033[m')
+                    window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
 

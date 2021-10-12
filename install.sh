@@ -5,7 +5,7 @@ clear
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 125Kb\nVersion of Program: 0.1.4.3\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 125Kb\nVersion of Program: 0.2\nAre you sure you want to install? [Y/n]:"; read num
 clear 
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
@@ -19,6 +19,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
         	sudo mkdir /opt/CanUseTimer/
 	else
 	# Remove cache
+		echo "removing cache"
 		if [ -d /opt/CanUseTimer/__pycache__ ]; then
 			sudo rm -rf /opt/CanUseTimer/__pycache__
 		fi

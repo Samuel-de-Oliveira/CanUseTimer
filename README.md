@@ -22,15 +22,13 @@ lot :wink:.
 You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
-## Release notes (0.1.4.3) 🗒️
+## Release notes (0.2) 🗒️
 
-- Modalities shufflers updated;
-- New modalities added (5x5x5 Cube and skewb);
-- Bug fixes.
+- Colors added.
 
 ---
 ## Why use?
-- Lightweight program (Almost 120Kb of space);
+- Lightweight program (Almost 125Kb of space on Linux);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
@@ -47,7 +45,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ---
-**Version: 0.1.4.3 BETA**
+**Version: 0.2 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
 ##### follow me for more!
