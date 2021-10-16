@@ -5,7 +5,7 @@ from sys import argv
 
 param = argv[1:]
 consoleClear()
-settings()
+sets = settings()
 
 if len(param) == 0:
     print('CanUseTimer\'s version: 0.2 BETA.\n'
@@ -24,12 +24,12 @@ if len(param) == 0:
         console = Console(size=5)
 
         consoleClear()
-        if console == 1: 
+        if console == 1:
             window('Starting timer...')
-            startTimer(settings.load['modality'])
+            startTimer(sets.load['modality'])
         if console == 2:
             window('Settings')
-            settings.manager('')
+            sets.manager()
         if console == 3:
             timesSave.clear()
             window('The cube\'s times is cleared!', 'double_line')
@@ -37,6 +37,8 @@ if len(param) == 0:
             window('Credits to:', 'double_line')
             print('The creator: Samuel de Oliveira')
         if console == 5: break
+
+
 
 elif param[0] in ('--change-modality', '-c'):
     try:

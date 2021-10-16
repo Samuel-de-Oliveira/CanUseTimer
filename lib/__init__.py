@@ -10,24 +10,17 @@ class settings():
     def __init__(self):
         with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
 
-        #if len(self.load) >= 2:
-         #   with open('lib/setting.json', 'w+') as f:
-        #        json.dumps({'modality': '3x3', 'ask+2': True}, indent=True)
-       #         self.load = json.loads(f.read())
-
     def manager(self):
         while True:
             line(style='double_line')
             print('\033[36m1: Change Modality\n'
-            f'2: ask +2 >> {self.load["ask+2"]}\n'
-            '3: Close\033[m')
+                 f'2: ask +2 >> {self.load["ask+2"]}\n'
+                  '3: Close\033[m')
             line(style='double_line')
             numget = Console(size=3)
 
             consoleClear()
-            if numget == 1:
-                window('Change modality.')
-                self.Modality(self.load['modality'])
+            if numget == 1: self.Modality(self.load['modality'])
             if numget == 2: self.askP2()
             if numget == 3:
                 window('Settings\'s closed', 'double_line')
@@ -40,7 +33,9 @@ class settings():
         with open('lib/setting.json', 'w+') as f: f.write(json.dumps(self.load, indent=True))
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
 
-    def Modality(self):
+    def Modality(self, modality):
+        window('Change modality.')
+
         modals = ('3x3', '2x2', '4x4', '5x5', 'pyra', 'skewb')
         print('All modalities:', end='')
         for m in modals: print(f' {m}', end=' ')
@@ -51,7 +46,7 @@ class settings():
         if x in modals:
             timesSave.clear()
             window('Modality changed!', 'double_line')
-            setting['modality'] = x
+            self.load['modality'] = x
             with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
             return x
         else:
@@ -121,7 +116,7 @@ def startTimer(modality):
                     window(timeFormat(totalTime))
                     if is_pressed('space'): break
 
-                if setting.ask2:
+                if settings().load['ask+2']:
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
