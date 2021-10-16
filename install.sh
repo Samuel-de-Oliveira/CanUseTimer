@@ -41,7 +41,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	sudo cp -rf lib/ /opt/CanUseTimer/
 	
 	echo -e "\nEverything is done!\n"
-	echo "Press return to exit..."; read
+	echo -e "\033[34;1mPress return to exit...\033[m"; read
 	clear
 else
        	echo "abort!"

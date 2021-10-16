@@ -107,7 +107,7 @@ def startTimer(modality):
             print('Continue pressing...')
             sleep(0.85)
             if is_pressed('space'):
-                while is_pressed('space'): timer = time()
+                while  is_pressed('space'): timer = time()
                 while True:
                     totalTime = time() - timer
                     if is_pressed('space'): break

@@ -4,11 +4,11 @@ import json
 from sys import argv
 
 param = argv[1:]
-consoleClear()
 sets = settings()
 
 if len(param) == 0:
-    print('CanUseTimer\'s version: 0.2 BETA.\n'
+    consoleClear()
+    print('CanUseTimer\'s version: \033[33m0.2 BETA.\033[m\n'
           'This software is open to free use and study code,\n'
           'for more info: https://github.com/samuel-de-oliveira/CanUseTimer.\n')
     while True:
@@ -38,16 +38,15 @@ if len(param) == 0:
             print('The creator: Samuel de Oliveira')
         if console == 5: break
 
+elif param[0] in ('--start', '-s'): 
+    consoleClear()
+    window('Start a Ao5!', 'double_line')
+    for i in range(5): startTimer(sets.load['modality'])
 
+elif param[0] in ('--help', '-h'):
+    print('The command: canusetimer [--command] ...\n'
+          '     the commands list:\n'
+          '     --help or -h show help meassage (canusetimer --help).\n'
+          '     --start or -s start a Avarage of 5 (canusetimer -s).')
 
-elif param[0] in ('--change-modality', '-c'):
-    try:
-        print(param[1])
-        if param[1] in ('3x3', '2x2', '4x4', '5x5', 'pyra', 'skewb'):
-            settings.load['modality'] = argv[2]
-            with open('lib/setting.json', 'w+') as f: f.write(json.dump(settings.load))
-        else: print('Digit a valid modality!')
-
-    except: print('digit: canusetimer -c [modality name]')
-
-elif param[0] in ('--start', '-s'): startTimer(settings.load['modality'])
+else: print('\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.')
