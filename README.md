@@ -27,6 +27,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 - Colors added;
 - Parameters added to program (see the [wiki](/wiki));
 - Settings more optimized;
+- New modalities added: 6x6x6 Cube and 7x7x7 Cube;
 - Bug fixes.
 
 ---

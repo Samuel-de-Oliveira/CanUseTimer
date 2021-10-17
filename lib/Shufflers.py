@@ -182,3 +182,56 @@ def Lucia(cube):
 
     return moves
 
+def Naldo(cube):
+    moves = []
+    old = 0
+    if cube == '6x6': size = 80
+    else: size = 100
+
+    for move in range(1, size):
+        while True:
+            m = randint(1, 6)
+
+            if not m == old:
+                if m == 1:
+                    old = m
+                    moves.append('U')
+                    break
+                if m == 2:
+                    old = m
+                    moves.append('R')
+                    break
+                if m == 3:
+                    old = m
+                    moves.append('L')
+                    break
+                if m == 4:
+                    old = m
+                    moves.append('D')
+                    break
+                if m == 5:
+                    old = m
+                    moves.append('F')
+                    break
+                if m == 6:
+                    old = m
+                    moves.append('B')
+                    break
+    for letter in range(0, size-1):
+        x = randint(1, 3)
+        if cube == '6x6':
+            if moves[letter] in 'RFU':
+                if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
+                if x == 2: moves[letter] = f'3{moves[letter]}w'
+                if x == 3: pass # do nothing "\_(シ)_/"
+        else:
+            if x == 1: moves[letter] = f'{moves[letter]}w'
+            if x == 2: moves[letter] = f'3{moves[letter]}w'
+            if x == 3: pass # do nothing "\_(シ)_/"
+
+        x = randint(1, 3)
+        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
+        if x == 2: moves[letter] = f'{moves[letter]}2' # add two
+        if x == 3: pass # do nothing "\_(シ)_/"
+
+    return moves

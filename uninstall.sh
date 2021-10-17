@@ -20,7 +20,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
     		sudo rm -rf /opt/CanUseTimer/
 	fi
 	echo -e "\nEverything is removed!\n"
-	echo "Press return to exit..."; read
+	echo -e "\033[34;1mPress return to exit...\033[m"; read
 	clear
 else
        	echo "Abort!"

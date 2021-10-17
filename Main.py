@@ -41,12 +41,14 @@ if len(param) == 0:
 elif param[0] in ('--start', '-s'): 
     consoleClear()
     window('Start a Ao5!', 'double_line')
-    for i in range(5): startTimer(sets.load['modality'])
+    for i in range(5): 
+        try: startTimer(param[1])
+        except: startTimer(sets.load['modality'])
 
 elif param[0] in ('--help', '-h'):
-    print('The command: canusetimer [--command] ...\n'
+    print('\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
-          '     --help or -h show help meassage (canusetimer --help).\n'
-          '     --start or -s start a Avarage of 5 (canusetimer -s).')
+          '     --help or -h show help message (canusetimer --help).\n'
+          '     --start or -s start a Avarage of 5 (canusetimer -s [modality]).\n')
 
-else: print('\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.')
+else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.\n')
