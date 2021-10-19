@@ -12,8 +12,8 @@ class settings():
     def manager(self):
         while True:
             line(style='double_line')
-            print('\033[36m1: Change Modality\n'
-                 f'2: ask +2 >> {self.load["ask+2"]}\n'
+            print('\033[36m1: Change modality\n'
+                 f'2: Ask +2 >> {self.load["ask+2"]}\n'
                   '3: Close\033[m')
             line(style='double_line')
             numget = Console(size=3)
@@ -33,23 +33,23 @@ class settings():
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
 
     def Modality(self, modality):
-        window('Change modality.')
+        window('Change modality')
 
         modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb')
         print('All modalities:', end='')
         for m in modals: print(f' {m}', end=' ')
 
         print() 
-        x = input('Digit the modality name: ')
+        x = input('Digit the modality\'s name: ')
         consoleClear()
         if x in modals:
             timesSave.clear()
-            window('Modality changed!', 'double_line')
+            window('Modality changed', 'double_line')
             self.load['modality'] = x
             with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
             return x
         else:
-            window('this modality doesn\'t exist.', 'double_line')
+            window('This modality doesn\'t exist', 'double_line')
             return modality
  
 def consoleClear():
@@ -105,7 +105,7 @@ def startTimer(modality):
     print('\033[m\nPress spacebar to start timer... (Press escape to exit)')
     while True:
         if is_pressed('space'):
-            print('Continue pressing...')
+            print('keep pressing...')
             sleep(0.85)
             if is_pressed('space'):
                 while  is_pressed('space'): timer = time()
@@ -132,7 +132,5 @@ def startTimer(modality):
                 print(f'Average of 5: {timeFormat(showAverage())}')
 
                 break
-            else: print('The timer not start, you need press until 0.85secs.') 
+            else: print('The timer don\'t start, you need press until 0.85secs.') 
         if is_pressed('escape'): consoleClear(); break
-
-if __name__ == '__main__': print('You need to open: Main.py!')
