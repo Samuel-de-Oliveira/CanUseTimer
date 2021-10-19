@@ -2,8 +2,7 @@ from winConf import *
 from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
-import os
-import json
+import os, json
 
 timesSave = []
 class settings():
