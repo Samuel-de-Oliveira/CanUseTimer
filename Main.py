@@ -8,7 +8,7 @@ sets = settings()
 
 if len(param) == 0:
     consoleClear()
-    print('CanUseTimer\'s version: \033[33m0.2 BETA.\033[m\n'
+    print('CanUseTimer\'s version: \033[33m0.2.1 BETA.\033[m\n'
           'This software is open to free use and study code,\n'
           'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
     while True:
@@ -46,7 +46,7 @@ elif param[0] in ('--start', '-s'):
         except: startTimer(sets.load['modality'])
 
 elif param[0] in ('--help', '-h'):
-    print('\nThe command: canusetimer [--command] ...\n'
+    print('\nCanUseTimer Version: 0.2\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
           '     --help or -h show help message (canusetimer --help).\n'
           '     --start or -s start a Avarage of 5 (canusetimer -s [modality]).\n')

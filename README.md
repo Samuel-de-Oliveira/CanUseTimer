@@ -16,13 +16,13 @@ few days.
 If you want to know more about like how to install or configure or
 do something in the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer/wiki)
 to learn, have wiki for every OS. If you want to help with something
-you can make forks or report errors in github site, you will help a
+you can make forks or report errors in github issues, you will help a
 lot :wink:.
 
 You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
-## Release notes (0.2) 🗒️
+## Release notes (0.2.1) 🗒️
 
 - Colors added;
 - Parameters added to program (see the [wiki](/wiki));
@@ -32,7 +32,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ## Why use?
-- Lightweight program (Almost 125Kb of space on Linux);
+- Lightweight program (Almost 100Kb of space on Linux and 6.5MB for Windows);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
@@ -49,7 +49,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ---
-**Version: 0.2 BETA**
+**Version: 0.2.1 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
 ##### follow me for more!
