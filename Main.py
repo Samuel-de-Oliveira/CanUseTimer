@@ -45,10 +45,15 @@ elif param[0] in ('--start', '-s'):
         try: startTimer(param[1])
         except: startTimer(sets.load['modality'])
 
+elif param[0] in ('--change-modality', '-C'):
+    if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb'):
+        sets.load['modality'] = param[1]
+        with open('lib/setting.json', 'w+') as f: f.write(json.dumps(sets.load, indent=True))
+    else: print('Sorry this modality doesn\'t exist.')
+
 elif param[0] in ('--help', '-h'):
-    print('\nCanUseTimer Version: 0.2\nThe command: canusetimer [--command] ...\n'
+    print('\nCanUseTimer Version: 0.2.1\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
           '     --help or -h show help message (canusetimer --help).\n'
           '     --start or -s start a Avarage of 5 (canusetimer -s [modality]).\n')
-
 else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.\n')
