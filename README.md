@@ -26,7 +26,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 - Colors added;
 - Parameter --change-modality added (see the [wiki](/wiki));
-- Ortografic errors fixed;
+- Orthographic errors fixed;
 - Bug fixes.
 
 ---
