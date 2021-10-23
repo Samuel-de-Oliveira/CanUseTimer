@@ -48,7 +48,7 @@ elif param[0] in ('--start', '-s'):
 elif param[0] in ('--change-modality', '-C'):
     if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb'):
         sets.load['modality'] = param[1]
-        with open('lib/setting.json', 'w+') as f: f.write(json.dumps(sets.load, indent=True))
+        sets.Save()
     else: print('Sorry this modality doesn\'t exist.')
 
 elif param[0] in ('--help', '-h'):

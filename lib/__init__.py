@@ -9,6 +9,9 @@ class settings():
     def __init__(self):
         with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
 
+    def Save(self):
+        with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+
     def manager(self):
         while True:
             line(style='double_line')
@@ -29,7 +32,7 @@ class settings():
         if self.load['ask+2']: self.load['ask+2'] = False
         else: self.load['ask+2'] = True
 
-        with open('lib/setting.json', 'w+') as f: f.write(json.dumps(self.load, indent=True))
+        self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
 
     def Modality(self, modality):
@@ -46,7 +49,7 @@ class settings():
             timesSave.clear()
             window('Modality changed', 'double_line')
             self.load['modality'] = x
-            with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            self.Save()
             return x
         else:
             window('This modality doesn\'t exist', 'double_line')
@@ -105,10 +108,11 @@ def startTimer(modality):
     print('\033[m\nPress spacebar to start timer... (Press escape to exit)')
     while True:
         if is_pressed('space'):
-            print('keep pressing...')
+            consoleClear()
+            window('keep pressing...')
             sleep(0.85)
             if is_pressed('space'):
-                while  is_pressed('space'): timer = time()
+                while is_pressed('space'): timer = time()
                 while True:
                     totalTime = time() - timer
                     if is_pressed('space'): break
@@ -132,5 +136,7 @@ def startTimer(modality):
                 print(f'Average of 5: {timeFormat(showAverage())}')
 
                 break
-            else: print('The timer don\'t start, you need press until 0.85secs.') 
+            else:
+                consoleClear()
+                window('The timer don\'t start, you need press until 0.85secs.') 
         if is_pressed('escape'): consoleClear(); break
