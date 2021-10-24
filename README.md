@@ -23,10 +23,10 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ## Release notes (0.2.1) 🗒️
-
 - Colors added;
 - Parameter --change-modality added (see the [wiki](/wiki));
 - Orthographic errors fixed;
+- New modalities added ();
 - Bug fixes.
 
 ---
@@ -39,7 +39,6 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ## Some warnings! ⚠️
-
 - This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not in other else;
 - This program only have installer for Linux (the outhers will come soon);

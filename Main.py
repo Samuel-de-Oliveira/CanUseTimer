@@ -38,10 +38,10 @@ if len(param) == 0:
             print('The creator: Samuel de Oliveira (All rights reserved).')
         if console == 5: break
 
-elif param[0] in ('--start', '-s'): 
+elif param[0] in ('--start', '-s'):
     consoleClear()
     window('Start a Ao5!', 'double_line')
-    for i in range(5): 
+    for i in range(5):
         try: startTimer(param[1])
         except: startTimer(sets.load['modality'])
 
@@ -54,6 +54,7 @@ elif param[0] in ('--change-modality', '-C'):
 elif param[0] in ('--help', '-h'):
     print('\nCanUseTimer Version: 0.2.1\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
-          '     --help or -h show help message (canusetimer --help).\n'
-          '     --start or -s start a Avarage of 5 (canusetimer -s [modality]).\n')
+          '     --help or -h: show help message (canusetimer --help).\n'
+          '     --start or -s: start a Avarage of 5 (canusetimer -s [modality]).\n'
+          '     --change-modality or -C: \n')
 else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.\n')
