@@ -112,6 +112,8 @@ def startTimer(modality):
             window('keep pressing...')
             sleep(0.85)
             if is_pressed('space'):
+                consoleClear()
+                window('Leave spacebar...')
                 while is_pressed('space'): timer = time()
                 while True:
                     totalTime = time() - timer
@@ -119,7 +121,6 @@ def startTimer(modality):
                     consoleClear()
                     if is_pressed('space'): break
                     window(timeFormat(totalTime))
-                    if is_pressed('space'): break
 
                 if settings().load['ask+2']:
                     consoleClear()
@@ -131,7 +132,7 @@ def startTimer(modality):
                 window(f'Time: {timeFormat(totalTime)}', 'double_line') 
                 timesSave.append(totalTime)
                 print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
-                for n, t in enumerate(timesSave): print(f'{n+1} - {timeFormat(t)}')
+                for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
                 print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
                 print(f'Average of 5: {timeFormat(showAverage())}')
 

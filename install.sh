@@ -29,7 +29,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	fi
 	
 	echo "Creating Keyboard Python lib..."
-	sudo cp -rf python-libs/keyboard/ /opt/CanUseTimer/
+	sudo cp -rf keyboard/ /opt/CanUseTimer/
 
 	echo "Creating executer..."
 	sudo cp lib/canusetimer /usr/bin/
