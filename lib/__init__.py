@@ -24,9 +24,7 @@ class settings():
             consoleClear()
             if numget == 1: self.Modality(self.load['modality'])
             if numget == 2: self.askP2()
-            if numget == 3:
-                window('Settings\'s closed', 'double_line')
-                break
+            if numget == 3: break
 
     def askP2(self):
         if self.load['ask+2']: self.load['ask+2'] = False

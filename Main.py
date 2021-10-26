@@ -30,6 +30,7 @@ if len(param) == 0:
         if console == 2:
             window('Settings')
             sets.manager()
+            window('Settings\'s closed', 'double_line')
         if console == 3:
             timesSave.clear()
             window('The time list is cleared!', 'double_line')

@@ -235,3 +235,6 @@ def Naldo(cube):
         if x == 3: pass # do nothing "\_(シ)_/"
 
     return moves
+
+def Alice(cube):
+
