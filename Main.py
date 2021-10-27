@@ -8,9 +8,7 @@ sets = settings()
 
 if len(param) == 0:
     consoleClear()
-    print('CanUseTimer\'s version: \033[33m0.2.1 BETA.\033[m\n'
-          'This software is open to free use and study code,\n'
-          'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
+    window('CanUseTimer', 'double_line')
     while True:
         settings()
         line(style='double_line')
@@ -37,6 +35,9 @@ if len(param) == 0:
         if console == 4:
             window('Credits to:', 'double_line')
             print('The creator: Samuel de Oliveira (All rights reserved).')
+            print('\nCanUseTimer\'s version: \033[33m0.2.1 BETA.\033[m\n'
+                  'This software is a Open Source project to free use and study code,\n'
+                  'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
         if console == 5: break
 
 elif param[0] in ('--start', '-s'):

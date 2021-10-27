@@ -36,7 +36,7 @@ class settings():
     def Modality(self, modality):
         window('Change modality')
 
-        modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb')
+        modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
         print('All modalities:', end='')
         for m in modals: print(f' {m}', end=' ')
 
@@ -97,7 +97,8 @@ def startTimer(modality):
                   '6x6': Naldo('6x6'),
                   '7x7': Naldo('7x7'),
                   'pyra': Cida('pyra'),
-                  'skewb': Cida('skewb')}
+                  'skewb': Cida('skewb'),
+                  'sq1': Marcos()}
 
     print(f'The actual modality is: {modality}\n'
           'Scrable: \033[1;34m', end='')

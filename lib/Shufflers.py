@@ -236,5 +236,16 @@ def Naldo(cube):
 
     return moves
 
-def Alice(cube):
+def Marcos():
+    moves = []
+    for move in range(1, 15):
+        w = ()
+        x = randint(-5, 6)
+        y = randint(-5, 6)
+        moves.append((x, y))
+        if not move == 14: moves.append('/')
+        else:
+            x = randint(0, 1)
+            if x == 1: moves.append('/')
 
+    return moves
