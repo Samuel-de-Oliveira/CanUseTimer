@@ -12,10 +12,10 @@ Library or API to use in my project, but probally not will come in
 few days.
 
 ---
-## To know more about...
-If you want to know more about like how to install or configure or
-do something in the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer/wiki)
-to learn, have wiki for every OS. If you want to help with something
+## To install or know more about...
+If you want to know more about like how to install, configure or do
+something in the program, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer/wiki)
+to learn more, have wiki for every OS. If you want to help with something
 you can make forks or report errors in github issues, you will help a
 lot :wink:.
 
@@ -25,7 +25,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 ## Release notes (0.2.1) 🗒️
 - Parameter --change-modality added (see the [wiki](/wiki));
 - Orthographic errors fixed;
-- New modalities added ();
+- New modality added (square-one);
 - Bug fixes.
 
 ---
@@ -42,7 +42,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 - This program is tested only in Linux and Windows, and not in other else;
 - This program only have installer for Linux (the outhers will come soon);
 - this is a BETA version, it's not done yet;
-- If you found bugs please report to fast fixing.
+- If you found bugs please report to fast fixing in Github issues.
 
 ---
 ---
