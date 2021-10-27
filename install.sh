@@ -33,7 +33,12 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	echo "Creating executer..."
 	sudo cp lib/canusetimer /usr/bin/
-	
+	if [ -f /usr/bin/python3 ]; then
+		echo "python3 Main.py \$*" >> /usr/bin/canusetimer
+	else
+		echo "python Main.py \$*" >> /usr/bin/canusetimer
+	fi
+
 	echo "Coping files..."
 	sudo cp *.py /opt/CanUseTimer/
 
