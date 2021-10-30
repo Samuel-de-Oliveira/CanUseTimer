@@ -1,6 +1,7 @@
 # CanUseTimer ![Logo](Images/CanUseTimerLogo.png)
 
 ---
+---
 ## What is it?
 CanUseTimer-Terminal is an open source writed in Python speedcubing
 timer created to work in a terminal or command prompt window. Because 
@@ -30,7 +31,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ## Why use?
-- Lightweight program (Almost 100Kb of space on Linux and 6.5MB for Windows);
+- Lightweight program (Almost 100Kb of space on Linux and 7MB for Windows);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
