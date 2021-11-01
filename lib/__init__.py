@@ -4,13 +4,14 @@ from time import time, sleep
 from lib.Shufflers import *
 import os, json
 
-timesSave = []
 class settings():
     def __init__(self):
         with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+        with open('lib/saves.json', 'r') as f: self.saves = json.loads(f.read())
 
     def Save(self):
         with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+        with open('lib/saves.json', 'w') as f: f.write(json.dumps(self.saves, indent=True))
 
     def manager(self):
         while True:
@@ -53,6 +54,9 @@ class settings():
             window('This modality doesn\'t exist', 'double_line')
             return modality
  
+timesSave = []
+sets = settings()
+
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
@@ -121,11 +125,13 @@ def startTimer(modality):
                     if is_pressed('space'): break
                     window(timeFormat(totalTime))
 
-                if settings().load['ask+2']:
+                if sets.load['ask+2']:
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
+
+                if sets.saves[modality] <= totalTime: sets.saves[modality] = totalTime
 
                 consoleClear()
                 window(f'Time: {timeFormat(totalTime)}', 'double_line') 
@@ -134,6 +140,7 @@ def startTimer(modality):
                 for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
                 print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
                 print(f'Average of 5: {timeFormat(showAverage())}')
+                sets.Save()
 
                 break
             else:

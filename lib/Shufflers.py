@@ -6,7 +6,6 @@ from random import randint  #
 #                                                 #
 #   This shuffler work in: 2x2 and 3x3 puzzles    #
 #   the arguments are in lib/__init__.py file     #
-#   Version of salete: 1.1                        #
 #                                                 #
 #-*---------------------------------------------*-#
 def Salete(cube):
@@ -54,14 +53,12 @@ def Salete(cube):
         x = randint(1, 3)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
-        if x == 3: pass # do nothing "\_(シ)_/"
     return moves
 
 #-*--------------- Cida shuffler ---------------*-#
 #                                                 #
 #   This shuffler work in: pyranmix and skewb     #
 #   The arguments are in lib/__init__.py file     #
-#   Version of Cida: 1.1                          #
 #                                                 #
 #-*---------------------------------------------*-#
 def Cida(cube):
@@ -119,14 +116,12 @@ def Cida(cube):
     for letter in range(0, w):
         x = randint(1, 2)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-        if x == 2: pass # do nothing "\_(シ)_/"
     return moves
 
 #-*---------------- Lucia shuffler ---------------*-#
 #                                                   #
 #     This shuffler work in: 4x4 and 5x5 puzzles.   #
 #     The arguments are in lib/__init__.py file     #
-#     Version of Lucia: 1.0                         #
 #                                                   #
 #-*-----------------------------------------------*-#
 
@@ -170,15 +165,12 @@ def Lucia(cube):
         if cube == '4x4':
             if moves[letter] in 'RFU':
                 if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
-                if x == 2: pass # do nothing "\_(シ)_/"
         else:
             if x == 1: moves[letter] = f'{moves[letter]}w'
-            if x == 2: pass # do nothing "\_(シ)_/"
 
         x = randint(1, 3)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
-        if x == 3: pass # do nothing "\_(シ)_/"
 
     return moves
 
@@ -223,16 +215,13 @@ def Naldo(cube):
             if moves[letter] in 'RFU':
                 if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
                 if x == 2: moves[letter] = f'3{moves[letter]}w'
-                if x == 3: pass # do nothing "\_(シ)_/"
         else:
             if x == 1: moves[letter] = f'{moves[letter]}w'
             if x == 2: moves[letter] = f'3{moves[letter]}w'
-            if x == 3: pass # do nothing "\_(シ)_/"
 
         x = randint(1, 3)
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
-        if x == 3: pass # do nothing "\_(シ)_/"
 
     return moves
 
