@@ -1,5 +1,5 @@
 from lib import *
-from winConf import *
+from lib.winConf import *
 import json
 from sys import argv
 

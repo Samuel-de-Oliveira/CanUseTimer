@@ -1,4 +1,4 @@
-from winConf import *
+from lib.winConf import *
 from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
