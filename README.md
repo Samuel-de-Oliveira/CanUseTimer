@@ -23,9 +23,7 @@ lot :wink:.
 You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
-## Release notes (0.2.1) 🗒️
-- Parameter --change-modality added (see the [wiki](/wiki));
-- Orthographic errors fixed;
+## Release notes (0.2.1.1) 🗒️
 - New modality added (square-one);
 - Bug fixes.
 
@@ -47,7 +45,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ---
-**Version: 0.2.1 BETA**
+**Version: 0.2.1.1 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
 ##### follow me for more!
