@@ -7,11 +7,9 @@ import os, json
 class settings():
     def __init__(self):
         with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
-        with open('lib/saves.json', 'r') as f: self.saves = json.loads(f.read())
 
     def Save(self):
         with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
-        with open('lib/saves.json', 'w') as f: f.write(json.dumps(self.saves, indent=True))
 
     def manager(self):
         while True:
@@ -130,8 +128,6 @@ def startTimer(modality):
                     window(f'Time: {timeFormat(totalTime)}')
                     plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                     if plustwo in 'yY': totalTime = float(totalTime) + 2
-
-                if settings().saves[modality] <= totalTime: settings().saves[modality] = totalTime
 
                 consoleClear()
                 window(f'Time: {timeFormat(totalTime)}', 'double_line') 
