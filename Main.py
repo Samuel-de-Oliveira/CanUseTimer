@@ -2,6 +2,7 @@ from lib import *
 from lib.winConf import *
 import json
 from sys import argv
+from time import sleep
 
 param = argv[1:]
 sets = settings()
@@ -46,6 +47,7 @@ elif param[0] in ('--start', '-s'):
     for i in range(5):
         try: startTimer(param[1])
         except: startTimer(sets.load['modality'])
+        sleep(0.6)
 
 elif param[0] in ('--change-modality', '-C'):
     if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb'):

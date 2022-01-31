@@ -28,7 +28,6 @@ class settings():
     def askP2(self):
         if self.load['ask+2']: self.load['ask+2'] = False
         else: self.load['ask+2'] = True
-        print(self.load)
 
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
