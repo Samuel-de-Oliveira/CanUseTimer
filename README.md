@@ -24,7 +24,8 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 
 ---
 ## Release notes (0.2.1.1) 🗒️
-- Only bug fixes.
+- Program optimized;
+- Bug fixes.
 
 ---
 ## Why use?
