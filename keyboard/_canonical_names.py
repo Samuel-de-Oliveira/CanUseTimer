@@ -16,32 +16,6 @@ canonical_names = {
 
     'left control': 'left ctrl',
     'right control': 'right ctrl',
-
-    "division": "÷",
-    "dkshade": "▓",
-    "dnblock": "▄",
-    "dollar": "$",
-    "dollarinferior": "",
-    "dollaroldstyle": "",
-    "dollarsuperior": "",
-    "dong": "₫",
-    "DongSign": "₫",
-    "dot": ".",
-    "dotaccent": "˙",
-    "Dotaccentsmall": "",
-    "dotbelowcomb": "̣",
-    "dotlessi": "ı",
-    "dotlessj": "",
-    "dotmath": "⋅",
-    "Dsmall": "",
-    "dstroke": "đ",
-    "Dstroke": "Đ",
-    "dsuperior": "",
-    "Eacute": "É",
-    "eacute": "é",
-    "Eacutesmall": "",
-    "Ebreve": "Ĕ",
-    "ebreve": "ĕ",
     }
 sided_modifiers = {'ctrl', 'alt', 'shift', 'windows'}
 all_modifiers = {'alt', 'alt gr', 'ctrl', 'shift', 'windows'} | set('left ' + n for n in sided_modifiers) | set('right ' + n for n in sided_modifiers)
