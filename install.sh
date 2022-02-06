@@ -5,14 +5,14 @@ clear
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 100Kb\nVersion of Program: \033[33m0.2.1 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 100Kb\nVersion of Program: \033[33m0.2.1.1 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
 clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	# The program only move the python files to /opt/ and create a executer in /bin/
 	# Is more simple than you think
-	echo -e "\nThe installing starts!\n"
+	echo -e "\nThe installing starts! This not will take long.\n"
 	
 	if [ ! -d /opt/CanUseTimer/ ]; then
 		echo "Creating main directorie in /opt/..."
@@ -40,9 +40,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	fi
 
 	echo "Coping files..."
-	sudo cp *.py /opt/CanUseTimer/
+	sudo cp -f *.py /opt/CanUseTimer/
 
-	echo "Coping libs..."
+	echo "Coping the code library..."
 	sudo cp -rf lib/ /opt/CanUseTimer/
 	
 	echo -e "\nEverything is done!\n"
