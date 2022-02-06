@@ -27,8 +27,7 @@ class _State(object): pass
 class _Event(_UninterruptibleEvent):
     def wait(self):
         while True:
-            if _UninterruptibleEvent.wait(self, 0.5):
-                break
+            if _UninterruptibleEvent.wait(self, 0.5): break
 
 import platform as _platform
 if _platform.system() == 'Windows':
@@ -100,7 +99,7 @@ class _KeyboardListener(_GenericListener):
         self.filtered_modifiers = _collections.Counter()
         self.is_replaying = False
 
-        self.modifier_states = {} # "alt" -> "allowed"
+        self.modifier_states = {}
 
     def pre_process_event(self, event):
         for key_hook in self.nonblocking_keys[event.scan_code]:
@@ -190,7 +189,6 @@ def key_to_scan_codes(key, error_if_missing=True):
         return left_scan_codes + tuple(c for c in right_scan_codes if c not in left_scan_codes)
 
     try:
-        # Put items in ordered dict to remove duplicates.
         t = tuple(_collections.OrderedDict((scan_code, True) for scan_code, modifier in _os_keyboard.map_name(normalized)))
         e = None
     except (KeyError, ValueError) as exception:
@@ -392,7 +390,7 @@ def add_hotkey(hotkey, callback, args=(), suppress=False, timeout=1, trigger_on_
             ) or (
                 timeout
                 and _time.monotonic() - state.last_update >= timeout
-            ) or force_fail: # Weird formatting to ensure short-circuit.
+            ) or force_fail:
 
             state.remove_last_step()
 
@@ -479,10 +477,9 @@ def remap_hotkey(src, dst, suppress=True, trigger_on_release=False):
 unremap_hotkey = remove_hotkey
 
 def stash_state():
-    with _pressed_events_lock:
-        state = sorted(_pressed_events)
-    for scan_code in state:
-        _os_keyboard.release(scan_code)
+    with _pressed_events_lock: state = sorted(_pressed_events)
+    for scan_code in state: _os_keyboard.release(scan_code)
+
     return state
 
 def restore_state(scan_codes):
@@ -591,9 +588,6 @@ def get_typed_strings(events, allow_backspace=True):
     string = ''
     for event in events:
         name = event.name
-
-        # Space is the only key that we _parse_hotkey to the spelled out name
-        # because of legibility. Now we have to undo that.
         if event.name == 'space':
             name = ' '
 
@@ -658,18 +652,15 @@ def add_word_listener(word, callback, triggers=['space'], match_suffix=False, ti
         name = event.name
         if event.event_type == KEY_UP or name in all_modifiers: return
 
-        if timeout and event.time - state.time > timeout:
-            state.current = ''
+        if timeout and event.time - state.time > timeout: state.current = ''
         state.time = event.time
 
         matched = state.current == word or (match_suffix and state.current.endswith(word))
         if name in triggers and matched:
             callback()
             state.current = ''
-        elif len(name) > 1:
-            state.current = ''
-        else:
-            state.current += name
+        elif len(name) > 1: state.current = ''
+        else: state.current += name
 
     hooked = hook(handler)
     def remove():
@@ -680,8 +671,7 @@ def add_word_listener(word, callback, triggers=['space'], match_suffix=False, ti
     _word_listeners[word] = _word_listeners[handler] = _word_listeners[remove] = remove
     return remove
 
-def remove_word_listener(word_or_handler):
-    _word_listeners[word_or_handler]()
+def remove_word_listener(word_or_handler): _word_listeners[word_or_handler]()
 
 def add_abbreviation(source_text, replacement_text, match_suffix=False, timeout=2):
     replacement = '\b'*(len(source_text)+1) + replacement_text

@@ -28,8 +28,6 @@ class MouseEventListener(object):
         self.listening = True
 
     def run(self):
-        """ Creates a listener and loops while waiting for an event. Intended to run as
-        a background thread. """
         self.tap = Quartz.CGEventTapCreate(
             Quartz.kCGSessionEventTap,
             Quartz.kCGHeadInsertEventTap,
@@ -53,7 +51,6 @@ class MouseEventListener(object):
             Quartz.CFRunLoopRunInMode(Quartz.kCFRunLoopDefaultMode, 5, False)
 
     def handler(self, proxy, e_type, event, refcon):
-        # TODO Separate event types by button/wheel/move
         scan_code = Quartz.CGEventGetIntegerValueField(event, Quartz.kCGKeyboardEventKeycode)
         key_name = name_from_scancode(scan_code)
         flags = Quartz.CGEventGetFlags(event)
@@ -70,14 +67,9 @@ class MouseEventListener(object):
         self.callback(KeyboardEvent(event_type, scan_code, name=key_name, is_keypad=is_keypad))
         return event
 
-# Exports
-
-def init():
-    """ Initializes mouse state """
-    pass
+def init(): pass
 
 def listen(queue):
-    """ Appends events to the queue (ButtonEvent, WheelEvent, and MoveEvent). """
     if not os.geteuid() == 0:
         raise OSError("Error 13 - Must be run as administrator")
     listener = MouseEventListener(lambda e: queue.put(e) or is_allowed(e.name, e.event_type == KEY_UP))
@@ -86,7 +78,6 @@ def listen(queue):
     t.start()
 
 def press(button=LEFT):
-    """ Sends a down event for the specified button, using the provided constants """
     location = get_position()
     button_code, button_down, _, _ = _button_mapping[button]
     e = Quartz.CGEventCreateMouseEvent(
@@ -95,12 +86,9 @@ def press(button=LEFT):
         location,
         button_code)
 
-    # Check if this is a double-click (same location within the last 300ms)
     if _last_click["time"] is not None and datetime.datetime.now() - _last_click["time"] < datetime.timedelta(seconds=0.3) and _last_click["button"] == button and _last_click["position"] == location:
-        # Repeated Click
         _last_click["click_count"] = min(3, _last_click["click_count"]+1)
     else:
-        # Not a double-click - Reset last click
         _last_click["click_count"] = 1
     Quartz.CGEventSetIntegerValueField(
         e,
@@ -113,7 +101,6 @@ def press(button=LEFT):
     _last_click["position"] = location
 
 def release(button=LEFT):
-    """ Sends an up event for the specified button, using the provided constants """
     location = get_position()
     button_code, _, button_up, _ = _button_mapping[button]
     e = Quartz.CGEventCreateMouseEvent(
@@ -132,8 +119,6 @@ def release(button=LEFT):
     _button_state[button] = False
 
 def wheel(delta=1):
-    """ Sends a wheel event for the provided number of clicks. May be negative to reverse
-    direction. """
     location = get_position()
     e = Quartz.CGEventCreateMouseEvent(
         None,
@@ -149,7 +134,6 @@ def wheel(delta=1):
     Quartz.CGEventPost(Quartz.kCGHIDEventTap, e2)
 
 def move_to(x, y):
-    """ Sets the mouse's location to the specified coordinates. """
     for b in _button_state:
         if _button_state[b]:
             e = Quartz.CGEventCreateMouseEvent(
@@ -167,7 +151,6 @@ def move_to(x, y):
     Quartz.CGEventPost(Quartz.kCGHIDEventTap, e)
 
 def get_position():
-    """ Returns the mouse's location as a tuple of (x, y). """
     e = Quartz.CGEventCreate(None)
     point = Quartz.CGEventGetLocation(e)
     return (point.x, point.y)
