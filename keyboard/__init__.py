@@ -30,12 +30,9 @@ class _Event(_UninterruptibleEvent):
             if _UninterruptibleEvent.wait(self, 0.5): break
 
 import platform as _platform
-if _platform.system() == 'Windows':
-    from. import _winkeyboard as _os_keyboard
-elif _platform.system() == 'Linux':
-    from. import _nixkeyboard as _os_keyboard
-elif _platform.system() == 'Darwin':
-    from. import _darwinkeyboard as _os_keyboard
+if _platform.system() == 'Windows': from. import _winkeyboard as _os_keyboard
+elif _platform.system() == 'Linux': from. import _nixkeyboard as _os_keyboard
+elif _platform.system() == 'Darwin': from. import _darwinkeyboard as _os_keyboard
 else:
     raise OSError("Unsupported platform '{}'".format(_platform.system()))
 
@@ -45,8 +42,7 @@ from ._canonical_names import all_modifiers, sided_modifiers, normalize_name
 
 _modifier_scan_codes = set()
 def is_modifier(key):
-    if _is_str(key):
-        return key in all_modifiers
+    if _is_str(key): return key in all_modifiers
     else:
         if not _modifier_scan_codes:
             scan_codes = (key_to_scan_codes(name, False) for name in all_modifiers) 
@@ -89,7 +85,6 @@ class _KeyboardListener(_GenericListener):
 
     def init(self):
         _os_keyboard.init()
-
         self.active_modifiers = set()
         self.blocking_hooks = []
         self.blocking_keys = _collections.defaultdict(list)
@@ -98,27 +93,17 @@ class _KeyboardListener(_GenericListener):
         self.nonblocking_hotkeys = _collections.defaultdict(list)
         self.filtered_modifiers = _collections.Counter()
         self.is_replaying = False
-
         self.modifier_states = {}
 
     def pre_process_event(self, event):
-        for key_hook in self.nonblocking_keys[event.scan_code]:
-            key_hook(event)
-
-        with _pressed_events_lock:
-            hotkey = tuple(sorted(_pressed_events))
-        for callback in self.nonblocking_hotkeys[hotkey]:
-            callback(event)
-
+        for key_hook in self.nonblocking_keys[event.scan_code]: key_hook(event)
+        with _pressed_events_lock: hotkey = tuple(sorted(_pressed_events))
+        for callback in self.nonblocking_hotkeys[hotkey]: callback(event)
         return event.scan_code or (event.name and event.name != 'unknown')
 
     def direct_callback(self, event):
-        if self.is_replaying:
-            return True
-
-        if not all(hook(event) for hook in self.blocking_hooks):
-            return False
-
+        if self.is_replaying: return True
+        if not all(hook(event) for hook in self.blocking_hooks): return False
         event_type = event.event_type
         scan_code = event.scan_code
 
