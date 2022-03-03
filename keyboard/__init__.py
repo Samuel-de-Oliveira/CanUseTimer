@@ -33,8 +33,7 @@ import platform as _platform
 if _platform.system() == 'Windows': from. import _winkeyboard as _os_keyboard
 elif _platform.system() == 'Linux': from. import _nixkeyboard as _os_keyboard
 elif _platform.system() == 'Darwin': from. import _darwinkeyboard as _os_keyboard
-else:
-    raise OSError("Unsupported platform '{}'".format(_platform.system()))
+else: raise OSError("Unsupported platform '{}'".format(_platform.system()))
 
 from ._keyboard_event import KEY_DOWN, KEY_UP, KeyboardEvent
 from ._generic import GenericListener as _GenericListener
@@ -48,7 +47,6 @@ def is_modifier(key):
             scan_codes = (key_to_scan_codes(name, False) for name in all_modifiers) 
             _modifier_scan_codes.update(*scan_codes)
         return key in _modifier_scan_codes
-
 _pressed_events_lock = _Lock()
 _pressed_events = {}
 _physically_pressed_keys = _pressed_events
@@ -117,9 +115,7 @@ class _KeyboardListener(_GenericListener):
                 if scan_code in _pressed_events: del _pressed_events[scan_code]
 
         for key_hook in self.blocking_keys[scan_code]:
-            if not key_hook(event):
-                return False
-
+            if not key_hook(event): return False
         accept = True
 
         if self.blocking_hotkeys:
@@ -134,8 +130,7 @@ class _KeyboardListener(_GenericListener):
                 if callback_results:
                     accept = all(callback_results)
                     origin = 'hotkey'
-                else:
-                    origin = 'other'
+                else: origin = 'other'
 
             for key in sorted(modifiers_to_update):
                 transition_tuple = (self.modifier_states.get(key, 'free'), event_type, origin)
@@ -145,27 +140,19 @@ class _KeyboardListener(_GenericListener):
                 self.modifier_states[key] = new_state
 
         if accept:
-            if event_type == KEY_DOWN:
-                _logically_pressed_keys[scan_code] = event
-            elif event_type == KEY_UP and scan_code in _logically_pressed_keys:
-                del _logically_pressed_keys[scan_code]
-
+            if event_type == KEY_DOWN:_logically_pressed_keys[scan_code] = event
+            elif event_type == KEY_UP and scan_code in _logically_pressed_keys: del _logically_pressed_keys[scan_code]
         self.queue.put(event)
-
         return accept
 
-    def listen(self):
-        _os_keyboard.listen(self.direct_callback)
+    def listen(self):_os_keyboard.listen(self.direct_callback)
 
 _listener = _KeyboardListener()
 
 def key_to_scan_codes(key, error_if_missing=True):
-    if _is_number(key):
-        return (key,)
-    elif _is_list(key):
-        return sum((key_to_scan_codes(i) for i in key), ())
-    elif not _is_str(key):
-        raise ValueError('Unexpected key type ' + str(type(key)) + ', value (' + repr(key) + ')')
+    if _is_number(key): return (key,)
+    elif _is_list(key): return sum((key_to_scan_codes(i) for i in key), ())
+    elif not _is_str(key): raise ValueError('Unexpected key type ' + str(type(key)) + ', value (' + repr(key) + ')')
 
     normalized = normalize_name(key)
     if normalized in sided_modifiers:
@@ -180,10 +167,8 @@ def key_to_scan_codes(key, error_if_missing=True):
         t = ()
         e = exception
 
-    if not t and error_if_missing:
-        raise ValueError('Key {} is not mapped to any known key.'.format(repr(key)), e)
-    else:
-        return t
+    if not t and error_if_missing: raise ValueError('Key {} is not mapped to any known key.'.format(repr(key)), e)
+    else: return t
 
 def parse_hotkey(hotkey):
     if _is_number(hotkey) or len(hotkey) == 1:
@@ -252,8 +237,7 @@ def hook(callback, suppress=False, on_remove=lambda: None):
     if suppress:
         _listener.start_if_necessary()
         append, remove = _listener.blocking_hooks.append, _listener.blocking_hooks.remove
-    else:
-        append, remove = _listener.add_handler, _listener.remove_handler
+    else: append, remove = _listener.add_handler, _listener.remove_handler
 
     append(callback)
     def remove_():
@@ -264,11 +248,9 @@ def hook(callback, suppress=False, on_remove=lambda: None):
     _hooks[callback] = _hooks[remove_] = remove_
     return remove_
 
-def on_press(callback, suppress=False):
-    return hook(lambda e: e.event_type == KEY_UP or callback(e), suppress=suppress)
+def on_press(callback, suppress=False): return hook(lambda e: e.event_type == KEY_UP or callback(e), suppress=suppress)
 
-def on_release(callback, suppress=False):
-    return hook(lambda e: e.event_type == KEY_DOWN or callback(e), suppress=suppress)
+def on_release(callback, suppress=False): return hook(lambda e: e.event_type == KEY_DOWN or callback(e), suppress=suppress)
 
 def hook_key(key, callback, suppress=False):
     _listener.start_if_necessary()
@@ -286,14 +268,9 @@ def hook_key(key, callback, suppress=False):
     _hooks[callback] = _hooks[key] = _hooks[remove_] = remove_
     return remove_
 
-def on_press_key(key, callback, suppress=False):
-    return hook_key(key, lambda e: e.event_type == KEY_UP or callback(e), suppress=suppress)
-
-def on_release_key(key, callback, suppress=False):
-    return hook_key(key, lambda e: e.event_type == KEY_DOWN or callback(e), suppress=suppress)
-
-def unhook(remove):
-    _hooks[remove]()
+def on_press_key(key, callback, suppress=False): return hook_key(key, lambda e: e.event_type == KEY_UP or callback(e), suppress=suppress)
+def on_release_key(key, callback, suppress=False): return hook_key(key, lambda e: e.event_type == KEY_DOWN or callback(e), suppress=suppress)
+def unhook(remove):_hooks[remove]()
 unhook_key = unhook
 
 def unhook_all():
@@ -304,23 +281,19 @@ def unhook_all():
     del _listener.handlers[:]
     unhook_all_hotkeys()
 
-def block_key(key):
-    return hook_key(key, lambda e: False, suppress=True)
+def block_key(key):return hook_key(key, lambda e: False, suppress=True)
 unblock_key = unhook_key
 
 def remap_key(src, dst):
     def handler(event):
-        if event.event_type == KEY_DOWN:
-            press(dst)
-        else:
-            release(dst)
+        if event.event_type == KEY_DOWN: press(dst)
+        else: release(dst)
         return False
     return hook_key(src, handler, suppress=True)
 unremap_key = unhook_key
 
 def parse_hotkey_combinations(hotkey):
     def combine_step(step): return (tuple(sorted(scan_codes)) for scan_codes in _itertools.product(*step))
-
     return tuple(tuple(combine_step(step)) for step in parse_hotkey(hotkey))
 
 def _add_hotkey_step(handler, combinations, suppress):
@@ -346,7 +319,6 @@ def add_hotkey(hotkey, callback, args=(), suppress=False, timeout=1, trigger_on_
         callback = lambda callback=callback: callback(*args)
 
     _listener.start_if_necessary()
-
     steps = parse_hotkey_combinations(hotkey)
 
     event_type = KEY_UP if trigger_on_release else KEY_DOWN
@@ -380,10 +352,8 @@ def add_hotkey(hotkey, callback, args=(), suppress=False, timeout=1, trigger_on_
             state.remove_last_step()
 
             for event in state.suppressed_events:
-                if event.event_type == KEY_DOWN:
-                    press(event.scan_code)
-                else:
-                    release(event.scan_code)
+                if event.event_type == KEY_DOWN:press(event.scan_code)
+                else:release(event.scan_code)
             del state.suppressed_events[:]
 
             index = 0
@@ -391,10 +361,9 @@ def add_hotkey(hotkey, callback, args=(), suppress=False, timeout=1, trigger_on_
         return True
 
     def set_index(new_index):
-        state.index = new_index
 
-        if new_index == 0:
-            state.remove_catch_misses = lambda: None
+        state.index = new_index
+        if new_index == 0:state.remove_catch_misses = lambda: None
         elif new_index == 1:
             state.remove_catch_misses()
             state.remove_catch_misses = hook(catch_misses, suppress=True)
