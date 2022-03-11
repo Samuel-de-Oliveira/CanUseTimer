@@ -25,6 +25,7 @@ You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.
 ---
 ## Release notes (0.2.1.1) 🗒️
 - Program optimized;
+- Linux installer updated (optimization consequence);
 - Bug fixes.
 
 ---
