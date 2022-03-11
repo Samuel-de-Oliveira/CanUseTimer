@@ -43,7 +43,11 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	git clone https://github.com/boppreh/keyboard.git
 
 	echo "moving keyboard Python lib to the program repository..."
-	sudo mv -f keyboard/ /opt/CanUseTimer/
+	if [ ! -f /opt/CanUseTimer/keyboard ]; then
+		sudo mv -f keyboard/ /opt/CanUseTimer/
+	else
+		rm -rf keyboard
+	fi
 
 	echo "Creating executer..."
 	sudo cp lib/canusetimer /usr/bin/
