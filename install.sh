@@ -44,10 +44,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	echo "moving keyboard Python lib to the program repository..."
 	if [ ! -d /opt/CanUseTimer/keyboard ]; then
-		sudo mv keyboard/ /opt/CanUseTimer/
-	else
-		rm -rf keyboard/
+		sudo mv keyboard/keyboard /opt/CanUseTimer/
 	fi
+	rm -rf keyboard/
 
 	echo "Creating executer..."
 	sudo cp lib/canusetimer /usr/bin/
