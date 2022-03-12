@@ -9,7 +9,8 @@ sets = settings()
 
 if len(param) == 0:
     consoleClear()
-    window('CanUseTimer', 'double_line')
+    window('Welcome to CanUseTimer!', 'double_line')
+
     while True:
         settings()
         line(style='double_line')
@@ -18,9 +19,10 @@ if len(param) == 0:
               "2: Settings\n"
               "3: Clear list\n"
               "4: Credits\n"
-              "5: Exit\033[m")
+              "5: Time list\n"
+              "6: Exit\033[m")
         line(style='double_line')
-        console = Console(size=5)
+        console = Console(size=6)
 
         consoleClear()
         if console == 1:
@@ -39,7 +41,11 @@ if len(param) == 0:
             print('\nCanUseTimer\'s version: \033[33m0.2.1.1 BETA.\033[m\n'
                   'This software is a Open Source project to free use and study code,\n'
                   'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
-        if console == 5: break
+        if console == 5:
+            window('Time list')
+            timeList()
+
+        if console == 6: break
 
 elif param[0] in ('--start', '-s'):
     consoleClear()
@@ -61,4 +67,4 @@ elif param[0] in ('--help', '-h'):
           '     --help or -h: Show help message (canusetimer -h).\n'
           '     --start or -s: Start a Avarage of 5 (canusetimer -s [modality]).\n'
           '     --change-modality or -C: Change the modality (canusetimer -C [modality])\n')
-else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\nUse --help for help.\n')
+else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\ncommand "canusetimer -h" for help.\n')

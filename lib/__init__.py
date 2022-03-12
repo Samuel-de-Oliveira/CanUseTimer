@@ -89,7 +89,14 @@ def showAverage():
         timesUse /= len(timesSave) - 2
 
         return float(f'{timesUse:.2f}')
-    
+
+def timeList():
+    print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
+    if len(timesSave) <= 0: print('The list is empty...')
+    else:
+        for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
+    print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+
 def startTimer(modality):
     modalities = {'3x3': Salete('3x3'),
                   '2x2': Salete('2x2'),
@@ -131,9 +138,7 @@ def startTimer(modality):
                 consoleClear()
                 window(f'Time: {timeFormat(totalTime)}', 'double_line') 
                 timesSave.append(totalTime)
-                print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
-                for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
-                print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+                timeList()
                 print(f'Average of 5: {timeFormat(showAverage())}')
 
                 break
