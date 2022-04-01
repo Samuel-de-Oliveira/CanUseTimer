@@ -44,6 +44,7 @@ if len(param) == 0:
         if console == 5:
             window('Time list')
             timeList()
+            print(f'Average of 5: {timeFormat(showAverage())}')
 
         if console == 6: break
 

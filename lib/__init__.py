@@ -145,4 +145,7 @@ def startTimer(modality):
             else:
                 consoleClear()
                 window('The timer don\'t start, you need press until 0.85secs.') 
-        if is_pressed('escape'): consoleClear(); break
+        if is_pressed('escape'):
+            consoleClear()
+            window('Timer\'s closed...', 'double_line')
+            break

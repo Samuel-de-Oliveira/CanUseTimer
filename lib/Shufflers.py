@@ -124,7 +124,6 @@ def Cida(cube):
 #     The arguments are in lib/__init__.py file     #
 #                                                   #
 #-*-----------------------------------------------*-#
-
 def Lucia(cube):
     moves = []
     old = 0
@@ -174,6 +173,12 @@ def Lucia(cube):
 
     return moves
 
+#-*-------------- Naldo shuffler --------------*-#
+#                                                #
+#   This shuffler work in: 6x6 and 7x7 puzzles   #
+#   the arguments are in lib/__init__.py file    #
+#                                                #
+#-*--------------------------------------------*-#
 def Naldo(cube):
     moves = []
     old = 0
@@ -225,6 +230,12 @@ def Naldo(cube):
 
     return moves
 
+#-*------------- Marcos shuffler -------------*-#
+#                                               #
+#   This shuffler work in: square-1 puzzle      #
+#   the arguments are in lib/__init__.py file   #
+#                                               #
+#-*-------------------------------------------*-#
 def Marcos():
     moves = []
     for move in range(1, 15):
