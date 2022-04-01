@@ -5,7 +5,7 @@ clear
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 200Kb\nVersion of Program: \033[33m0.2.1.1 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 300Kb\nVersion of Program: \033[33m0.2.1.1 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
 clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
@@ -55,6 +55,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	else
 		echo "python Main.py \$*" >> /usr/bin/canusetimer
 	fi
+	sudo chmod +x /usr/bin/canusetimer
 
 	echo "Coping files..."
 	sudo cp -f *.py /opt/CanUseTimer/
