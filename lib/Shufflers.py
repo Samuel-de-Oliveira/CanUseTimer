@@ -1,6 +1,5 @@
-#-*----- import area -----*-#
-from random import randint  #
-#-*-----------------------*-#
+from random import randint
+
 
 #-*-------------- Salete shuffler --------------*-#
 #                                                 #
@@ -9,51 +8,68 @@ from random import randint  #
 #                                                 #
 #-*---------------------------------------------*-#
 def Salete(cube):
-    moves = [] # Letters enter here
-    old = 0 # variable to not repeat letter
-    if cube == '2x2':
-        size = 10
-        w = 3
-    else:
-        size = 21
-        w = 6
+    '''
+    Internal function to generate valid and secure 2x2x2 Rubik's cube scrambles instead of only
+    "shuflle" strings.
+    Warning: the scrambles generated here are not in random state, they only satisfies
+    the conditions of how a scramble should looks like.
+    '''
+    def gen2x2():
+        moves = ["R", "U", "F"]
+        directions = [" ", "' ", "2 "]
 
-    for move in range(1, size):
-        while True:
-            m = randint(1, w) # the cube have 6 moves these are:
+        moveA = ""
+        scramble = ""
 
-            if not m == old:
-                if m == 1:
-                    old = m
-                    moves.append('U') # Up
-                    break
-                if m == 2:
-                    old = m
-                    moves.append('R') # Right
-                    break
-                if m == 3:
-                    old = m
-                    moves.append('F') # Front
-                    break
-                if m == 4:
-                    old = m
-                    moves.append('D') # Down
-                    break
-                if m == 5:
-                    old = m
-                    moves.append('L') # Left
-                    break
-                if m == 6:
-                    old = m
-                    moves.append('B') # Back
-                    break
+        for i in range(0, 10 + randint(0, 3)):
+            while True:
+                moveB = moves[randint(0, len(moves) - 1)]
+                if (moveB != moveA): break
+            
+            scramble += (moveB + directions[randint(0, len(directions) - 1)])
+            moveA = moveB
 
-    # Here is to add apostruphe('), two(2) to the letters randomly
-    for letter in range(0, size - 1):
-        x = randint(1, 3)
-        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-        if x == 2: moves[letter] = f'{moves[letter]}2' # add two
-    return moves
+        return scramble
+
+    '''
+    Internal function to generate valid and secure 3x3x3 Rubik's cube scrambles instead of only
+    "shuflle" strings.
+    Warning: the scrambles generated here are not in random state, they only satisfies
+    the conditions of how a scramble should looks like.
+    '''
+    def gen3x3():
+        moves = ["Rx", "Uy", "Fz", "Lx", "Dy", "Bz"]
+        directions = [" ", "' ", "2 "]
+
+        """
+        Internal function to check if a group of 3 movements
+        are from the same axis.
+        A sequence of 3 moves in the same aixis is not valid.
+        Ex.: R L R, F B F, U D U, L R L, etc.
+        """
+        def sameAxis(moveA, moveB, moveC):
+            concatened = moveA[1] + moveB[1] + moveC[1]
+            return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
+        
+        moveA = "  "
+        moveB = "  "
+
+        scramble = ""
+
+        for i in range(0, 21 + randint(0, 5)):
+            while True:
+                moveC = moves[randint(0, len(moves) - 1)]
+                if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
+            moveA = moveB
+            moveB = moveC
+            scramble += (moveC[0] + directions[randint(0, len(directions) - 1)])
+
+        return scramble
+
+    # checks if param is "2x2" or "3x3" ad returns based on it
+    if cube == "2x2": return gen2x2()
+    else: return gen3x3()
+
 
 #-*--------------- Cida shuffler ---------------*-#
 #                                                 #
@@ -118,6 +134,7 @@ def Cida(cube):
         if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
     return moves
 
+
 #-*---------------- Lucia shuffler ---------------*-#
 #                                                   #
 #     This shuffler work in: 4x4 and 5x5 puzzles.   #
@@ -172,6 +189,7 @@ def Lucia(cube):
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
 
     return moves
+
 
 #-*-------------- Naldo shuffler --------------*-#
 #                                                #
@@ -229,6 +247,7 @@ def Naldo(cube):
         if x == 2: moves[letter] = f'{moves[letter]}2' # add two
 
     return moves
+
 
 #-*------------- Marcos shuffler -------------*-#
 #                                               #
