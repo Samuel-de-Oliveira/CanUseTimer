@@ -11,7 +11,6 @@ def Salete(cube):
     '''
     Internal function to generate valid and secure 2x2x2 Rubik's cube scrambles instead of only
     "shuflle" strings.
-
     Warning: the scrambles generated here are not in random state, they only satisfies
     the conditions of how a scramble should looks like.
     '''
@@ -20,7 +19,6 @@ def Salete(cube):
         directions = [" ", "' ", "2 "]
 
         moveA = ""
-        moveB = ""
         scramble = ""
 
         for i in range(0, 10 + randint(0, 3)):
@@ -36,7 +34,6 @@ def Salete(cube):
     '''
     Internal function to generate valid and secure 3x3x3 Rubik's cube scrambles instead of only
     "shuflle" strings.
-
     Warning: the scrambles generated here are not in random state, they only satisfies
     the conditions of how a scramble should looks like.
     '''
@@ -47,7 +44,6 @@ def Salete(cube):
         """
         Internal function to check if a group of 3 movements
         are from the same axis.
-
         A sequence of 3 moves in the same aixis is not valid.
         Ex.: R L R, F B F, U D U, L R L, etc.
         """
@@ -57,7 +53,6 @@ def Salete(cube):
         
         moveA = "  "
         moveB = "  "
-        moveC = "  "
 
         scramble = ""
 
@@ -71,7 +66,7 @@ def Salete(cube):
 
         return scramble
 
-    # checks if param is 2x2 or 3x3 ad returns based on it
+    # checks if param is "2x2" or "3x3" ad returns based on it
     if cube == "2x2": return gen2x2()
     else: return gen3x3()
 
