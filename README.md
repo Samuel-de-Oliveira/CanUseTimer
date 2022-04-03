@@ -23,15 +23,14 @@ lot :wink:.
 You can too see our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
 
 ---
-## Release notes (0.2.1.1) 🗒️
-- Program optimized;
-- Linux installer updated (optimization consequence);
-- Time list can be showed;
+## Release notes (0.2.1.2) 🗒️
+- Fix 2x2 and 3x3 shufflers code;
+- Linux executer updated;
 - Bug fixes.
 
 ---
 ## Why use?
-- Lightweight program (Almost 100Kb of space on Linux and 7MB for Windows);
+- Lightweight program (Almost 300Kb of space on Linux and 7MB for Windows);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);

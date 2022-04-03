@@ -39,7 +39,7 @@ if len(param) == 0:
             window('Credits to:', 'double_line')
             print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
             print('Special thanks to contribuitors: Francisco Lucas(Github: LucasAlfare)')
-            print('\nCanUseTimer\'s version: \033[33m0.2.1.1 BETA.\033[m\n'
+            print('\nCanUseTimer\'s version: \033[33m0.2.1.2 BETA.\033[m\n'
                   'This software is a Open Source project to free use and study code,\n'
                   'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
         if console == 5:
@@ -64,7 +64,7 @@ elif param[0] in ('--change-modality', '-C'):
     else: print('Sorry this modality doesn\'t exist.')
 
 elif param[0] in ('--help', '-h'):
-    print('\nCanUseTimer Version: 0.2.1.1\nThe command: canusetimer [--command] ...\n'
+    print('\nCanUseTimer Version: 0.2.1.2\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
           '     --help or -h: Show help message (canusetimer -h).\n'
           '     --start or -s: Start a Avarage of 5 (canusetimer -s [modality]).\n'
