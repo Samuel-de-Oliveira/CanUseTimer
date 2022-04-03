@@ -37,7 +37,8 @@ if len(param) == 0:
             window('The time list is cleared!', 'double_line')
         if console == 4:
             window('Credits to:', 'double_line')
-            print('The creator: Samuel de Oliveira (All rights reserved).')
+            print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
+            print('Special thanks to contribuitors: Francisco Lucas(Github: LucasAlfare)')
             print('\nCanUseTimer\'s version: \033[33m0.2.1.1 BETA.\033[m\n'
                   'This software is a Open Source project to free use and study code,\n'
                   'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
