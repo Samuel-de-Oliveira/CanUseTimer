@@ -13,6 +13,12 @@ Library to use in my project, but probally this will take a long
 time.
 
 ---
+## Release notes (0.2.1.2) 🗒️
+- Fix 2x2 and 3x3 shufflers code;
+- Linux executer updated;
+- Bug fixes.
+
+---
 ## Install
 ### unstable
 The unstable version is a version that is in constant development
@@ -41,6 +47,8 @@ The stable version is the most recommended to install in your machine
 because there's less bugs, have installers for all systems and you
 don't need know about programing and python to run it.
 
+**Install**
+
 Chose your Operating system:
 |System|Latest version|File|
 | :- | :- | :-: |
@@ -48,7 +56,7 @@ Chose your Operating system:
 |Linux| 0.2.1.1 | [CanUseTimer-v0.2.1.1-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.1.1/CanUseTimer-v0.2.1.1-Linux.tar.xz) |
 | Mac OS | - Comming soon ||
 
-Old Versions [here](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
+Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
 
 ---
 ## I want to know more about...
@@ -59,12 +67,6 @@ you can make forks or report errors in github issues, you will help a
 lot :wink:.
 
 Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
-
----
-## Release notes (0.2.1.2) 🗒️
-- Fix 2x2 and 3x3 shufflers code;
-- Linux executer updated;
-- Bug fixes.
 
 ---
 ## Why use?
