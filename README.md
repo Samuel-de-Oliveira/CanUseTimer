@@ -13,9 +13,16 @@ Library to use in my project, but probally this will take a long
 time.
 
 ---
-## Release notes (0.2.1.2) 🗒️
+## Release notes 🗒️
+### Unstable 0.2.1.2 :construction:
 - Fix 2x2 and 3x3 shufflers code;
 - Linux executer updated;
+- Bug fixes.
+
+### Stable 0.2.1.1 :white_check_mark:
+- Program optimized;
+- Linux installer now install keyboard library from git;
+- Time list can be showed;
 - Bug fixes.
 
 ---
