@@ -14,42 +14,20 @@ time.
 
 ---
 ## Release notes 🗒️
-### Unstable 0.2.1.2 :construction:
-- Fix 2x2 and 3x3 shufflers code;
-- Linux executer updated;
-- Bug fixes.
-
-### Stable 0.2.1.1 :white_check_mark:
+### [Stable](#stable) 0.2.1.1 :white_check_mark:
 - Program optimized;
 - Linux installer now install keyboard library from git;
 - Time list can be showed;
 - Bug fixes.
 
+### [Unstable](#unstable) 0.2.1.2 :construction:
+- Fix 2x2 and 3x3 shufflers code;
+- Linux executer updated;
+- Bug fixes.
+
 ---
 ## Install
-### unstable
-The unstable version is a version that is in constant development
-and you can see the this be added constatly, but this version can
-come with bugs of new implementations, recommended only if you want
-to check what is comming.
-
-> :warning: This type of version only have Linux installer (Because
-the creator use Linux), so if you want it working in outher system
-plese check this topic in [wiki](https://github.com/Samuel-de-Oliveira/CanUseTimer/wiki#python).
-
-**Install**
-
-To get the unstable version you only need to clone this repository
-with:
-
-```sh
-git clone https://github.com/Samuel-de-Oliveira/CanUseTimer.git
-cd CanUseTimer
-```
-after this you can run it with python or (if you use Linux) install
-using the file `install.sh`.
-
-### stable
+### Stable
 The stable version is the most recommended to install in your machine
 because there's less bugs, have installers for all systems and you
 don't need know about programing and python to run it.
@@ -64,6 +42,41 @@ Chose your Operating system:
 | Mac OS | - Comming soon ||
 
 Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
+
+### Unstable
+The unstable version is a version that is in constant development
+and you can see the this be added constatly, but this version can
+come with bugs of new implementations, recommended only if you want
+to check what is comming.
+
+> :warning: This type of version only have Linux installer (Because
+the creator use Linux).
+
+**Install**
+
+To get the unstable version you only need to clone this repository
+with:
+
+```sh
+git clone https://github.com/Samuel-de-Oliveira/CanUseTimer.git
+cd CanUseTimer
+```
+after this you can run it with python or (if you use Linux) install
+using the file `install.sh`.
+
+**Run from source**
+
+But if you don't want to install you can run directly from source
+using Python. To do this process you need install python 3.7 or higher
+with pip, after install you need to install the requirements using `pip
+install -r requirements.txt` or `pip3 install -r requirements.txt`, so
+with the command:
+
+	python Main.py
+
+> :information_source: Use a Python virtual environmet, beacuse the
+unstable version can make comflicts with you python libraries. to
+create one type `python -m venv env`.
 
 ---
 ## I want to know more about...
