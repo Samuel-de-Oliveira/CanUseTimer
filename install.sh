@@ -2,6 +2,7 @@
 #-*-------------- The installer for GNU/Linux --------------*-#
 
 clear
+echo -e "\033[1mInstall program.\033[m"
 echo -e "\nThis program will install the following packages:\n\
 CanUseTimer-Terminal, keyboard_python_lib"
 echo -e "and will create a folder in /opt/"

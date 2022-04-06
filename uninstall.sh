@@ -2,7 +2,8 @@
 #-*------------------ The CanUseTimer Uninstaller ------------------*-#
 
 clear
-echo -e "\nEverything in /opt/CanUseTimer will be removed, are you sure about this? [Y/n]"; read num
+echo -e "\033[1mUninstall program...\033[m"
+echo -e "\nEverything into /opt/CanUseTimer will be removed, are you sure about this? [Y/n]"; read num
 clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
