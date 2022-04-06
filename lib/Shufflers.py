@@ -24,7 +24,7 @@ def Salete(cube):
         for i in range(0, 10 + randint(0, 3)):
             while True:
                 moveB = moves[randint(0, len(moves) - 1)]
-                if (moveB != moveA): break
+                if moveB != moveA: break
             
             scramble += (moveB + directions[randint(0, len(directions) - 1)])
             moveA = moveB
@@ -53,7 +53,6 @@ def Salete(cube):
         
         moveA = "  "
         moveB = "  "
-
         scramble = ""
 
         for i in range(0, 21 + randint(0, 5)):
@@ -78,62 +77,42 @@ def Salete(cube):
 #                                                 #
 #-*---------------------------------------------*-#
 def Cida(cube):
-    moves = [] # Letters enter here
-    old = 0 # variable to not repeat letter
+    def genpyra():
+        moves = ['r', 'l', 'u', 'b']
+        directions = [" ", "' "]
 
-    if cube == 'pyra': w = 11
-    else: w = 9
-    for move in range(1, 10):
-        while True:
-            m = randint(1, 4) # the pyranmix and skewb have 4 initial moves these are:
+        moveA = ''
+        scramble = genskewb()
 
-            if not m == old:
-                if m == 1:
-                    old = m
-                    moves.append('U') # Up
-                    break
-                if m == 2:
-                    old = m
-                    moves.append('R') # Right
-                    break
-                if m == 3:
-                    old = m
-                    moves.append('L') # Left
-                    break
-                if m == 4:
-                    old = m
-                    moves.append('B') # Back
-                    break
-
-    if cube == 'pyra':
-        for move in range(1, 4):
+        for m in range(0, 1 + randint(0, 2)):
             while True:
-                m = randint(1, 5) # the pyranmix have 4 cap moves these are:
+                moveB = moves[randint(0, len(moves) - 1)]
+                if moveB != moveA: break
 
-                if not m == old:
-                    if m == 1:
-                        old = m
-                        moves.append('u') # Up Cap
-                        break
-                    if m == 2:
-                        old = m
-                        moves.append('r') # Right
-                        break
-                    if m == 3:
-                        old = m
-                        moves.append('l') # Left
-                        break
-                    if m == 4:
-                        old = m
-                        moves.append('b') # Back
-                        break
+            scramble += moveB + directions[randint(0, len(directions) -1)]
+            moveA = moveB
 
-    # Here is to add apostruphe(') to the letters randomly
-    for letter in range(0, w):
-        x = randint(1, 2)
-        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-    return moves
+        return scramble
 
+    def genskewb():
+        moves = ['R', 'L', 'U', 'B']
+        directions = [" ", "' "]
+
+        moveA = ''
+        scramble = ''
+
+        for m in range(0, 8 + randint(0, 1)):
+            while True:
+                moveB = moves[randint(0, len(moves) - 1)]
+                if moveB != moveA: break
+
+            scramble += moveB + directions[randint(0, len(directions) - 1)]
+            moveA = moveB
+
+        return scramble
+
+    if cube == 'pyra': return genpyra()
+    else: return genskewb()
 
 #-*---------------- Lucia shuffler ---------------*-#
 #                                                   #
