@@ -45,9 +45,9 @@ Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/
 
 ### Unstable
 The unstable version is a version that is in constant development
-and you can see the this be added constatly, but this version can
-come with bugs of new implementations, recommended only if you want
-to check what is comming.
+and you can see new features constantly, but this version may come
+with bugs of new implementations, recommended only if you want to
+check what is comming and test it.
 
 > :warning: This type of version only have Linux installer (Because
 the creator use Linux).
@@ -62,7 +62,8 @@ git clone https://github.com/Samuel-de-Oliveira/CanUseTimer.git
 cd CanUseTimer
 ```
 after this you can run it with python or (if you use Linux) install
-using the file `install.sh`.
+using the file `install.sh`. To update type `git pull` and install
+it again.
 
 **Run from source**
 
