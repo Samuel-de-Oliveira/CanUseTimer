@@ -19,15 +19,15 @@ def Salete(cube):
         directions = [" ", "' ", "2 "]
 
         moveA = ""
-        scramble = ""
+        scramble = []
 
         for i in range(0, 10 + randint(0, 3)):
             while True:
                 moveB = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
             
-            scramble += (moveB + directions[randint(0, len(directions) - 1)])
             moveA = moveB
+            scramble.append(moveB + directions[randint(0, len(directions) - 1)])
 
         return scramble
 
@@ -53,7 +53,7 @@ def Salete(cube):
         
         moveA = "  "
         moveB = "  "
-        scramble = ""
+        scramble = []
 
         for i in range(0, 21 + randint(0, 5)):
             while True:
@@ -61,7 +61,7 @@ def Salete(cube):
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
             moveA = moveB
             moveB = moveC
-            scramble += (moveC[0] + directions[randint(0, len(directions) - 1)])
+            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
 
         return scramble
 
@@ -89,8 +89,8 @@ def Cida(cube):
                 moveB = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
 
-            scramble += moveB + directions[randint(0, len(directions) -1)]
             moveA = moveB
+            scramble.append(moveB + directions[randint(0, len(directions) -1)])
 
         return scramble
 
@@ -99,18 +99,19 @@ def Cida(cube):
         directions = [" ", "' "]
 
         moveA = ''
-        scramble = ''
+        scramble = []
 
         for m in range(0, 8 + randint(0, 1)):
             while True:
                 moveB = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
 
-            scramble += moveB + directions[randint(0, len(directions) - 1)]
             moveA = moveB
+            scramble.append(moveB + directions[randint(0, len(directions) - 1)])
 
         return scramble
 
+    # checks if param is "pyra" or "skewb" ad returns based on it
     if cube == 'pyra': return genpyra()
     else: return genskewb()
 
