@@ -21,7 +21,7 @@ time.
 - Bug fixes.
 
 ### [Unstable](#unstable) 0.2.1.2 :construction:
-- Fix 2x2 and 3x3 shufflers code;
+- Fix 2x2, 3x3, pyraminx and skewb shufflers code;
 - Linux executer updated;
 - Bug fixes.
 
