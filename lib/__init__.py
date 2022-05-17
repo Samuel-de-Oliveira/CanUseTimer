@@ -149,3 +149,5 @@ def startTimer(modality):
             consoleClear()
             window('Timer\'s closed...', 'double_line')
             break
+
+if __name__ == "__main__": print("Run the Main.py file to start program...")
