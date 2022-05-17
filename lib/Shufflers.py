@@ -248,3 +248,5 @@ def Marcos():
             if x == 1: moves.append('/')
 
     return moves
+
+if __name__ == "__main__": print("Run, the Main.py file to start program")
