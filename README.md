@@ -70,8 +70,9 @@ it again.
 But if you don't want to install you can run directly from source
 using Python. To do this process you need install python 3.7 or higher
 with pip, after install you need to install the requirements using `pip
-install -r requirements.txt` or `pip3 install -r requirements.txt`, so
-with the command:
+install -r requirements.txt` or `pip3 install -r requirements.txt`.
+
+Then you can run with this command in your terminal:
 
 	python Main.py
 
