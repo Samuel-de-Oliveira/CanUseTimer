@@ -40,7 +40,7 @@ if len(param) == 0:
             print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
             print('Special thanks to contribuitors: Francisco Lucas(Github: LucasAlfare)')
             print('\nCanUseTimer\'s version: \033[33m0.2.1.2 BETA.\033[m\n'
-                  'This software is a Open Source project to free use and study code,\n'
+                  'This software is a Open Source project to free use, study code and contributing,\n'
                   'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
         if console == 5:
             window('Time list')
@@ -58,7 +58,7 @@ elif param[0] in ('--start', '-s'):
         sleep(0.6)
 
 elif param[0] in ('--change-modality', '-C'):
-    if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb'):
+    if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1'):
         sets.load['modality'] = param[1]
         sets.Save()
     else: print('Sorry this modality doesn\'t exist.')
