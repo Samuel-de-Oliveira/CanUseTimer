@@ -4,9 +4,9 @@
 clear
 echo -e "\033[1mInstall program.\033[m"
 echo -e "\nThis program will install the following packages:\n\
-CanUseTimer-Terminal, keyboard_python_lib"
+CanUseTimer, Python keyboard lib."
 echo -e "and will create a folder in /opt/"
-echo -e "\nEstimated space used: 300Kb\nVersion of Program: \033[33m0.2.1.1 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
+echo -e "\nEstimated space used: 350Kb\nVersion of Program: \033[33m0.2.1.2 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
 clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
@@ -22,7 +22,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 		elif [ -f /etc/arch-release ]; then
 			sudo pacman -Sy git | yes
 		else
-			echo -e "\033[31mYour distribuition is not supported, sorry :(\033[m"
+			echo -e "\033[31mPlease install git to continue...\033[m"
 			exit 1
 		fi
 	fi
