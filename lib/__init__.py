@@ -62,11 +62,11 @@ def Console(text='>>: ', size=2):
     while True:
         try:
             read = int(input(text))
-            if 0 < read <= size: return read
+            if 0 <= read <= size: return read
             else: print(f'\033[1;31mDigit a value in range of 1 to {size}\033[m')
         
-        except KeyboardInterrupt: exit()
-        except: print('\033[1;31mDigit a valid value!\033[m')
+        except KeyboardInterrupt: consoleClear(); exit()
+        except: print('\033[1;31mPlease, Digit a valid number!\033[m')
 
 def timeFormat(time):
     if not time == None:
