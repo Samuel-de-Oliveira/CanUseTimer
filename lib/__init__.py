@@ -6,10 +6,16 @@ import os, json
 
 class settings():
     def __init__(self):
-        with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+        if os.name in ('nt', 'dos'):
+            with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+        else:
+            with open('setting.json', 'r') as f: self.load = json.loads(f.read())
 
     def Save(self):
-        with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+        if os.name in ('nt', 'dos'):
+            with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+        else:
+            with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
     def manager(self):
         while True:
