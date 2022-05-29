@@ -40,11 +40,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 		fi
 	fi
 	
-	echo "Cloning python keyboard library repository..."
-	git clone https://github.com/boppreh/keyboard.git
-
-	echo "moving keyboard Python lib to the program repository..."
 	if [ ! -d /opt/CanUseTimer/keyboard ]; then
+                echo "Cloning keybord library to /opt/CanUseTimer/..."
+                git clone https://github.com/boppreh/keyboard &> /dev/null
 		sudo mv keyboard/keyboard /opt/CanUseTimer/
 	fi
 	rm -rf keyboard/
@@ -63,6 +61,7 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	echo "Coping the code library..."
 	sudo cp -rf lib/ /opt/CanUseTimer/
+        sudo cp lib/setting.json ~/
 	
 	echo -e "\nEverything is done!\n"
 	echo -e "\033[34;1mPress return to exit...\033[m"; read
