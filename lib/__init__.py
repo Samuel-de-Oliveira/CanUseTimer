@@ -5,19 +5,19 @@ from lib.Shufflers import *
 import os, json
 
 class settings():
-    def __init__(self):
-        if os.name in ('nt', 'dos'):
-            with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+    def __init__(self) -> None:
+        if not os.name in ('nt', 'dos'):
+            with open('~/.setting.json', 'r') as f: self.load = json.loads(f.read())
         else:
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
 
-    def Save(self):
-        if os.name in ('nt', 'dos'):
-            with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+    def Save(self) -> None:
+        if not os.name in ('nt', 'dos'):
+            with open('~/.setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
         else:
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
-    def manager(self):
+    def manager(self) -> None:
         while True:
             line(style='double_line')
             print('\033[36m1: Change modality\n'
@@ -31,14 +31,14 @@ class settings():
             if numget == 2: self.askP2()
             if numget == 3: break
 
-    def askP2(self):
+    def askP2(self) -> None:
         if self.load['ask+2']: self.load['ask+2'] = False
         else: self.load['ask+2'] = True
 
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
 
-    def Modality(self, modality):
+    def Modality(self, modality) -> str:
         window('Change modality')
 
         modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
