@@ -12,6 +12,9 @@ interface based in it, but I don't know a good grafical interface
 Library to use in my project, but probally this will take a long
 time.
 
+## Can I help in project?
+Yes, you can! I'm will verify your issue or pull request and if I like the ideia, I will implement in my software. So don't be shy to share something good.
+
 ---
 ## Release notes 🗒️
 ### [Stable](#stable) 0.2.1.1 :white_check_mark:
@@ -78,7 +81,7 @@ Then you can run with this command in your terminal:
 
 > :information_source: Use a Python virtual environmet, beacuse the
 unstable version can make comflicts with you python libraries. to
-create one type `python -m venv env`.
+create one type `python -m venv env` in the project folder.
 
 ---
 ## I want to know more about...
