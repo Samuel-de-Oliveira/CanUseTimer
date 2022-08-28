@@ -47,7 +47,9 @@ if len(param) == 0:
             timeList()
             print(f'Average of 5: {timeFormat(showAverage())}')
 
-        if console == 6: break
+        if console == 6:
+            print("Bye bye!")
+            break
 
 elif param[0] in ('--start', '-s'):
     consoleClear()

@@ -61,7 +61,6 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	echo "Coping the code library..."
 	sudo cp -rf lib/ /opt/CanUseTimer/
-        sudo cp lib/setting.json ~/
 	
 	echo -e "\nEverything is done!\n"
 	echo -e "\033[34;1mPress return to exit...\033[m"; read

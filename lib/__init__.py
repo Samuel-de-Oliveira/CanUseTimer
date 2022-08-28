@@ -7,13 +7,13 @@ import os, json
 class settings():
     def __init__(self) -> None:
         if not os.name in ('nt', 'dos'):
-            with open('~/.setting.json', 'r') as f: self.load = json.loads(f.read())
+            with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
         else:
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
 
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'):
-            with open('~/.setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
         else:
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
