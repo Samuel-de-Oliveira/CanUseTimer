@@ -32,9 +32,7 @@ class settings():
             if numget == 3: break
 
     def askP2(self) -> None:
-        if self.load['ask+2']: self.load['ask+2'] = False
-        else: self.load['ask+2'] = True
-
+        self.load['ask+2'] = not self.load['ask+2']
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
 
@@ -150,10 +148,10 @@ def startTimer(modality):
                 break
             else:
                 consoleClear()
-                window('The timer don\'t start, you need press until 0.85secs.') 
+                window('The timer doesn\'t start, you need press until have 0.85secs.') 
         if is_pressed('escape'):
             consoleClear()
             window('Timer\'s closed...', 'double_line')
             break
 
-if __name__ == "__main__": print("Run the Main.py file to start program...")
+if __name__ == "__main__": print("Run the Main.py file to start the program...")
