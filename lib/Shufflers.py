@@ -122,54 +122,53 @@ def Cida(cube):
 #                                                   #
 #-*-----------------------------------------------*-#
 def Lucia(cube):
-    moves = []
-    old = 0
-    if cube == '4x4': size = 41
-    else: size = 61
+    def gen4x4():
+        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
+        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
 
-    for move in range(1, size):
-        while True:
-            m = randint(1, 6)
+        moveA = "  "
+        moveB = "  "
+        scramble = []
 
-            if not m == old:
-                if m == 1:
-                    old = m
-                    moves.append('U')
-                    break
-                if m == 2:
-                    old = m
-                    moves.append('R')
-                    break
-                if m == 3:
-                    old = m
-                    moves.append('L')
-                    break
-                if m == 4:
-                    old = m
-                    moves.append('D')
-                    break
-                if m == 5:
-                    old = m
-                    moves.append('F')
-                    break
-                if m == 6:
-                    old = m
-                    moves.append('B')
-                    break
-    for letter in range(0, size-1):
-        x = randint(1, 2)
-        if cube == '4x4':
-            if moves[letter] in 'RFU':
-                if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
-        else:
-            if x == 1: moves[letter] = f'{moves[letter]}w'
+        def sameAxis(moveA, moveB, moveC):
+            concatened = moveA[1] + moveB[1] + moveC[1]
+            return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
-        x = randint(1, 3)
-        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-        if x == 2: moves[letter] = f'{moves[letter]}2' # add two
+        for i in range(0, 41 + randint(0, 5)):
+            while True:
+                moveC = moves[randint(0, len(moves) - 1)]
+                if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
+            moveA = moveB
+            moveB = moveC
+            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
 
-    return moves
+        return scramble
 
+    def gen5x5():
+        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
+        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+
+        moveA = "  "
+        moveB = "  "
+        scramble = []
+
+        def sameAxis(moveA, moveB, moveC):
+            concatened = moveA[1] + moveB[1] + moveC[1]
+            return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
+
+        for i in range(0, 58 + randint(0, 5)):
+            while True:
+                moveC = moves[randint(0, len(moves) - 1)]
+                if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
+            moveA = moveB
+            moveB = moveC
+            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
+
+        return scramble
+
+
+    if cube == '4x4': return gen4x4()
+    else: return gen5x5()
 
 #-*-------------- Naldo shuffler --------------*-#
 #                                                #
