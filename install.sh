@@ -3,16 +3,11 @@
 
 clear
 echo -e "\033[1mInstall program.\033[m"
-echo -e "\nThis program will install the following packages:\n\
-CanUseTimer, Python keyboard lib."
-echo -e "and will create a folder in /opt/"
 echo -e "\nEstimated space used: 350Kb\nVersion of Program: \033[33m0.2.1.2 BETA\033[m\nAre you sure you want to install? [Y/n]:"; read num
 clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
-	# The program only move the python files to /opt/ and create a executer in /bin/
-	# Is more simple than you think
 	echo -e "\nThe installing starts! This not will take long.\n"
 
 	echo "Checking if Git is installed..."
@@ -65,6 +60,4 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	echo -e "\nEverything is done!\n"
 	echo -e "\033[34;1mPress return to exit...\033[m"; read
 	clear
-else
-       	echo "abort!"
 fi
