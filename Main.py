@@ -7,6 +7,7 @@ from time import sleep
 param = argv[1:]
 sets = settings()
 
+# Run main interface
 if len(param) == 0:
     consoleClear()
     window('Welcome to CanUseTimer!', 'double_line')
@@ -51,6 +52,7 @@ if len(param) == 0:
             print("Bye bye!")
             break
 
+# --start parameter
 elif param[0] in ('--start', '-s'):
     consoleClear()
     window('Start a Ao5!', 'double_line')
@@ -59,16 +61,19 @@ elif param[0] in ('--start', '-s'):
         except: startTimer(sets.load['modality'])
         sleep(0.6)
 
+# --change-modality parameter
 elif param[0] in ('--change-modality', '-C'):
     if param[1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1'):
         sets.load['modality'] = param[1]
         sets.Save()
     else: print('Sorry this modality doesn\'t exist.')
 
+# --help parameter
 elif param[0] in ('--help', '-h'):
     print('\nCanUseTimer Version: 0.2.1.2\nThe command: canusetimer [--command] ...\n'
           '     the commands list:\n'
           '     --help or -h: Show help message (canusetimer -h).\n'
           '     --start or -s: Start a Avarage of 5 (canusetimer -s [modality]).\n'
           '     --change-modality or -C: Change the modality (canusetimer -C [modality])\n')
+
 else: print('\n\033[31;1mUps... Maybe you digit something wrong!\033[m\ncommand "canusetimer -h" for help.\n')
