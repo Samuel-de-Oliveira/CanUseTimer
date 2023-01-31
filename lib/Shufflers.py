@@ -140,7 +140,8 @@ def s4x4_shuffler(cube):
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
             moveA = moveB
             moveB = moveC
-            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
+            if moveC[0] in ["R", "U", "F"]: scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
+            else: scramble.append(moveC[0] + directions[randint(0, len(directions) - 4)])
 
         return scramble
 
