@@ -1,13 +1,13 @@
 from random import randint
 
 
-#-*-------------- Salete shuffler --------------*-#
+#-*-------------- 3x3 shuffler -----------------*-#
 #                                                 #
 #   This shuffler work in: 2x2 and 3x3 puzzles    #
 #   the arguments are in lib/__init__.py file     #
 #                                                 #
 #-*---------------------------------------------*-#
-def Salete(cube):
+def s3x3_shuffler(cube):
     '''
     Internal function to generate valid and secure 2x2x2 Rubik's cube scrambles instead of only
     "shuflle" strings.
@@ -70,13 +70,13 @@ def Salete(cube):
     else: return gen3x3()
 
 
-#-*--------------- Cida shuffler ---------------*-#
+#-*--------------- pyranminx shuffler ----------*-#
 #                                                 #
 #   This shuffler work in: pyranmix and skewb     #
 #   The arguments are in lib/__init__.py file     #
 #                                                 #
 #-*---------------------------------------------*-#
-def Cida(cube):
+def pyra_shuffler(cube):
     def genpyra():
         moves = ['r', 'l', 'u', 'b']
         directions = [" ", "' "]
@@ -115,13 +115,13 @@ def Cida(cube):
     if cube == 'pyra': return genpyra()
     else: return genskewb()
 
-#-*---------------- Lucia shuffler ---------------*-#
+#-*---------------- 4x4 shuffler -----------------*-#
 #                                                   #
 #     This shuffler work in: 4x4 and 5x5 puzzles.   #
 #     The arguments are in lib/__init__.py file     #
 #                                                   #
 #-*-----------------------------------------------*-#
-def Lucia(cube):
+def s4x4_shuffler(cube):
     def gen4x4():
         moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
         directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
@@ -170,13 +170,13 @@ def Lucia(cube):
     if cube == '4x4': return gen4x4()
     else: return gen5x5()
 
-#-*-------------- Naldo shuffler --------------*-#
+#-*-------------- 6x6 shuffler ----------------*-#
 #                                                #
 #   This shuffler work in: 6x6 and 7x7 puzzles   #
 #   the arguments are in lib/__init__.py file    #
 #                                                #
 #-*--------------------------------------------*-#
-def Naldo(cube):
+def s6x6_shuffler(cube):
     moves = []
     old = 0
     if cube == '6x6': size = 80
@@ -228,13 +228,13 @@ def Naldo(cube):
     return moves
 
 
-#-*------------- Marcos shuffler -------------*-#
+#-*------------- Square-1 shuffler -----------*-#
 #                                               #
 #   This shuffler work in: square-1 puzzle      #
 #   the arguments are in lib/__init__.py file   #
 #                                               #
 #-*-------------------------------------------*-#
-def Marcos():
+def sq1_shuffler():
     moves = []
     for move in range(1, 15):
         w = ()

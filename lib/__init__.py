@@ -103,15 +103,15 @@ def timeList():
 
 def startTimer(modality):
     # To see the modalities shufflers check the file: Shufflers.py
-    modalities = {'3x3': Salete('3x3'),
-                  '2x2': Salete('2x2'),
-                  '4x4': Lucia('4x4'),
-                  '5x5': Lucia('5x5'),
-                  '6x6': Naldo('6x6'),
-                  '7x7': Naldo('7x7'),
-                  'pyra': Cida('pyra'),
-                  'skewb': Cida('skewb'),
-                  'sq1': Marcos()}
+    modalities = {'3x3': s3x3_shuffler('3x3'),
+                  '2x2': s3x3_shuffler('2x2'),
+                  '4x4': s4x4_shuffler('4x4'),
+                  '5x5': s4x4_shuffler('5x5'),
+                  '6x6': s6x6_shuffler('6x6'),
+                  '7x7': s6x6_shuffler('7x7'),
+                  'pyra': pyra_shuffler('pyra'),
+                  'skewb': pyra_shuffler('skewb'),
+                  'sq1': sq1_shuffler()}
 
     print(f'The current modality is: {modality}\n'
           'Scrable: \033[1;34m', end='')
