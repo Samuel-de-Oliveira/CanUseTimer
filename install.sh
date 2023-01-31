@@ -8,7 +8,7 @@ clear
 
 if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
-	echo -e "\nThe installing starts! This not will take long.\n"
+	echo -e "\nThe installing starts! This will not take long.\n"
 
 	echo "Checking if Git is installed..."
 	if [ ! -f /usr/bin/git ]; then
@@ -49,10 +49,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	else
 		echo "python Main.py \$*" >> /usr/bin/canusetimer
 	fi
-	sudo chmod +x /usr/bin/canusetimer
 
 	echo "Coping files..."
-	sudo cp -f *.py /opt/CanUseTimer/
+	sudo cp *.py /opt/CanUseTimer/
 
 	echo "Coping the code library..."
 	sudo cp -rf lib/ /opt/CanUseTimer/
