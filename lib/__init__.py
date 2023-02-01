@@ -116,41 +116,49 @@ def startTimer(modality):
     print(f'The current modality is: {modality}\n'
           'Scrable: \033[1;34m', end='')
     for move in modalities[modality]: print(move ,end=' ')
-
     print('\033[m\nPress spacebar to start timer... (Press escape to exit)')
+
     while True:
-        if is_pressed('space'):
-            consoleClear()
-            window('keep pressing...')
-            sleep(0.85)
+        try:
             if is_pressed('space'):
                 consoleClear()
-                window('Leave spacebar...')
-                while is_pressed('space'): timer = time()
-                while True:
-                    totalTime = time() - timer
-                    if is_pressed('space'): break
+                window('keep pressing...')
+                sleep(0.85)
+                if is_pressed('space'):
                     consoleClear()
-                    if is_pressed('space'): break
-                    window(timeFormat(totalTime))
+                    window('Leave spacebar...')
+                    while is_pressed('space'): timer = time()
 
-                if settings().load['ask+2']:
+                    while True:
+                        totalTime = time() - timer
+                        if is_pressed('space'): break
+                        consoleClear()
+                        if is_pressed('space'): break
+                        window(timeFormat(totalTime))
+
+                    if settings().load['ask+2']:
+                        consoleClear()
+                        window(f'Time: {timeFormat(totalTime)}')
+                        plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
+                        if plustwo in 'yY': totalTime = float(totalTime) + 2
+
                     consoleClear()
-                    window(f'Time: {timeFormat(totalTime)}')
-                    plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
-                    if plustwo in 'yY': totalTime = float(totalTime) + 2
+                    window(f'Time: {timeFormat(totalTime)}', 'double_line') 
+                    timesSave.append(totalTime)
+                    timeList()
+                    print(f'Average of 5: {timeFormat(showAverage())}')
 
+                    break
+                else:
+                    consoleClear()
+                    window('The timer doesn\'t start, you need press until have 0.85secs.')
+                
+            if is_pressed('escape'):
                 consoleClear()
-                window(f'Time: {timeFormat(totalTime)}', 'double_line') 
-                timesSave.append(totalTime)
-                timeList()
-                print(f'Average of 5: {timeFormat(showAverage())}')
-
+                window('Timer\'s closed...', 'double_line')
                 break
-            else:
-                consoleClear()
-                window('The timer doesn\'t start, you need press until have 0.85secs.') 
-        if is_pressed('escape'):
+
+        except KeyboardInterrupt:
             consoleClear()
             window('Timer\'s closed...', 'double_line')
             break
