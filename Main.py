@@ -1,8 +1,8 @@
 from lib import *
 from lib.winConf import *
-import json
 from sys import argv
 from time import sleep
+import json
 
 param = argv[1:]
 sets = settings()

@@ -2,7 +2,11 @@ from lib.winConf import *
 from keyboard import is_pressed
 from time import time, sleep
 from lib.Shufflers import *
-import os, json
+import os
+import json
+
+timesSave = []
+
 
 class settings():
     def __init__(self) -> None:
@@ -56,11 +60,11 @@ class settings():
             window('This modality doesn\'t exist', 'double_line')
             return modality
  
-timesSave = []
 
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
+
 
 def Console(text='>>: ', size=2):
     while True:
@@ -72,7 +76,8 @@ def Console(text='>>: ', size=2):
         except KeyboardInterrupt: consoleClear(); exit()
         except: print('\033[1;31mPlease, Digit a valid number!\033[m')
 
-def timeFormat(time):
+
+def timeFormat(time) -> str:
     if not time == None:
         if time < 60: return f'{time:.2f}'
         else:
@@ -84,7 +89,8 @@ def timeFormat(time):
                 return f'{x}:{y}' 
             else: return f'{x}:{y:.2f}'
 
-def showAverage():
+
+def showAverage() -> float:
     if len(timesSave) >= 5:
         timesUse = 0
         for t in timesSave: timesUse += float(t)
@@ -94,12 +100,14 @@ def showAverage():
 
         return float(f'{timesUse:.2f}')
 
+
 def timeList():
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
     if len(timesSave) <= 0: print('The list is empty...')
     else:
         for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
+
 
 def startTimer(modality):
     # To see the modalities shufflers check the file: Shufflers.py
@@ -162,5 +170,6 @@ def startTimer(modality):
             consoleClear()
             window('Timer\'s closed...', 'double_line')
             break
+
 
 if __name__ == "__main__": print("Run the Main.py file to start the program...")
