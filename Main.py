@@ -55,7 +55,7 @@ if len(param) == 0:
 
         if console == 6:
             window('Remove time')
-            timeList()
+            timeRemoval()
 
         if console == 0:
             window("Bye bye!", "double_line")

@@ -5,7 +5,7 @@ from lib.Shufflers import *
 import os
 import json
 
-timesSave = []
+timesSaved = []
 
 
 class settings():
@@ -51,7 +51,7 @@ class settings():
         x = input('Digit the modality\'s name: ')
         consoleClear()
         if x in modals:
-            timesSave.clear()
+            timesSaved.clear()
             window('Modality changed', 'double_line')
             self.load['modality'] = x
             self.Save()
@@ -59,7 +59,22 @@ class settings():
         else:
             window('This modality doesn\'t exist', 'double_line')
             return modality
- 
+
+
+def timeRemoval():
+    if len(timesSaved) > 0:
+        print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
+        timeList()
+        removeTime = Console(size=len(timesSaved))
+        consoleClear()
+
+        if removeTime == 0:
+            window('Calceled', "double_line")
+        else:
+            del timesSaved[removeTime - 1]
+            window("Time removed successfully!", "double_line")
+
+    else: print('Is empty...')
 
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
@@ -91,21 +106,21 @@ def timeFormat(time) -> str:
 
 
 def showAverage() -> float:
-    if len(timesSave) >= 5:
+    if len(timesSaved) >= 5:
         timesUse = 0
-        for t in timesSave: timesUse += float(t)
-        timesUse -= float(max(timesSave))
-        timesUse -= float(min(timesSave))
-        timesUse /= len(timesSave) - 2
+        for t in timesSaved: timesUse += float(t)
+        timesUse -= float(max(timesSaved))
+        timesUse -= float(min(timesSaved))
+        timesUse /= len(timesSaved) - 2
 
         return float(f'{timesUse:.2f}')
 
 
 def timeList():
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
-    if len(timesSave) <= 0: print('The list is empty...')
+    if len(timesSaved) <= 0: print('The list is empty...')
     else:
-        for n, t in enumerate(timesSave): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
+        for n, t in enumerate(timesSaved): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
 
 
@@ -152,7 +167,7 @@ def startTimer(modality):
 
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}', 'double_line') 
-                    timesSave.append(totalTime)
+                    timesSaved.append(totalTime)
                     timeList()
                     print(f'Average of 5: {timeFormat(showAverage())}')
 
