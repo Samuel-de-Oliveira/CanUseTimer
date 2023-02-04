@@ -27,6 +27,7 @@ Yes, you can! I'm will verify your issue or pull request and if I like the ideia
 - Fix 2x2, 3x3, 4x, 5x5, pyraminx and skewb shufflers code;
 - Linux executer updated;
 - Ortography fixed;
+- Time removel added;
 - Bug fixes.
 
 ---
