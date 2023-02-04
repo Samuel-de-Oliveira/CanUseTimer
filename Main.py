@@ -21,7 +21,8 @@ if len(param) == 0:
               "3: Clear list\n"
               "4: Credits\n"
               "5: Time list\n"
-              "6: Exit\033[m")
+              "6: Remove time\n"
+              "0: Exit\033[m")
         line(style='double_line')
         console = Console(size=6)
 
@@ -29,13 +30,16 @@ if len(param) == 0:
         if console == 1:
             window('Starting timer...')
             startTimer(sets.load['modality'])
+
         if console == 2:
             window('Settings')
             sets.manager()
             window('Settings\'s closed', 'double_line')
+
         if console == 3:
             timesSave.clear()
             window('The time list is cleared!', 'double_line')
+
         if console == 4:
             window('Credits to:', 'double_line')
             print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
@@ -43,13 +47,18 @@ if len(param) == 0:
             print('\nCanUseTimer\'s version: \033[33m0.2.1.2 BETA.\033[m\n'
                   'This software is a Open Source project to free use, study code and contributing,\n'
                   'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
+
         if console == 5:
             window('Time list')
             timeList()
             print(f'Average of 5: {timeFormat(showAverage())}')
 
         if console == 6:
-            print("Bye bye!")
+            window('Remove time')
+            timeList()
+
+        if console == 0:
+            window("Bye bye!", "double_line")
             break
 
 # --start parameter
