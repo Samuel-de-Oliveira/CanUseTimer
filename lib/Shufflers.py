@@ -178,55 +178,63 @@ def s4x4_shuffler(cube):
 #                                                #
 #-*--------------------------------------------*-#
 def s6x6_shuffler(cube):
-    moves = []
-    old = 0
-    if cube == '6x6': size = 80
-    else: size = 100
+    def gen6x6():
+        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
+        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
 
-    for move in range(1, size):
-        while True:
-            m = randint(1, 6)
+        moveA = "  "
+        moveB = "  "
+        scramble = []
 
-            if not m == old:
-                if m == 1:
-                    old = m
-                    moves.append('U')
-                    break
-                if m == 2:
-                    old = m
-                    moves.append('R')
-                    break
-                if m == 3:
-                    old = m
-                    moves.append('L')
-                    break
-                if m == 4:
-                    old = m
-                    moves.append('D')
-                    break
-                if m == 5:
-                    old = m
-                    moves.append('F')
-                    break
-                if m == 6:
-                    old = m
-                    moves.append('B')
-                    break
-    for letter in range(0, size-1):
-        x = randint(1, 3)
-        if cube == '6x6':
-            if moves[letter] in 'RFU':
-                if x == 1: moves[letter] = f'{moves[letter]}w' # add 'w'
-                if x == 2: moves[letter] = f'3{moves[letter]}w'
-        else:
-            if x == 1: moves[letter] = f'{moves[letter]}w'
-            if x == 2: moves[letter] = f'3{moves[letter]}w'
+        def sameAxis(moveA, moveB, moveC):
+            concatened = moveA[1] + moveB[1] + moveC[1]
+            return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
-        x = randint(1, 3)
-        if x == 1: moves[letter] = f'{moves[letter]}\'' # add apostrophe
-        if x == 2: moves[letter] = f'{moves[letter]}2' # add two
+        for i in range(0, 63 + randint(0, 7)):
+            while True:
+                moveC = moves[randint(0, len(moves) - 1)]
+                if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
+            moveA = moveB
+            moveB = moveC
+            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
+        
+        for n, i in enumerate(scramble):
+            if 'w' in i:
+                add3 = randint(0, 1)
+                if i[0] in ['R', 'U', 'F']:
+                    if add3: scramble[n] = '3' + scramble[n]
 
-    return moves
+        return scramble
+
+    def gen7x7():
+        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
+        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+
+        moveA = "  "
+        moveB = "  "
+        scramble = []
+
+        def sameAxis(moveA, moveB, moveC):
+            concatened = moveA[1] + moveB[1] + moveC[1]
+            return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
+
+        for i in range(0, 72 + randint(0, 8)):
+            while True:
+                moveC = moves[randint(0, len(moves) - 1)]
+                if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
+            moveA = moveB
+            moveB = moveC
+            scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
+        
+        for n, i in enumerate(scramble):
+            if 'w' in i:
+                add3 = randint(0, 1)
+                if add3: scramble[n] = '3' + scramble[n]
+
+        return scramble
+
+    if cube == '6x6': return gen6x6()
+    else: return gen7x7()
 
 
 #-*------------- Square-1 shuffler -----------*-#

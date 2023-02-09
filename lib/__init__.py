@@ -76,6 +76,7 @@ def timeRemoval():
 
     else: print('Is empty...')
 
+
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
