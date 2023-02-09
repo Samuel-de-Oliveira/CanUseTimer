@@ -1,5 +1,22 @@
+#--*------------------ CanUseTimer Source Code ------------------*--#
+#                                                                   #
+# This is the source code of software CanUseTimer. You are          #
+# free to edit and study based in GPLv3 License conduct,            #
+# enjoy it. If you want to report a bug or help in the              #
+# development of software visit our repository on Github.           #
+#                                                                   #
+# License:       GPLv3                                              #
+# Creator:       Samuel de Oliveira (Samuel-de-Oliveira)            #
+# Contribuitors: Francisco Lucas (LucasAlfare)                      #
+# Repository:    https://gihub.com/Samuel-de-Oliveira/CanUseTimer   #
+#                                                                   #
+#--*-------------------------------------------------------------*--#
+
+# Import from the lib directory
 from lib import *
 from lib.winConf import *
+
+# import libraries natives from the Python
 from sys import argv
 from time import sleep
 import json
@@ -7,8 +24,8 @@ import json
 param = argv[1:]
 sets = settings()
 
+# Run main interface
 if __name__ == "__main__":
-    # Run main interface
     if len(param) == 0:
         consoleClear()
         window('Welcome to CanUseTimer!', 'double_line')

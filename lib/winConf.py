@@ -1,3 +1,5 @@
+### Here is the window configuration ###
+
 def line(size=40, style='basic'):
     if style == 'basic': print('-' * size)
     elif style == 'double_line': print('=' * size)

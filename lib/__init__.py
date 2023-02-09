@@ -1,13 +1,16 @@
+# Import from the software lib 
 from lib.winConf import *
+from lib.Shufflers import *
+
+# Import from the Python libraries
 from keyboard import is_pressed
 from time import time, sleep
-from lib.Shufflers import *
 import os
 import json
 
-timesSaved = []
+timesSaved = [] # Var to save the listo times
 
-
+# Settings class to configure software.
 class settings():
     def __init__(self) -> None:
         if not os.name in ('nt', 'dos'):
@@ -61,6 +64,7 @@ class settings():
             return modality
 
 
+# Remove a time
 def timeRemoval():
     if len(timesSaved) > 0:
         print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
@@ -77,11 +81,13 @@ def timeRemoval():
     else: print('Is empty...')
 
 
+# Clear the interface
 def consoleClear():
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
 
 
+# Console to get the user input
 def Console(text='>>: ', size=2):
     while True:
         try:
@@ -93,6 +99,7 @@ def Console(text='>>: ', size=2):
         except: print('\033[1;31mPlease, Digit a valid number!\033[m')
 
 
+# Convert seconds to minutes function
 def timeFormat(time) -> str:
     if not time == None:
         if time < 60: return f'{time:.2f}'
@@ -106,6 +113,7 @@ def timeFormat(time) -> str:
             else: return f'{x}:{y:.2f}'
 
 
+# AO5 function
 def showAverage() -> float:
     if len(timesSaved) >= 5:
         timesUse = 0
@@ -117,6 +125,7 @@ def showAverage() -> float:
         return float(f'{timesUse:.2f}')
 
 
+# Time List
 def timeList():
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
     if len(timesSaved) <= 0: print('The list is empty...')
@@ -125,6 +134,7 @@ def timeList():
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
 
 
+# The timer function (This is import for the program! =^-^=)
 def startTimer(modality):
     # To see the modalities shufflers check the file: Shufflers.py
     modalities = {'3x3': s3x3_shuffler('3x3'),
