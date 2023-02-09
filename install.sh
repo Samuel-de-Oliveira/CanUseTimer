@@ -13,9 +13,9 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	echo "Checking if Git is installed..."
 	if [ ! -f /usr/bin/git ]; then
 		if [ -f /etc/debian_version ]; then
-			sudo apt install git -y
+			apt install git -y
 		elif [ -f /etc/arch-release ]; then
-			sudo pacman -Sy git | yes
+			pacman -Sy git | yes
 		else
 			echo -e "\033[31mPlease install git to continue...\033[m"
 			exit 1
@@ -24,26 +24,26 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	if [ ! -d /opt/CanUseTimer/ ]; then
 		echo "Creating main directorie in /opt/..."
-        	sudo mkdir /opt/CanUseTimer/
+    mkdir /opt/CanUseTimer/
 	else
 		echo "removing cache..."
 		if [ -d /opt/CanUseTimer/__pycache__ ]; then
-			sudo rm -rf /opt/CanUseTimer/__pycache__
+			rm -rf /opt/CanUseTimer/__pycache__
 		fi
 		if [ -d /opt/CanUseTimer/lib/__pycache__ ]; then
-			sudo rm -rf /opt/CanUseTimer/lib/__pycache__
+			rm -rf /opt/CanUseTimer/lib/__pycache__
 		fi
 	fi
 	
 	if [ ! -d /opt/CanUseTimer/keyboard ]; then
-                echo "Cloning keybord library to /opt/CanUseTimer/..."
-                git clone https://github.com/boppreh/keyboard &> /dev/null
-		sudo mv keyboard/keyboard /opt/CanUseTimer/
+    echo "Cloning keybord library to /opt/CanUseTimer/..."
+    git clone https://github.com/boppreh/keyboard &> /dev/null
+		mv keyboard/keyboard /opt/CanUseTimer/
 	fi
 	rm -rf keyboard/
 
 	echo "Creating executer..."
-	sudo cp lib/canusetimer /usr/bin/
+	cp lib/canusetimer /usr/bin/
 	if [ -f /usr/bin/python3 ]; then
 		echo "python3 Main.py \$*" >> /usr/bin/canusetimer
 	else
@@ -51,10 +51,10 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 	fi
 
 	echo "Coping files..."
-	sudo cp *.py /opt/CanUseTimer/
+	cp *.py /opt/CanUseTimer/
 
 	echo "Coping the code library..."
-	sudo cp -rf lib/ /opt/CanUseTimer/
+	cp -rf lib/ /opt/CanUseTimer/
 	
 	echo -e "\nEverything is done!\n"
 	echo -e "\033[34;1mPress return to exit...\033[m"; read

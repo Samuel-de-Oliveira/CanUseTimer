@@ -12,11 +12,11 @@ if [ $num == 'y' ] || [ $num == 'Y' ]; then
 
 	if [ -f /usr/bin/canusetimer ]; then
 		echo "Removing executer..."
-    		sudo rm /usr/bin/canusetimer
+    rm /usr/bin/canusetimer
 	fi
 	if [ -d /opt/CanUseTimer/ ]; then
 		echo "Removing directory..."
-    		sudo rm -rf /opt/CanUseTimer/
+    rm -rf /opt/CanUseTimer/
 	fi
 	echo -e "\nEverything is removed!\n"
 	echo -e "\033[34;1mPress return to exit...\033[m"; read
