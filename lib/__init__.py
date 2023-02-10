@@ -12,18 +12,21 @@ timesSaved = [] # Var to save the listo times
 
 # Settings class to configure software.
 class settings():
+    # Get informations in "setting.json" file
     def __init__(self) -> None:
         if not os.name in ('nt', 'dos'):
             with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
         else:
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
-
+    
+    # Save informations in "setting.json" file
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'):
             with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
         else:
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
+    # Setting manager interface
     def manager(self) -> None:
         while True:
             line(style='double_line')
@@ -38,11 +41,13 @@ class settings():
             if numget == 2: self.askP2()
             if numget == 3: break
 
+    # Ask +2 configuration
     def askP2(self) -> None:
         self.load['ask+2'] = not self.load['ask+2']
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
-
+    
+    # Modality configuration
     def Modality(self, modality) -> str:
         window('Change modality')
 
@@ -113,7 +118,7 @@ def timeFormat(time) -> str:
             else: return f'{x}:{y:.2f}'
 
 
-# AO5 function
+# Ao5 function
 def showAverage() -> float:
     if len(timesSaved) >= 5:
         timesUse = 0
@@ -177,7 +182,7 @@ def startTimer(modality):
                         if plustwo in 'yY': totalTime = float(totalTime) + 2
 
                     consoleClear()
-                    window(f'Time: {timeFormat(totalTime)}', 'double_line') 
+                    window(f'Time: {timeFormat(totalTime)}', 'double_line')
                     timesSaved.append(totalTime)
                     timeList()
                     print(f'Average of 5: {timeFormat(showAverage())}')

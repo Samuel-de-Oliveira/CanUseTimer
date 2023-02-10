@@ -36,7 +36,7 @@ if __name__ == "__main__":
             print('Digit a one of these numbers:\033[36m')
             print("1: Start\n"
                 "2: Settings\n"
-                "3: Clear list\n"
+                "3: Clear time list\n"
                 "4: Credits\n"
                 "5: Time list\n"
                 "6: Remove time\n"
@@ -45,19 +45,24 @@ if __name__ == "__main__":
             console = Console(size=6)
 
             consoleClear()
+
+            # Timer
             if console == 1:
                 window('Starting timer...')
                 startTimer(sets.load['modality'])
-
+            
+            # Settings
             if console == 2:
                 window('Settings')
                 sets.manager()
                 window('Settings\'s closed', 'double_line')
-
+            
+            # Clear time list
             if console == 3:
                 timesSave.clear()
                 window('The time list is cleared!', 'double_line')
-
+            
+            # Credits
             if console == 4:
                 window('Credits to:', 'double_line')
                 print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
@@ -65,16 +70,19 @@ if __name__ == "__main__":
                 print('\nCanUseTimer\'s version: \033[33m0.2.1.2 BETA.\033[m\n'
                     'This software is a Open Source project to free use, study code and contributing,\n'
                     'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
-
+            
+            # Time list
             if console == 5:
-                window('Time list')
+                window('Time list', 'double_line')
                 timeList()
                 print(f'Average of 5: {timeFormat(showAverage())}')
-
+            
+            # Remove time
             if console == 6:
                 window('Remove time')
                 timeRemoval()
 
+            # Exit
             if console == 0:
                 window("Bye bye!", "double_line")
                 break
