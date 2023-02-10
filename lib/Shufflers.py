@@ -15,8 +15,8 @@ def s3x3_shuffler(cube):
     the conditions of how a scramble should looks like.
     '''
     def gen2x2():
-        moves = ["R", "U", "F"]
-        directions = [" ", "' ", "2 "]
+        moves = ("R", "U", "F")
+        directions = (" ", "' ", "2 ")
 
         moveA = ""
         scramble = []
@@ -38,8 +38,8 @@ def s3x3_shuffler(cube):
     the conditions of how a scramble should looks like.
     '''
     def gen3x3():
-        moves = ["Rx", "Uy", "Fz", "Lx", "Dy", "Bz"]
-        directions = [" ", "' ", "2 "]
+        moves = ("Rx", "Uy", "Fz", "Lx", "Dy", "Bz")
+        directions = (" ", "' ", "2 ")
 
         """
         Internal function to check if a group of 3 movements
@@ -78,8 +78,8 @@ def s3x3_shuffler(cube):
 #-*---------------------------------------------*-#
 def pyra_shuffler(cube):
     def genpyra():
-        moves = ['r', 'l', 'u', 'b']
-        directions = [" ", "' "]
+        moves = ('r', 'l', 'u', 'b')
+        directions = (" ", "' ")
 
         moveA = ''
         scramble = genskewb()
@@ -95,8 +95,8 @@ def pyra_shuffler(cube):
         return scramble
 
     def genskewb():
-        moves = ['R', 'L', 'U', 'B']
-        directions = [" ", "' "]
+        moves = ('R', 'L', 'U', 'B')
+        directions = (" ", "' ")
 
         moveA = ''
         scramble = []
@@ -115,6 +115,7 @@ def pyra_shuffler(cube):
     if cube == 'pyra': return genpyra()
     else: return genskewb()
 
+
 #-*---------------- 4x4 shuffler -----------------*-#
 #                                                   #
 #     This shuffler work in: 4x4 and 5x5 puzzles.   #
@@ -123,8 +124,8 @@ def pyra_shuffler(cube):
 #-*-----------------------------------------------*-#
 def s4x4_shuffler(cube):
     def gen4x4():
-        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
-        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
         moveA = "  "
         moveB = "  "
@@ -146,8 +147,8 @@ def s4x4_shuffler(cube):
         return scramble
 
     def gen5x5():
-        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
-        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
         moveA = "  "
         moveB = "  "
@@ -179,8 +180,8 @@ def s4x4_shuffler(cube):
 #-*--------------------------------------------*-#
 def s6x6_shuffler(cube):
     def gen6x6():
-        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
-        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
         moveA = "  "
         moveB = "  "
@@ -207,8 +208,8 @@ def s6x6_shuffler(cube):
         return scramble
 
     def gen7x7():
-        moves = ['Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz']
-        directions = [" ", "' ", "2 ", "w ", "w' ", "w2 "]
+        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
         moveA = "  "
         moveB = "  "
