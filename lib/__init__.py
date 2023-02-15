@@ -8,15 +8,31 @@ from time import time, sleep
 import os
 import json
 
-timesSaved = [] # Var to save the listo times
+timesSaved = [] # Var to save the list of times
 
 # Settings class to configure software.
 class settings():
     # Get informations in "setting.json" file
     def __init__(self) -> None:
+        # If the system isn't Windows
         if not os.name in ('nt', 'dos'):
+            # Check if the setting file exists
+            if not os.path.exists("lib/setting.json"):
+                with open('lib/setting.json', 'w') as f:
+                    f.write(json.dumps({"modality": "3x3",
+                                        "ask+2": True}, indent=True))
+            else: pass
+
             with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+
         else:
+            # Check if the setting file exists
+            if not os.path.exists("lib/setting.json"):
+                with open('lib/setting.json', 'w') as f:
+                    f.write(json.dumps({"modality": "3x3",
+                                        "ask+2": True}, indent=True))
+            else: pass
+
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
     
     # Save informations in "setting.json" file
