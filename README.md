@@ -17,18 +17,16 @@ Yes, you can! I'm will verify your issue or pull request and if I like the ideia
 
 ---
 ## Release notes 🗒️
-### [Stable](#stable) 0.2.1.1 :white_check_mark:
-- Program optimized;
-- Linux installer now install keyboard library from git;
-- Time list can be showed;
-- Bug fixes.
-
-### [Unstable](#unstable) 0.2.1.2 :construction:
+### [Stable](#stable) 0.2.1.2 :white_check_mark:
 - Fix all shufflers code;
 - Linux executer updated;
 - Ortography fixed;
 - Time remover added;
 - Bug fixes.
+
+### [Unstable](#unstable) :construction:
+
+> :information_source: No unstable versions for now
 
 ---
 ## Install
