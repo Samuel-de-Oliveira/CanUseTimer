@@ -105,7 +105,7 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 ## Some warnings! ⚠️
 - This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not in other else;
-- this is a BETA version, it's not done yet;
+- this is a BETA version, its mean that;
 - If you found bugs please report to fast fixing in Github issues.
 
 ---
@@ -113,4 +113,3 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 **Version: 0.2.1.2 BETA**
 
 ##### Created by: *Samuel de Oliveira 2021*
-##### follow me for more!
