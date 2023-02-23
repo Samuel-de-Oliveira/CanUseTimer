@@ -20,7 +20,7 @@ Yes, you can! I'm will verify your issue or pull request and if I like the ideia
 ### [Stable](#stable) 0.2.1.2 :white_check_mark:
 - Fix all shufflers code;
 - Linux executer updated;
-- Ortography fixed;
+- Orthography fixed;
 - Time remover added;
 - Bug fixes.
 
@@ -41,7 +41,7 @@ Chose your Operating system:
 |System|Latest version|File|
 | :- | :- | :-: |
 |Windows| 0.2.1 | [CanUseTimer-v0.2.1-Windows.zip](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.1/CanUseTimer-v0.2.1-Windows.zip) |
-|Linux| 0.2.1.1 | [CanUseTimer-v0.2.1.1-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.1.1/CanUseTimer-v0.2.1.1-Linux.tar.xz) |
+|Linux| 0.2.1.2 | [CanUseTimer-v0.2.1.2-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.1.2/CanUseTimer-v0.2.1.2-Linux.tar.xz) |
 | Mac OS | - Comming soon ||
 
 Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
