@@ -1,4 +1,4 @@
-# CanUseTimer ![Logo](Images/CanUseTimerLogo.png)
+# ![Logo](Images/CanUseTimer-Logo.png)
 
 ---
 ---
