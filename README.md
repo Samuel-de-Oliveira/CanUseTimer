@@ -1,4 +1,4 @@
-# <img src="Images/CanUseTimer-Logo.png" size="20%">
+<img src="Images/CanUseTimer-Logo.png" width="60%">
 
 ---
 ---
