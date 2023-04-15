@@ -1,4 +1,4 @@
-# ![Logo](Images/CanUseTimer-Logo.png)
+# <img src="Images/CanUseTimer-Logo.png" size="20%">
 
 ---
 ---
