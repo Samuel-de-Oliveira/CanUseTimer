@@ -3,20 +3,21 @@
 ---
 ---
 ## What is it?
-CanUseTimer-Terminal is an open source writed in Python speedcubing
-timer created to work in a terminal or command prompt window. Because 
-this the program is soft and run anywhere, it means that can run in 
-probally any computer with bad hardware and any operating system
-(Windows, Linux and MacOS X).
+<img src="Images/Overview.png" width=50% align="right">
 
-<div align="left">
+CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
+timer created to work in a terminal or command prompt window. Because 
+this the program is soft and run anywhere, it means that it can run in 
+probally any computer with bad hardware and any operating system
+(Windows, Linux and MacOS X). And It's Open Source, you can install it
+for free and study the source code of program if you want.
+
 In future I will create a grafical
 interface based in it, but I don't know a good grafical interface
 framework to use in my project, but probally this will take a long
-time.
-</div>
-
-<img src="Images/Overview.png" width=50%>
+time. If you know a good grafical interface framework please tell me
+in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
+<br><br>
 
 ## Can I help in project?
 Yes, you can! I'm will verify your issue or pull request and if I like the ideia, I will implement in my software. So don't be shy to share something good.
