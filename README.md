@@ -7,10 +7,16 @@ CanUseTimer-Terminal is an open source writed in Python speedcubing
 timer created to work in a terminal or command prompt window. Because 
 this the program is soft and run anywhere, it means that can run in 
 probally any computer with bad hardware and any operating system
-(Windows, Linux and MacOS X). In future I will create a grafical
+(Windows, Linux and MacOS X).
+
+<div align="left">
+In future I will create a grafical
 interface based in it, but I don't know a good grafical interface
 framework to use in my project, but probally this will take a long
 time.
+</div>
+
+<img src="Images/Overview.png" width=50%>
 
 ## Can I help in project?
 Yes, you can! I'm will verify your issue or pull request and if I like the ideia, I will implement in my software. So don't be shy to share something good.
