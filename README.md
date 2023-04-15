@@ -3,7 +3,7 @@
 ---
 ---
 ## What is it?
-<img src="Images/Overview.png" width=50% align="right">
+<img src="Images/Overview.png" width=52% align="right">
 
 CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
 timer created to work in a terminal or command prompt window. Because 
@@ -17,7 +17,6 @@ interface based in it, but I don't know a good grafical interface
 framework to use in my project, but probally this will take a long
 time. If you know a good grafical interface framework please tell me
 in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
-<br><br>
 
 ## Can I help in project?
 Yes, you can! I'm will verify your issue or pull request and if I like the ideia, I will implement in my software. So don't be shy to share something good.
