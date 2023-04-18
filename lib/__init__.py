@@ -8,7 +8,29 @@ from time import time, sleep
 import os
 import json
 
-timesSaved = [] # Var to save the list of times
+
+class timesSaved():
+    def __init__(self) -> None:
+        if not os.path.exists("timesSaved.json"):
+                with open('timesSaved.json', 'w') as f:
+                    f.write(json.dumps(
+                        {"3x3": [],
+                         "2x2": [],
+                         "4x4": [],
+                         "5x5": [],
+                         "6x6": [],
+                         "7x7": [],
+                         "pyra": [],
+                         "skewb": [],
+                         "sq1": []},
+                         indent=True))
+        else: pass
+
+        with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
+
+
+times = timesSaved()
+
 
 # Settings class to configure software.
 class settings():
@@ -135,23 +157,23 @@ def timeFormat(time) -> str:
 
 
 # Ao5 function
-def showAverage() -> float:
-    if len(timesSaved) >= 5:
+def showAverage(modality) -> float:
+    if len(times.load[modality]) >= 5:
         timesUse = 0
-        for t in timesSaved: timesUse += float(t)
-        timesUse -= float(max(timesSaved))
-        timesUse -= float(min(timesSaved))
-        timesUse /= len(timesSaved) - 2
+        for t in times.load[modality]: timesUse += float(t)
+        timesUse -= float(max(times.load[modality]))
+        timesUse -= float(min(times.load[modality]))
+        timesUse /= len(times.load[modality]) - 2
 
         return float(f'{timesUse:.2f}')
 
 
 # Time List
-def timeList():
+def timeList(modality) -> None:
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
-    if len(timesSaved) <= 0: print('The list is empty...')
+    if len(times.load[modality]) <= 0: print('The list is empty...')
     else:
-        for n, t in enumerate(timesSaved): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
+        for n, t in enumerate(times.load[modality]): print(f'\033[1m{n+1} - {timeFormat(t)}\033[m')
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
 
 
@@ -199,9 +221,9 @@ def startTimer(modality):
 
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}', 'double_line')
-                    timesSaved.append(totalTime)
-                    timeList()
-                    print(f'Average of 5: {timeFormat(showAverage())}')
+                    times.load[modality].append(totalTime)
+                    timeList(modality)
+                    print(f'Average of 5: {timeFormat(showAverage(modality))}')
 
                     break
                 else:
