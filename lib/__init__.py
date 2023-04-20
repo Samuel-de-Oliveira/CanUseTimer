@@ -97,7 +97,6 @@ class settings():
         x = input('Digit the modality\'s name: ')
         consoleClear()
         if x in modals:
-            timesSaved.clear()
             window('Modality changed', 'double_line')
             self.load['modality'] = x
             self.Save()
