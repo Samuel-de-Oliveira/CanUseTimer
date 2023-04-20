@@ -105,7 +105,7 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 -->
 ---
 ## Why use?
-- Lightweight program (Almost 300Kb of space on Linux and 7MB for Windows);
+- Lightweight program (Almost 600Kb of space on Linux and 7MB for Windows);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
 - It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
@@ -115,7 +115,7 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 ## Some warnings! ⚠️
 - This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not in other else;
-- this is a BETA version, its mean that;
+- this is a BETA version, its mean that the final version is on progress;
 - If you found bugs please report to fast fixing in Github issues.
 
 ---
