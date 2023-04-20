@@ -76,7 +76,7 @@ if __name__ == "__main__":
             if console == 5:
                 window('Time list', 'double_line')
                 timeList(sets.load['modality'])
-                print(f'Average of 5: {timeFormat(showAverage())}')
+                print(f'Average of 5: {timeFormat(showAverage(sets.load["modality"]))}')
             
             # Remove time
             if console == 6:
