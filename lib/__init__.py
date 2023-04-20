@@ -9,6 +9,7 @@ import os
 import json
 
 
+# Time list saver class
 class timesSaved():
     def __init__(self) -> None:
         if not os.path.exists("timesSaved.json"):
@@ -28,7 +29,10 @@ class timesSaved():
 
         with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
 
+    def Save(self) -> None: pass
 
+
+# Init Time list
 times = timesSaved()
 
 

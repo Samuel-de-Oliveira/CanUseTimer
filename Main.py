@@ -28,10 +28,12 @@ sets = settings()
 # Run main interface
 if __name__ == "__main__":
     if len(param) == 0:
+        # Starter window
         consoleClear()
         window('Welcome to CanUseTimer!', 'double_line')
 
         while True:
+            # Menu list
             settings()
             line(style='double_line')
             print('Digit a one of these numbers:\033[36m')
