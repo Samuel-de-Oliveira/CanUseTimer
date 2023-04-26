@@ -33,9 +33,11 @@ Yes, you can! I'm will verify your issue or pull request and if I like the ideia
 - Time remover added;
 - Bug fixes.
 
-### [Unstable](#unstable) :construction:
-
-> :information_source: No unstable versions for now
+### [Unstable](#unstable) 0.2.2 :construction:
+- Time list recieved a upgrade:
+  - Now the times can be saved when the user exit of software;
+  - Time list is now parallel for each modality.
+- Bug fixes.
 
 ---
 ## Install
