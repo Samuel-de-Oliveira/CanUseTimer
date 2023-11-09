@@ -111,17 +111,17 @@ class settings():
 
 
 # Remove a time
-def timeRemoval():
-    if len(timesSaved) > 0:
+def timeRemoval(modality):
+    if len(times.load[modality]) > 0:
         print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
-        timeList()
-        removeTime = Console(size=len(timesSaved))
+        timeList(modality)
+        removeTime = Console(size=len(times.load[modality]))
         consoleClear()
 
         if removeTime == 0:
             window('Calceled', "double_line")
         else:
-            del timesSaved[removeTime - 1]
+            del times.load[modality][removeTime - 1]
             window("Time removed successfully!", "double_line")
 
     else: print('Is empty...')

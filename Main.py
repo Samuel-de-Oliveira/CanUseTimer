@@ -83,7 +83,7 @@ if __name__ == "__main__":
             # Remove time
             if console == 6:
                 window('Remove time')
-                timeRemoval()
+                timeRemoval(sets.load['modality'])
 
             # Exit
             if console == 0:
