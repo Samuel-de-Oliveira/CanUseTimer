@@ -3,7 +3,7 @@
 
 clear
 echo -e "\033[1mInstall program.\033[m"
-echo -e "\nVersion of Program: \033[33m0.2.1.2 BETA\033[m\n"
+echo -e "\nVersion of Program: \033[33m0.2.2 BETA\033[m\n"
 
 echo -e "\nThe installing starts! This will not take long.\n"
 

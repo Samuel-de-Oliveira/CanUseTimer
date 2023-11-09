@@ -9,7 +9,7 @@
 # Creator:       Samuel de Oliveira (Samuel-de-Oliveira)            #
 # Contribuitors: Francisco Lucas (LucasAlfare)                      #
 # Repository:    https://gihub.com/Samuel-de-Oliveira/CanUseTimer   #
-# Version:       0.2.1.2 BETA (stable)
+# Version:       0.2.2 BETA (unstable)                              #
 #                                                                   #
 #--*-------------------------------------------------------------*--#
 
