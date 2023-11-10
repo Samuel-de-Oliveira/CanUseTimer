@@ -9,8 +9,8 @@ CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
 timer created to work in a terminal or command prompt window. Because 
 this the program is soft and run anywhere, it means that it can run in 
 probally any computer with bad hardware and any operating system
-(Windows, Linux and MacOS X). And It's Open Source, you can install it
-for free and study the source code of program if you want.
+(Windows, Linux and MacOS X). And It's Open Source project, it means that
+you can install it for free and study the source code of program if you want.
 
 In future I will create a grafical
 interface based in it, but I don't know a good grafical interface
@@ -19,7 +19,7 @@ time. If you know a good grafical interface framework please tell me
 in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
 
 ## Can I contribute to project?
-Yes, you can! I'm will verify your issue or pull request and if I like the ideia, I will implement in my software. So don't be shy to share something good.
+Yes, you can! I will verify your issue or pull request, and if I like the ideia, I will implement in my software. So don't be shy to share something good.
 
 - Comment a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
 - Create a [pull request](https://github.com/Samuel-de-Oliveira/CanUseTimer/pulls)
