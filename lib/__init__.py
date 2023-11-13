@@ -8,6 +8,8 @@ from time import time, sleep
 import os
 import json
 
+# Version Variable #
+__version__ = "0.2.2 BETA (Unstable Release)"
 
 # Time list saver class
 class timesSaved():
