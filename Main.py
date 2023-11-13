@@ -15,6 +15,7 @@
 
 # Import from the lib directory
 from lib import *
+from lib import __version__
 from lib.winConf import *
 
 # import libraries natives from the Python
@@ -73,7 +74,7 @@ if __name__ == "__main__":
                 window('Credits to:', 'double_line')
                 print('The creator: Samuel de Oliveira(Github: Samuel-de-Oliveira) (All rights reserved).')
                 print('Special thanks to contribuitors: Francisco Lucas(Github: LucasAlfare)')
-                print(f'\nCanUseTimer\'s version: \033[33m{lib.__version__}\033[m.\n'
+                print(f'\nCanUseTimer\'s version: \033[33m{__version__}\033[m.\n'
                     'This software is a Open Source project to free use, study code and contributing,\n'
                     'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
             
