@@ -62,8 +62,11 @@ if __name__ == "__main__":
             
             # Clear time list
             if console == 3:
-                timesSave.clear()
-                window('The time list is cleared!', 'double_line')
+                if len(times.load[sets.load["modality"]]) >= 1:
+                    times.load[sets.load["modality"]].clear()
+                    window('The time list is cleared!', 'double_line')
+                else:
+                    window('The time list is empty...')
             
             # Credits
             if console == 4:
