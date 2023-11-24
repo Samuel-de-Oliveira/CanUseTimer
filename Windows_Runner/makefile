@@ -1,3 +1,4 @@
+# Makefile for the runner
 CXX    = gcc.exe
 TARGET = CanUseTimer.exe
 FILE   = Main.c
