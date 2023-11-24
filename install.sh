@@ -9,14 +9,8 @@ echo -e "\nThe installing starts! This will not take long.\n"
 
 echo "Checking if Git is installed..."
 if [ ! -f /usr/bin/git ]; then
-	if [ -f /etc/debian_version ]; then
-		apt install git -y
-	elif [ -f /etc/arch-release ]; then
-		pacman -Sy git | yes
-	else
-		echo -e "\033[31mPlease install git to continue...\033[m"
-		exit 1
-	fi
+	echo -e "\033[31mPlease install git to continue...\033[m"
+	exit 1
 fi
 
 if [ ! -d /opt/CanUseTimer/ ]; then
