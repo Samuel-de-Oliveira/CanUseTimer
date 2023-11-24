@@ -55,20 +55,20 @@ class settings():
 
         else:
             # Check if the setting file exists
-            if not os.path.exists("lib/setting.json"):
-                with open('lib/setting.json', 'w') as f:
+            if not os.path.exists(".\\lib\\setting.json"):
+                with open('.\\lib\\setting.json', 'w') as f:
                     f.write(json.dumps({"modality": "3x3",
                                         "ask+2": True}, indent=True))
             else: pass
 
-            with open('setting.json', 'r') as f: self.load = json.loads(f.read())
+            with open('.\\lib\\setting.json', 'r') as f: self.load = json.loads(f.read())
     
     # Save informations in "setting.json" file
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'):
             with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
         else:
-            with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            with open('.\\lib\\setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
     # Setting manager interface
     def manager(self) -> None:
@@ -215,6 +215,8 @@ def startTimer(modality):
                         totalTime = time() - timer
                         if is_pressed('space'): break
                         consoleClear()
+                            
+
                         if is_pressed('space'): break
                         window(timeFormat(totalTime))
 
