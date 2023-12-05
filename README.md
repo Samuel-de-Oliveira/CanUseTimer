@@ -13,7 +13,7 @@ probally any computer with bad hardware and any operating system
 you can install it for free and study the source code of program if you want.
 
 In future I will create a grafical
-interface based in it, but I don't know a good grafical interface
+interface based on it, but I don't know a good grafical interface
 framework to use in my project, but probally this will take a long
 time. If you know a good grafical interface framework please tell me
 in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
@@ -44,7 +44,7 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 ### Stable
 The stable version is the most recommended to install in your machine
 because there's less bugs, have installers for all systems and you
-don't need know about programing and python to run it.
+don't need know about programing and Python to run it.
 
 **Install**
 
@@ -75,14 +75,15 @@ with:
 git clone https://github.com/Samuel-de-Oliveira/CanUseTimer.git
 cd CanUseTimer
 ```
+
 after this you can run it with python or (if you use Linux) install
-using the file `install.sh`. To update type `git pull` and install
-it again.
+using the file `install.sh`. To update (Any system) type `git pull`
+and install it again.
 
 **Run from source**
 
 But if you don't want to install you can run directly from source
-using Python. To do this process you need install python 3.7 or higher
+using Python. To do this process you need install python 3.10 or higher
 with pip, after install you need to install the requirements using `pip
 install -r requirements.txt` or `pip3 install -r requirements.txt`.
 
@@ -107,21 +108,19 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 -->
 ---
 ## Why use?
-- Lightweight program (Almost 600Kb of space on Linux and 7MB for Windows);
+- Lightweight program (Almost 1MB of space on Linux and 7MB for Windows);
 - Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
 - Don't need internet (but you can't update it);
-- It follow the [WCA regulations](https://www.worldcubeassociation.org/regulations/);
 - Open source (Read the GPLv3 licensse for more info). 🔓 
 
 ---
-## Some warnings! ⚠️
+## Disclaimers! ⚠️
 - This is the terminal version, without grafical interface;
-- This program is tested only in Linux and Windows, and not in other else;
-- this is a BETA version, its mean that the final version is on progress;
+- This program is tested only in Linux and Windows, and not else;
+- this is a BETA version, this means that the final version is on progress;
 - If you found bugs please report to fast fixing in Github issues.
 
 ---
 ---
-**Version: 0.2.1.2 BETA**
 
-##### Created by: *Samuel de Oliveira 2021*
+##### Created by: *Samuel de Oliveira 2021 - 2024*
