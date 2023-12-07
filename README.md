@@ -37,6 +37,7 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - Time list recieved a upgrade:
   - Now the times can be saved when the user exit of software;
   - Time list is now parallel for each modality.
+- windows installer now is real;
 - Bug fixes.
 
 ---
