@@ -1,8 +1,16 @@
-# Import from the software lib 
+#-----------*- CanUseTimer main modules -*-----------#
+#                                                    # 
+# This is the modules main library for CanUsetimer   #
+# here you find all functions used in the Main.py    #
+# file.                                              #
+#                                                    #
+#--*----------------------------------------------*--#
+
+# Imports from the software lib 
 from lib.winConf import *
 from lib.Shufflers import *
 
-# Import from the Python libraries
+# Imports from other Python libraries
 from keyboard import is_pressed
 from time import time, sleep
 import os
@@ -182,7 +190,7 @@ def timeList(modality) -> None:
     print('_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_')
 
 
-# The timer function (This is import for the program! =^-^=)
+# The timer function (This is important for the program! =^-^=)
 def startTimer(modality):
     # To see the modalities shufflers check the file: Shufflers.py
     modalities = {'3x3': s3x3_shuffler('3x3'),
@@ -195,9 +203,11 @@ def startTimer(modality):
                   'skewb': pyra_shuffler('skewb'),
                   'sq1': sq1_shuffler()}
 
+    # Show shuffler
     print(f'The current modality is: {modality}\n'
           'Scrable: \033[1;34m', end='')
     for move in modalities[modality]: print(move ,end=' ')
+
     print('\033[m\nPress spacebar to start timer... (Press escape to exit)')
 
     while True:
@@ -211,6 +221,7 @@ def startTimer(modality):
                     window('Leave spacebar...')
                     while is_pressed('space'): timer = time()
 
+                    # Timer working
                     while True:
                         totalTime = time() - timer
                         if is_pressed('space'): break
@@ -220,18 +231,21 @@ def startTimer(modality):
                         if is_pressed('space'): break
                         window(timeFormat(totalTime))
 
+                    # Ask +2
                     if settings().load['ask+2']:
                         consoleClear()
                         window(f'Time: {timeFormat(totalTime)}')
                         plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                         if plustwo in 'yY': totalTime = float(totalTime) + 2
 
+                    # Time list
                     consoleClear()
                     window(f'Time: {timeFormat(totalTime)}', 'double_line')
                     times.load[modality].append(totalTime)
                     timeList(modality)
                     print(f'Average of 5: {timeFormat(showAverage(modality))}')
 
+                    # End
                     break
                 else:
                     consoleClear()

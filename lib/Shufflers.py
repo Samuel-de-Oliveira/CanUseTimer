@@ -1,5 +1,13 @@
-from random import randint
+#-*------------- Shufflers library ----------------*-#
+#                                                    #
+#  Library made to write all the shuffler for every  #
+#  scramble of WCA competitions. All shufflers has   #
+#  comments with the kind of cube it shuffle         #
+#                                                    #
+#-*------------------------------------------------*-#
 
+# Random module
+from random import randint
 
 #-*-------------- 3x3 shuffler -----------------*-#
 #                                                 #
