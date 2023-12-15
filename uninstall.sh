@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#-*------------------ The CanUseTimer Uninstaller ------------------*-#
+#-*------------------ CanUseTimer Uninstaller ------------------*-#
 
 clear
 echo -e "\033[1mUninstall program...\033[m"
