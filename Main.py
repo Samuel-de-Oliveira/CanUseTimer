@@ -91,6 +91,12 @@ if __name__ == "__main__":
 
             # Exit
             if console == 0:
+                # Save all data
+                window("Saving all data...")
+                sets.Save()
+                consoleClear()
+
+                # Finally it break the loop
                 window("Bye bye!", "double_line")
                 break
 
