@@ -94,6 +94,7 @@ if __name__ == "__main__":
                 # Save all data
                 window("Saving all data...")
                 sets.Save()
+                times.Save()
                 consoleClear()
 
                 # Finally it break the loop

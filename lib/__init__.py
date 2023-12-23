@@ -39,7 +39,8 @@ class timesSaved():
 
         with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
 
-    def Save(self) -> None: pass
+    def Save(self) -> None:
+        with open('timesSaved.json', 'w') as f: f.write(json.dumps(self.load))
 
 
 # Init Time list
@@ -183,6 +184,7 @@ def showAverage(modality) -> float:
 
 # Time List
 def timeList(modality) -> None:
+    print(f'Current modality: \033[34;1m{modality}\033[m')
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
     if len(times.load[modality]) <= 0: print('The list is empty...')
     else:
