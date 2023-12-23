@@ -40,7 +40,8 @@ class timesSaved():
         with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
 
     def Save(self) -> None:
-        with open('timesSaved.json', 'w') as f: f.write(json.dumps(self.load))
+        with open('timesSaved.json', 'w') as f:
+            f.write(json.dumps(self.load), indent=True)
 
 
 # Init Time list

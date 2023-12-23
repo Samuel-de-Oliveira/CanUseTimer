@@ -4,18 +4,17 @@ with pip and install GNU make, we recomend use the
 [chocolatey](https://chocolatey.org/install) to install
 GNU Make using this follow command (as administrator):
 
-```batchfile
+```bat
 choco install make
 ```
 
 Then you should clone the repository using the follow command:
 
-```batchfile
+```bat
 git clone https://github.com/Samuel-de-Oliveira/CanUseTimer
 ```
 
-install the required libraries for Python, go to the start of
-repository and run `pip install -r requirements.txt` and finally
-change the directory to `Windows_Maker` and run the `make` command
+And finally change the directory to `Windows_Maker` and
+run the `make` command.
 
-and done the software is compiled :smile:
+and done the software is compiled at the `dist` directory :smile:
