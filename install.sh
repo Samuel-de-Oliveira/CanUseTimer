@@ -2,10 +2,8 @@
 #-*-------------- Installer for GNU/Linux --------------*-#
 
 clear
-echo -e "\033[1mInstall program.\033[m"
 echo -e "\nVersion of Program: \033[33m0.2.2 BETA\033[m\n"
-
-echo -e "\nThe installing starts! This will not take long.\n"
+echo -e "\ninstalling... This will not take long.\n"
 
 if [ ! -f /usr/bin/git ]; then
 	echo -e "\033[31mPlease install git to continue...\033[m"
@@ -13,18 +11,18 @@ if [ ! -f /usr/bin/git ]; then
 fi
 
 if [ ! -d /opt/CanUseTimer/ ]; then
-	echo "Creating main directorie in /opt/..."
+	echo "Creating main directory in /opt/..."
 	mkdir /opt/CanUseTimer/
 fi
 	
 if [ ! -d /opt/CanUseTimer/keyboard ]; then
-	echo "Cloning keybord library to /opt/CanUseTimer/..."
+	echo "Cloning needed library to /opt/CanUseTimer/..."
 	git clone https://github.com/boppreh/keyboard &> /dev/null
 	mv keyboard/keyboard /opt/CanUseTimer/
 fi
 rm -rf keyboard/
 
-echo "Creating executer..."
+echo "Create executer..."
 cp lib/canusetimer /usr/bin/
 if [ -f /usr/bin/python3 ]; then
 	echo "python3 Main.py \$*" >> /usr/bin/canusetimer
