@@ -104,13 +104,23 @@ class settings():
     def Modality(self, modality) -> str:
         window('Change modality')
 
+        # Show current modalities
         modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
         print('All modalities:', end='')
-        for m in modals: print(f' {m}', end=' ')
+        for m in modals:
+            if modality == m: print('\033[34;1m', end='')
+            else: print('\033[32m', end='')
 
+            print(f' {m}', end=' ')
+            print('\033[m', end='')
+
+        # Break line
         print() 
+
         x = input('Digit the modality\'s name: ')
         consoleClear()
+
+        # Selecting modality
         if x in modals:
             window('Modality changed', 'double_line')
             self.load['modality'] = x
@@ -130,7 +140,7 @@ def timeRemoval(modality):
         consoleClear()
 
         if removeTime == 0:
-            window('Calceled', "double_line")
+            window('you\'ve caceled this operation', "double_line")
         else:
             del times.load[modality][removeTime - 1]
             window("Time removed successfully!", "double_line")
