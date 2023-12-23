@@ -1,4 +1,4 @@
-<img src="Images/CanUseTimer-Logo.png" width="60%">
+<img src="Images/CanUseTimer-Logo.svg" width="100%">
 
 ---
 ---
@@ -26,19 +26,15 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 
 ---
 ## Release notes 🗒️
-### [Stable](#stable) 0.2.1.2 :white_check_mark:
-- Fix all shufflers code;
-- Linux executer updated;
-- Orthography fixed;
-- Time remover added;
-- Bug fixes.
-
-### [Unstable](#unstable) 0.2.2 :construction:
+### [Stable](#stable) 0.2.2 :white_check_mark:
 - Time list recieved a upgrade:
   - Now the times can be saved when the user exit of software;
   - Time list is now parallel for each modality.
 - windows installer now is real;
 - Bug fixes.
+
+### [Unstable](#unstable) :construction:
+- No unstable version for now
 
 ---
 ## Install

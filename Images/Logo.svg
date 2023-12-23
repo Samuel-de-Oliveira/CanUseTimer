@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1024 1024" style="enable-background:new 0 0 1024 1024;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#00FF00;}
+	.st1{fill:#0077FF;}
+	.st2{fill:none;}
+</style>
+<g id="Caixa">
+	<path class="st0" d="M714.66,1012.5h71.46c63.7,0,95.61-77.02,50.56-122.07l0,0L714.66,768.41v-0.05h-0.05l0,0v0l-458.96,0V338.99
+		c0-18.96-7.53-37.15-20.94-50.56L133.59,187.3l0,0c-45.04-45.05-122.06-13.14-122.06,50.56v71.51v458.98h-0.05l0,244.14h0.05v0
+		h244.13l0,0H714.66L714.66,1012.5z"/>
+	<path class="st1" d="M308.29,12.5l-71.46,0c-63.7,0-95.61,77.02-50.56,122.07l0,0l122.02,122.02v0.05h0.05l0,0v0l458.96,0v429.37
+		c0,18.96,7.53,37.15,20.94,50.56L889.36,837.7l0,0c45.04,45.05,122.06,13.14,122.06-50.56v-71.51V256.64h0.05l0-244.14h-0.05v0
+		l-244.13,0l0,0L308.29,12.5L308.29,12.5z"/>
+</g>
+<g id="Parte_vazia_Caixa">
+	<polygon class="st2" points="303.5,250.5 249.5,304.5 -0.5,54.5 0.5,0.5 53.5,0.5 	"/>
+	<polygon class="st2" points="719.5,774.5 773.5,720.5 1023.5,970.5 1024.5,1023.5 969.5,1024.5 	"/>
+</g>
+</svg>
