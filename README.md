@@ -61,7 +61,7 @@ with bugs of new implementations, recommended only if you want to
 check what is comming and test it.
 
 > :warning: This type of version only have Linux installer (Because
-the creator use Linux).
+the deeveloper uses Linux).
 
 **Install**
 
