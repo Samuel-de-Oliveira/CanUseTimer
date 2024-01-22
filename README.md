@@ -106,7 +106,7 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 ---
 ## Why use?
 - Lightweight program (Almost 1MB of space on Linux and 7MB for Windows);
-- Run all platforms (Windows, Linux :penguin:, MacOS X 🍎);
+- Run all platforms (Windows, Linux :penguin:);
 - Don't need internet (but you can't update it);
 - Open source (Read the GPLv3 licensse for more info). 🔓 
 
