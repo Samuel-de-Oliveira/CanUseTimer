@@ -1,9 +1,9 @@
-<img src="Images/CanUseTimer-Logo.svg" width="100%">
+<img src="Images/CanUseTimer-Logo.svg" width="65%">
 
 ---
 ---
 ## What is it?
-<img src="Images/Overview.png" width=55% align="right">
+<img src="Images/wiki/Screenshot-new.png" width=47% align="right">
 
 CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
 timer created to work in a terminal or command prompt window. Because 
@@ -17,6 +17,8 @@ interface based on it, but I don't know a good grafical interface
 framework to use in my project, but probally this will take a long
 time. If you know a good grafical interface framework please tell me
 in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
+
+> ℹ️ Note: Dont tell me about TKinter, I've tried it and it went wrong.
 
 ## Can I contribute to project?
 Yes, you can! I will verify your issue or pull request, and if I like the ideia, I will implement in my software. So don't be shy to share something good.
