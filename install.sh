@@ -1,13 +1,12 @@
 #!/usr/bin/env bash
 #-*-------------- Installer for GNU/Linux --------------*-#
 
-clear
 echo -e "\nVersion of Program: \033[33m0.2.2 BETA\033[m\n"
 echo -e "\ninstalling... This will not take long.\n"
 
 if [ ! -f /usr/bin/git ]; then
 	echo -e "\033[31mPlease install git to continue...\033[m"
-	exit 1
+	exit
 fi
 
 if [ ! -d /opt/CanUseTimer/ ]; then
@@ -36,4 +35,3 @@ cp -rf lib/ /opt/CanUseTimer/
 	
 echo -e "\nEverything is done!\n"
 echo -e "\033[34;1mPress return to exit...\033[m"; read
-clear

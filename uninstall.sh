@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 #-*------------------ CanUseTimer Uninstaller ------------------*-#
 
-clear
 echo -e "\033[1mUninstall program...\033[m"
 
 if [ -f /usr/bin/canusetimer ]; then
@@ -15,4 +14,3 @@ fi
 
 echo -e "\nEverything is removed!\n"
 echo -e "\033[34;1mPress return to exit...\033[m"; read
-clear
