@@ -1,4 +1,9 @@
 ### Here is the window configuration ###
+import os
+
+if os.name in ('nt', 'dos'):
+    import winsound
+
 
 def line(size=40, style='basic'):
     if style == 'basic': print('-' * size)
@@ -10,5 +15,10 @@ def window(msg, style='basic'):
     print(f'|    {msg}    |')
     line(len(msg) + 10, style)
 
+
+# Alert sound
+def alert():
+    if os.name in ('nt', 'dos'): pass
+    else: print('\a', end='\a') 
 
 if __name__ == "__main__": print("Run the Main.py file to start program...")

@@ -7,7 +7,7 @@
 #--*----------------------------------------------*--#
 
 # Imports from the software lib 
-from lib.winConf import *
+from lib.cliTools import *
 from lib.Shufflers import *
 
 # Imports from other Python libraries

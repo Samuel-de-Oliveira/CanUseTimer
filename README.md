@@ -18,7 +18,7 @@ framework to use in my project, but probally this will take a long
 time. If you know a good grafical interface framework please tell me
 in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
 
-> ℹ️ Note: Dont tell me about TKinter, I've tried it and it went wrong.
+> ℹ️ Note: Dont tell me about TKinter, I've tried it and went wrong.
 
 ## Can I contribute to project?
 Yes, you can! I will verify your issue or pull request, and if I like the ideia, I will implement in my software. So don't be shy to share something good.
