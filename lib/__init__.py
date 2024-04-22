@@ -17,7 +17,7 @@ import os
 import json
 
 # Version constant #
-__version__ = "0.2.2 BETA (Unstable Release)"
+__version__ = "0.2.2.1 BETA (Unstable Release)"
 
 # Time list saver class
 class timesSaved():
@@ -148,12 +148,6 @@ def timeRemoval(modality):
             window("Time removed successfully!", "double_line")
 
     else: print('Is empty...')
-
-
-# Clear the interface
-def consoleClear():
-    if os.name in ('nt', 'dos'): os.system('cls')
-    else: os.system('clear')
 
 
 # Console to get the user input

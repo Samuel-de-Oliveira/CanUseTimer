@@ -21,4 +21,11 @@ def alert():
     if os.name in ('nt', 'dos'): pass
     else: print('\a', end='\a') 
 
+
+# Clear the comand line interface
+def consoleClear():
+    if os.name in ('nt', 'dos'): os.system('cls')
+    else: os.system('clear')
+
+
 if __name__ == "__main__": print("Run the Main.py file to start program...")
