@@ -12,5 +12,4 @@ if [ -d /opt/CanUseTimer/ ]; then
   rm -rf /opt/CanUseTimer/
 fi
 
-echo -e "\nEverything is removed!\n"
-echo -e "\033[34;1mPress return to exit...\033[m"; read
+echo -e "\nDone!\n"
