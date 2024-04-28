@@ -18,7 +18,7 @@ def window(msg, style='basic'):
 
 # Alert sound
 def alert():
-    if os.name in ('nt', 'dos'): pass
+    if os.name in ('nt', 'dos'): print('\a', end='\a')
     else: print('\a', end='\a') 
 
 

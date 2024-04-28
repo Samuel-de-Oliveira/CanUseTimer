@@ -64,6 +64,7 @@ class settings():
 
             with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
 
+        # Same process on Windows systems
         else:
             # Check if the setting file exists
             if not os.path.exists("setting.json"):
@@ -76,9 +77,9 @@ class settings():
     
     # Save informations in "setting.json" file
     def Save(self) -> None:
-        if not os.name in ('nt', 'dos'):
+        if not os.name in ('nt', 'dos'): # Non-Windows systems
             with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
-        else:
+        else: # Windows systems
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
     # Setting manager interface
@@ -101,6 +102,7 @@ class settings():
         self.load['ask+2'] = not self.load['ask+2']
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
+        alert()
     
     # Modality configuration
     def Modality(self, modality) -> str:
@@ -124,12 +126,16 @@ class settings():
 
         # Selecting modality
         if x in modals:
-            window('Modality changed', 'double_line')
+            # Changing modality
             self.load['modality'] = x
             self.Save()
+
+            window('Modality changed', 'double_line')
+            alert()
             return x
         else:
             window('This modality doesn\'t exist', 'double_line')
+            alert()
             return modality
 
 
@@ -235,13 +241,15 @@ def startTimer(modality):
                         if is_pressed('space'): break
                         consoleClear()
                             
-
                         if is_pressed('space'): break
                         window(timeFormat(totalTime))
+
+                        if is_pressed('space'): break
 
                     # Ask +2
                     if settings().load['ask+2']:
                         consoleClear()
+                        alert()
                         window(f'Time: {timeFormat(totalTime)}')
                         plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
                         if plustwo in 'yY': totalTime = float(totalTime) + 2
