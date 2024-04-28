@@ -35,8 +35,8 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - windows installer now is real;
 - Bug fixes.
 
-### [Unstable](#unstable) :construction:
-- No unstable version for now
+### [Unstable](#unstable) 0.2.2.1 :construction:
+- Add sounds for actions.
 
 ---
 ## Install
