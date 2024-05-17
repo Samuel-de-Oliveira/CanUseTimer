@@ -140,7 +140,7 @@ class settings():
 
 
 # Remove a time
-def timeRemoval(modality):
+def timeRemoval(modality) -> None:
     if len(times.load[modality]) > 0:
         print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
         timeList(modality)
@@ -157,14 +157,14 @@ def timeRemoval(modality):
 
 
 # Console to get the user input
-def Console(text='>>: ', size=2):
+def Console(text='>>: ', size=2) -> int:
     while True:
         try:
             read = int(input(text))
             if 0 <= read <= size: return read
             else: print(f'\033[1;31mDigit a value in range of 1 to {size}\033[m')
         
-        except KeyboardInterrupt: consoleClear(); exit()
+        except KeyboardInterrupt: consoleClear(); alert(); exit()
         except: print('\033[1;31mPlease, Digit a valid number!\033[m')
 
 
@@ -205,7 +205,7 @@ def timeList(modality) -> None:
 
 
 # The timer function (This is important for the program! =^-^=)
-def startTimer(modality):
+def startTimer(modality) -> None:
     # To see the modalities shufflers check the file: Shufflers.py
     modalities = {'3x3': s3x3_shuffler('3x3'),
                   '2x2': s3x3_shuffler('2x2'),
@@ -263,17 +263,23 @@ def startTimer(modality):
 
                     # End
                     break
+
+                # In case you don't waited the cooldown
                 else:
                     consoleClear()
-                    window('The timer doesn\'t start, you need press until have 0.85secs.')
+                    window('The timer doesn\'t start, you need press until have 0.85 secondss.')
                 
+            # Exit Timer
             if is_pressed('escape'):
                 consoleClear()
+                alert()
                 window('Timer\'s closed...', 'double_line')
+                sleep(0.2)
                 break
 
         except KeyboardInterrupt:
             consoleClear()
+            alert()
             window('Timer\'s closed...', 'double_line')
             break
 
