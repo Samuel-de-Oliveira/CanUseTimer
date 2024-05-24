@@ -24,12 +24,13 @@ from time import sleep
 import json
 
 param = argv[1:]
-sets = settings()
 
 # Run main interface
 if __name__ == "__main__":
     if len(param) == 0:
         # Starter window
+        print("Please, wait everything be ready!")
+        sets = settings()
         consoleClear()
         window('Welcome to CanUseTimer!', 'double_line')
 

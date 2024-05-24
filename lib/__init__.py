@@ -39,6 +39,7 @@ class timesSaved():
 
         with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
 
+    # Save time list
     def Save(self) -> None:
         with open('timesSaved.json', 'w+') as f:
             f.write(json.dumps(self.load,
@@ -74,7 +75,8 @@ class settings():
             else: pass
 
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
-    
+
+
     # Save informations in "setting.json" file
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'): # Non-Windows systems
@@ -82,20 +84,33 @@ class settings():
         else: # Windows systems
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 
+
     # Setting manager interface
     def manager(self) -> None:
         while True:
-            line(style='double_line')
-            print('\033[36m1: Change modality\n'
-                 f'2: Ask +2 >> {self.load["ask+2"]}\n'
-                  '3: Close\033[m')
-            line(style='double_line')
-            numget = Console(size=3)
+            try:
+                line(style='double_line')
+                print('\033[36m1: Change modality\n'
+                     f'2: Ask +2 >> {self.load["ask+2"]}\n'
+                     '3: Close\033[m')
+                line(style='double_line')
+                self.numget = Console(size=3)
 
-            consoleClear()
-            if numget == 1: self.Modality(self.load['modality'])
-            if numget == 2: self.askP2()
-            if numget == 3: break
+                consoleClear()
+                self.listWithFunctions = [
+                    self.easterEgg, # Number 0
+                    self.Modality, # Number 1
+                    self.askP2, # Number 2
+                ]
+
+                if self.numget == 3: break
+                else: self.listWithFunctions[self.numget]()
+
+            # In case of a ctrl+C press
+            except KeyboardInterrupt:
+                consoleClear()
+                break
+
 
     # Ask +2 configuration
     def askP2(self) -> None:
@@ -103,11 +118,13 @@ class settings():
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
         alert()
-    
-    # Modality configuration
-    def Modality(self, modality) -> str:
-        window('Change modality')
 
+
+    # Modality configuration
+    def Modality(self) -> str:
+        window('Change modality')
+        
+        modality = self.load['modality']
         # Show current modalities
         modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
         print('All modalities:', end='')
@@ -137,6 +154,12 @@ class settings():
             window('This modality doesn\'t exist', 'double_line')
             alert()
             return modality
+
+
+    # Easter Egg
+    def easterEgg(self) -> None:
+        window('Oh no! zero maybe does not works... :P', 'double_line')
+        alert()
 
 
 # Remove a time
