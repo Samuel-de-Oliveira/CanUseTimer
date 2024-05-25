@@ -36,7 +36,9 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - Bug fixes.
 
 ### [Unstable](#unstable) 0.2.2.1 :construction:
-- Add sounds for actions.
+- Add sounds for a few actions;
+- optimization reworks;
+- Bug fixes.
 
 ---
 ## Install
@@ -107,7 +109,7 @@ Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/Ca
 -->
 ---
 ## Why use?
-- Lightweight program (Almost 1MB of space on Linux and 7MB for Windows);
+- Lightweight program (Almost 1MB of space on Linux and 10MB for Windows);
 - Run all platforms (Windows, Linux :penguin:);
 - Don't need internet (but you can't update it);
 - Open source (Read the GPLv3 licensse for more info). 🔓 
