@@ -1,7 +1,7 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 if [ ! $USER == "root" ]; then
-	echo "You need be root to start program..."
-	exit 1
+	echo "it needs root to start program..."
+	exit
 fi
 
 cd /opt/CanUseTimer/
