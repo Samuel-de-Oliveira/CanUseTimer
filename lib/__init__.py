@@ -155,6 +155,7 @@ class settings():
             alert()
             return modality
 
+    def sound(self): pass
 
     # Easter Egg
     def easterEgg(self) -> None:
