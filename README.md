@@ -3,7 +3,7 @@
 ---
 ---
 ## What is it?
-<img src="Images/wiki/Screenshot-new.png" width=47% align="right">
+<img src="Images/Overview.png" width=52% align="right">
 
 CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
 timer created to work in a terminal or command prompt window. Because 
