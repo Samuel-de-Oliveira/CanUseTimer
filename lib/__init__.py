@@ -152,7 +152,7 @@ class settings():
             return x
         else:
             window('This modality doesn\'t exist', 'double_line')
-            alert()
+            alert(intensity='high')
             return modality
 
     def sound(self): pass
@@ -188,7 +188,7 @@ def Console(text='>>: ', size=2) -> int:
             if 0 <= read <= size: return read
             else: print(f'\033[1;31mDigit a value in range of 1 to {size}\033[m')
         
-        except KeyboardInterrupt: consoleClear(); alert(); exit()
+        except KeyboardInterrupt: consoleClear(); alert(intensity='high'); exit()
         except: print('\033[1;31mPlease, Digit a valid number!\033[m')
 
 
@@ -296,15 +296,16 @@ def startTimer(modality) -> None:
             # Exit Timer
             if is_pressed('escape'):
                 consoleClear()
-                alert()
+                alert(intensity='high')
                 window('Timer\'s closed...', 'double_line')
-                sleep(0.2)
+                sleep(0.15)
                 break
 
         except KeyboardInterrupt:
             consoleClear()
-            alert()
+            alert(intensity='high')
             window('Timer\'s closed...', 'double_line')
+            sleep(0.15)
             break
 
 

@@ -6,6 +6,7 @@ if os.name in ('nt', 'dos'):
     import winsound
 else: pass
 
+sets = settings()
 
 # create a line
 def line(size=40, style='basic'):
@@ -21,9 +22,15 @@ def window(msg, style='basic'):
 
 
 # Alert sound
-def alert():
+def alert(intensity='low'):
+    # Windows
     if os.name in ('nt', 'dos'):
-        winsound.MessageBeep(type=winsound.MB_OK)
+        if intensity == 'low':
+            winsound.MessageBeep(type=winsound.MB_ICONEXCLAMATION)
+        elif intensity == 'high':
+            winsound.MessageBeep(type=winsound.MB_ICONHAND)
+
+    # Linux and others
     else: print('\a', end='\a') 
 
 
