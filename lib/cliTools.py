@@ -22,7 +22,8 @@ def window(msg, style='basic'):
 
 # Alert sound
 def alert():
-    if os.name in ('nt', 'dos'): print('\a', end='\a')
+    if os.name in ('nt', 'dos'):
+        winsound.MessageBeep(type=winsound.MB_OK)
     else: print('\a', end='\a') 
 
 
