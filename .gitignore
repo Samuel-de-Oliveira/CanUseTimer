@@ -3,3 +3,4 @@ dist/
 build/
 *.iss
 *.exe
+Main.spec
