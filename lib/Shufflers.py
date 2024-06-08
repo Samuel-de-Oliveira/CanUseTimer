@@ -15,14 +15,14 @@ from random import randint
 #   the arguments are in lib/__init__.py file     #
 #                                                 #
 #-*---------------------------------------------*-#
-def s3x3_shuffler(cube):
+def s3x3_shuffler(cube: str) -> str:
     '''
     Internal function to generate valid and secure 2x2x2 Rubik's cube scrambles instead of only
     "shuflle" strings.
     Warning: the scrambles generated here are not in random state, they only satisfies
     the conditions of how a scramble should looks like.
     '''
-    def gen2x2():
+    def gen2x2() -> str:
         moves = ("R", "U", "F")
         directions = (" ", "' ", "2 ")
 
@@ -45,7 +45,7 @@ def s3x3_shuffler(cube):
     Warning: the scrambles generated here are not in random state, they only satisfies
     the conditions of how a scramble should looks like.
     '''
-    def gen3x3():
+    def gen3x3() -> str:
         moves = ("Rx", "Uy", "Fz", "Lx", "Dy", "Bz")
         directions = (" ", "' ", "2 ")
 
@@ -55,7 +55,7 @@ def s3x3_shuffler(cube):
         A sequence of 3 moves in the same aixis is not valid.
         Ex.: R L R, F B F, U D U, L R L, etc.
         """
-        def sameAxis(moveA, moveB, moveC):
+        def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
             concatened = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
         
@@ -84,8 +84,8 @@ def s3x3_shuffler(cube):
 #   The arguments are in lib/__init__.py file     #
 #                                                 #
 #-*---------------------------------------------*-#
-def pyra_shuffler(cube):
-    def genpyra():
+def pyra_shuffler(cube: str) -> str:
+    def genpyra() -> str:
         moves = ('r', 'l', 'u', 'b')
         directions = (" ", "' ")
 
@@ -102,7 +102,7 @@ def pyra_shuffler(cube):
 
         return scramble
 
-    def genskewb():
+    def genskewb() -> str:
         moves = ('R', 'L', 'U', 'B')
         directions = (" ", "' ")
 
@@ -130,8 +130,8 @@ def pyra_shuffler(cube):
 #     The arguments are in lib/__init__.py file     #
 #                                                   #
 #-*-----------------------------------------------*-#
-def s4x4_shuffler(cube):
-    def gen4x4():
+def s4x4_shuffler(cube: str) -> str:
+    def gen4x4() -> str:
         moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
         directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
@@ -139,7 +139,7 @@ def s4x4_shuffler(cube):
         moveB = "  "
         scramble = []
 
-        def sameAxis(moveA, moveB, moveC):
+        def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
             concatened = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
@@ -154,7 +154,7 @@ def s4x4_shuffler(cube):
 
         return scramble
 
-    def gen5x5():
+    def gen5x5() -> str:
         moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
         directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
@@ -162,7 +162,7 @@ def s4x4_shuffler(cube):
         moveB = "  "
         scramble = []
 
-        def sameAxis(moveA, moveB, moveC):
+        def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
             concatened = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
@@ -186,8 +186,8 @@ def s4x4_shuffler(cube):
 #   the arguments are in lib/__init__.py file    #
 #                                                #
 #-*--------------------------------------------*-#
-def s6x6_shuffler(cube):
-    def gen6x6():
+def s6x6_shuffler(cube: str) -> str:
+    def gen6x6() -> str:
         moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
         directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
@@ -195,7 +195,7 @@ def s6x6_shuffler(cube):
         moveB = "  "
         scramble = []
 
-        def sameAxis(moveA, moveB, moveC):
+        def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
             concatened = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
@@ -215,7 +215,7 @@ def s6x6_shuffler(cube):
 
         return scramble
 
-    def gen7x7():
+    def gen7x7() -> str:
         moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
         directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
@@ -223,7 +223,7 @@ def s6x6_shuffler(cube):
         moveB = "  "
         scramble = []
 
-        def sameAxis(moveA, moveB, moveC):
+        def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
             concatened = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
@@ -252,7 +252,7 @@ def s6x6_shuffler(cube):
 #   the arguments are in lib/__init__.py file   #
 #                                               #
 #-*-------------------------------------------*-#
-def sq1_shuffler():
+def sq1_shuffler() -> str:
     moves = []
     for move in range(1, 15):
         w = ()

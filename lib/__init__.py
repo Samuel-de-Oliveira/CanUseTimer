@@ -155,7 +155,7 @@ class settings():
             alert(intensity='high')
             return modality
 
-    def sound(self): pass
+    def sound(self) -> None: pass
 
     # Easter Egg
     def easterEgg(self) -> None:
@@ -164,7 +164,7 @@ class settings():
 
 
 # Remove a time
-def timeRemoval(modality) -> None:
+def timeRemoval(modality: str) -> None:
     if len(times.load[modality]) > 0:
         print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
         timeList(modality)
@@ -193,7 +193,7 @@ def Console(text='>>: ', size=2) -> int:
 
 
 # Convert seconds to minutes function
-def timeFormat(time) -> str:
+def timeFormat(time: float) -> str:
     if not time == None:
         if time < 60: return f'{time:.2f}'
         else:
@@ -207,7 +207,7 @@ def timeFormat(time) -> str:
 
 
 # Ao5 function
-def showAverage(modality) -> float:
+def showAverage(modality: str) -> float:
     if len(times.load[modality]) >= 5:
         timesUse = 0
         for t in times.load[modality]: timesUse += float(t)
@@ -219,7 +219,7 @@ def showAverage(modality) -> float:
 
 
 # Time List
-def timeList(modality) -> None:
+def timeList(modality: str) -> None:
     print(f'Current modality: \033[34;1m{modality}\033[m')
     print('_-_-_-_-_-_- Times -_-_-_-_-_-_')
     if len(times.load[modality]) <= 0: print('The list is empty...')
@@ -229,7 +229,7 @@ def timeList(modality) -> None:
 
 
 # The timer function (This is important for the program! =^-^=)
-def startTimer(modality) -> None:
+def startTimer(modality: str) -> None:
     # To see the modalities shufflers check the file: Shufflers.py
     modalities = {'3x3': s3x3_shuffler('3x3'),
                   '2x2': s3x3_shuffler('2x2'),
