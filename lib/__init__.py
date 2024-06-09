@@ -60,7 +60,9 @@ class settings():
             if not os.path.exists("lib/setting.json"):
                 with open('lib/setting.json', 'w') as f:
                     f.write(json.dumps({"modality": "3x3",
-                                        "ask+2": True}, indent=True))
+                                        "ask+2": True,
+                                        "sound": True},
+                                        indent=True))
             else: pass
 
             with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
@@ -71,7 +73,9 @@ class settings():
             if not os.path.exists("setting.json"):
                 with open('setting.json', 'w') as f:
                     f.write(json.dumps({"modality": "3x3",
-                                        "ask+2": True}, indent=True))
+                                        "ask+2": True,
+                                        "sound": True},
+                                        indent=True))
             else: pass
 
             with open('setting.json', 'r') as f: self.load = json.loads(f.read())
@@ -92,18 +96,20 @@ class settings():
                 line(style='double_line')
                 print('\033[36m1: Change modality\n'
                      f'2: Ask +2 >> {self.load["ask+2"]}\n'
-                     '3: Close\033[m')
+                     f'3: Sound >> {self.load["sound"]}\n'
+                      '4: Close\033[m')
                 line(style='double_line')
-                self.numget = Console(size=3)
+                self.numget = Console(size=4)
 
                 consoleClear()
                 self.listWithFunctions = [
                     self.easterEgg, # Number 0
                     self.Modality, # Number 1
                     self.askP2, # Number 2
+                    self.setSound # Number 3
                 ]
 
-                if self.numget == 3: break
+                if self.numget == 4: break
                 else: self.listWithFunctions[self.numget]()
 
             # In case of a ctrl+C press
@@ -155,7 +161,13 @@ class settings():
             alert(intensity='high')
             return modality
 
-    def sound(self) -> None: pass
+
+    def setSound(self) -> None:
+        self.load['sound'] = not self.load['sound']
+        self.Save()
+        window(f'the sound now is: {self.load["sound"]}', 'double_line')
+        alert()
+
 
     # Easter Egg
     def easterEgg(self) -> None:

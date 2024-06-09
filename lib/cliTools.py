@@ -1,12 +1,12 @@
 ### Here is the window configuration ###
 import os
+# TODO: This import creates a circular import
+# TODO: Move settings class to settings.py file
 # from . import settings
 
 if os.name in ('nt', 'dos'):
     import winsound
 else: pass
-
-# sets = settings()
 
 # create a line
 def line(size=40, style='basic') -> None:
@@ -23,6 +23,8 @@ def window(msg: str, style='basic') -> None:
 
 # Alert sound
 def alert(intensity='low') -> None:
+    # sets = settings()
+
     # Windows
     if os.name in ('nt', 'dos'):
         if intensity == 'low':

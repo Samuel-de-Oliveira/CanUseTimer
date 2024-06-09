@@ -40,12 +40,12 @@ if __name__ == "__main__":
             line(style='double_line')
             print('Digit a one of these numbers:\033[36m')
             print("1: Start\n"
-                "2: Settings\n"
-                "3: Clear time list\n"
-                "4: Credits\n"
-                "5: Show time list\n"
-                "6: Remove time\n"
-                "0: Exit\033[m")
+                  "2: Settings\n"
+                  "3: Clear time list\n"
+                  "4: Credits\n"
+                  "5: Show time list\n"
+                  "6: Remove time\n"
+                  "0: Exit\033[m")
             line(style='double_line')
             console = Console(size=6)
 
