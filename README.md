@@ -47,7 +47,7 @@ The stable version is the most recommended to install in your machine
 because there's less bugs, have installers for all systems and you
 don't need know about programing and Python to run it.
 
-**Install**
+#### Install
 
 Chose your Operating system:
 |System|Latest version|File|
@@ -65,9 +65,11 @@ with bugs of new implementations, recommended only if you want to
 check what is comming and test it.
 
 > :warning: This type of version only have Linux installer (Because
-the deeveloper uses Linux).
+the developer only uses Linux).
 
-**Install**
+#### Install
+
+**Linux**
 
 To get the unstable version you only need to clone this repository
 with:
@@ -77,20 +79,40 @@ git clone https://github.com/Samuel-de-Oliveira/CanUseTimer.git
 cd CanUseTimer
 ```
 
-after this you can run it with python or (if you use Linux) install
-using the file `install.sh`. To update (Any system) type `git pull`
-and install it again.
+after this you can run it with Python (`sudo python Main.py`) or
+install using the follow comand: `./install.sh`. To update type
+`git pull` and install it again.
 
-**Run from source**
+**Windows**
+
+There's not installers for Windows, but if you want you can compile
+the Python code using the [Pyinstaller](https://pyinstaller.org) project.
+
+Firstly you need to clone thies repository:
+
+```bash
+git clone https://github.com/Samuel-de-Oliveira/CanUseTimer
+cd CanUseTimer
+```
+
+after this you should enter in the `Windows_Compiler` directory and compile
+it. Meanwhile to compile you may click [here](Windows_Compiler) to take a tutorial.
+
+Also if you want to update to see what came, you can just type `git pull` and recompile
+everything.
+
+#### Run from source (With Python)
 
 But if you don't want to install you can run directly from source
-using Python. To do this process you need install python 3.10 or higher
-with pip, after install you need to install the requirements using `pip
+using Python. To do this process you need install Python 3.10 or higher
+with pip, then you should to install the requirements using `pip
 install -r requirements.txt` or `pip3 install -r requirements.txt`.
 
 Then you can run with this command in your terminal:
 
-	python Main.py
+```bash
+python Main.py
+```
 
 > :information_source: Use a Python virtual environmet, beacuse the
 unstable version can make comflicts with you python libraries. to
