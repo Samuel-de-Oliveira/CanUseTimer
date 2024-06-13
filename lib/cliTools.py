@@ -1,12 +1,29 @@
-### Here is the window configuration ###
-import os
-# TODO: This import creates a circular import
-# TODO: Move settings class to settings.py file
-# from . import settings
+### Here is the functions for CLI ###
 
+# Imports
+import os
+import json
+
+# Windows import
 if os.name in ('nt', 'dos'):
     import winsound
 else: pass
+
+
+# Class to be used only in this file
+# to avoid circular imports
+class readSettings():
+    # Load file
+    def __init__(self) -> None:
+        if not os.name in ('nt', 'dos'):
+            with open('lib/setting.json', 'r') as f:
+                config = f.read()
+                self.load = json.loads(config)
+        else:
+            with open('setting.json', 'r') as f:
+                config = f.read()
+                self.load = json.loads(config)
+
 
 # create a line
 def line(size=40, style='basic') -> None:
@@ -23,17 +40,21 @@ def window(msg: str, style='basic') -> None:
 
 # Alert sound
 def alert(intensity='low') -> None:
-    # sets = settings()
+    # load settings
+    sets = readSettings()
 
-    # Windows
-    if os.name in ('nt', 'dos'):
-        if intensity == 'low':
-            winsound.MessageBeep(type=winsound.MB_ICONEXCLAMATION)
-        elif intensity == 'high':
-            winsound.MessageBeep(type=winsound.MB_ICONHAND)
+    if sets.load['sound']:
+        # Windows
+        if os.name in ('nt', 'dos'):
+            if intensity == 'low':
+                winsound.MessageBeep(type=winsound.MB_ICONEXCLAMATION)
+            elif intensity == 'high':
+                winsound.MessageBeep(type=winsound.MB_ICONHAND)
 
-    # Linux and others
-    else: print('\a', end='\a') 
+        # Linux and others
+        else: print('\a', end='\a')
+
+    else: pass
 
 
 # Clear the comand line interface
