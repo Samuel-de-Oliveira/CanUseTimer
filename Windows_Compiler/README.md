@@ -9,6 +9,6 @@ cd .\CanUseTimer\Windows_Compiler
 ```
 
 And finally change the directory to `Windows_Compiler` and
-run the `make` command.
+run the `setup.bat` file.
 
-and done the software is compiled at the `dist` directory :smile:
+and done the software is compiled at the `dist` directory. Enjoy! :smile:
