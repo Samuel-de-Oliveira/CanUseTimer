@@ -37,6 +37,8 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 
 ### [Unstable](#unstable) 0.2.2.1 :construction:
 - Add sounds for a few actions;
+- *Removed* --start parameter;
+- *Added* --show parameter;
 - optimization reworks;
 - Bug fixes.
 
