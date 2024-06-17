@@ -3,7 +3,8 @@
 # This is the source code of software CanUseTimer. You are          #
 # free to edit and study based in GPLv3 License conduct,            #
 # enjoy it. If you want to report a bug or help in the              #
-# development of software visit our repository on Github.           #
+# development of software visit the software's repository           #
+# on Github.                                                        #
 #                                                                   #
 # License:       GPLv3                                              #
 # Creator:       Samuel de Oliveira (Samuel-de-Oliveira)            #
@@ -23,10 +24,12 @@ from sys import argv
 from time import sleep
 import json
 
+# Setting config
 print("Please, wait everything be ready...", end="\r")
 param = argv[1:]
 sets = settings()
 
+# CanUseTimer Parameters
 if len(param) >= 1:
 
     param_count = 0
@@ -54,10 +57,10 @@ if len(param) >= 1:
             print(f'CanUseTimer Version: \033[34;1m{__version__}\033[m\n\n\tUSAGE: \033[1mcanusetimer [--command] ...\033[m\n'
                    '\tthe commands list:\n'
                    '\t\t\033[32;1m--help or -h:\033[m Show help message (canusetimer -h).\n'
-                   '\t\t\033[32;1m--show or -s:\033[m Show the current time list (canusetimer -s\n'
+                   '\t\t\033[32;1m--show or -s:\033[m Show the current time list (canusetimer -s)\n'
                    '\t\t\033[32;1m--change-modality\033[m or -C: Change the modality (canusetimer -C [modality])\n')
 
-    # if not find the writed param
+    # if not find the writed parameter
     if param_count <= 0:
         alert(intensity='high')
         print('\033[31;1mOops... Maybe you digit something wrong!\033[m\n'
