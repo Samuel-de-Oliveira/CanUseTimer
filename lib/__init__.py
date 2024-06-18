@@ -17,7 +17,7 @@ import os
 import json
 
 # Version constant #
-__version__ = "0.2.2.1 BETA (Unstable Release)"
+__version__ = "0.2.2.1 BETA (Stable Release)"
 
 # Time list saver class
 class timesSaved():
