@@ -36,7 +36,7 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - Bug fixes.
 
 ### [Unstable](#unstable) :construction:
-- **For while there's no unstable versions.
+- **For while there's no unstable versions.**
 
 ---
 ## Install
@@ -50,8 +50,8 @@ don't need know about programing and Python to run it.
 Chose your Operating system:
 |System|Latest version|File|
 | :- | :- | :-: |
-|Windows| 0.2.2 | [CanUseTimer-v0.2.2-Windows_Setup.exe](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2/CanUseTimer-v0.2.2-Windows_Setup.exe) |
-|Linux| 0.2.2 | [CanUseTimer-v0.2.2-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2/CanUseTimer-v0.2.2-Linux.tar.xz) |
+|Windows| 0.2.2.1 | [CanUseTimer-v0.2.2-Windows_Setup.exe](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2.1/CanUseTimer-v0.2.2.1-Windows_Setup.exe) |
+|Linux| 0.2.2.1 | [CanUseTimer-v0.2.2-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2.1/CanUseTimer-v0.2.2.1-Linux.tar.xz) |
 |Mac OS| - Comming soon ||
 
 Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
