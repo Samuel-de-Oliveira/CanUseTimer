@@ -28,19 +28,15 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 
 ---
 ## Release notes 🗒️
-### [Stable](#stable) 0.2.2 :white_check_mark:
-- Time list recieved a upgrade:
-  - Now the times can be saved when the user exit of software;
-  - Time list is now parallel for each modality.
-- windows installer now is real;
-- Bug fixes.
-
-### [Unstable](#unstable) 0.2.2.1 :construction:
+### [Stable](#stable) 0.2.2.1 :white_check_mark:
 - Add sounds for a few actions;
 - *Removed* --start parameter;
 - *Added* --show parameter;
 - optimization reworks;
 - Bug fixes.
+
+### [Unstable](#unstable) :construction:
+- **For while there's no unstable versions.
 
 ---
 ## Install
