@@ -1,4 +1,4 @@
-<img src="Images/CanUseTimer-Logo.svg" width="65%">
+<img src="Images/CanUseTimer-Logo.svg" width="50%" align="center">
 
 ---
 ---
@@ -51,7 +51,7 @@ Chose your Operating system:
 |System|Latest version|File|
 | :- | :- | :-: |
 |Windows| 0.2.2.1 | [CanUseTimer-v0.2.2.1-Windows_Setup.exe](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2.1/CanUseTimer-v0.2.2.1-Windows-Setup.exe) |
-|Linux| 0.2.2.1 | [CanUseTimer-v0.2.2.1-Linux.tar.xz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2.1/CanUseTimer-v0.2.2.1-Linux.tar.xz) |
+|Linux| 0.2.2.1 | [CanUseTimer-v0.2.2.1-Linux.tar.gz](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/download/0.2.2.1/CanUseTimer-v0.2.2.1-Linux.tar.gz) |
 |Mac OS| - Comming soon ||
 
 Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/)
