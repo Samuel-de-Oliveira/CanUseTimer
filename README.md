@@ -2,6 +2,10 @@
 
 ---
 ---
+<b>[Downloads (stable)](#install) •
+<b>[Contributing](#can-i-contribute-to-project)</b> •
+<b>[Disclaimers](#disclaimers-%EF%B8%8F)</b>
+
 ## What is it?
 <img src="Images/Overview.png" width=65% align="right">
 
@@ -116,17 +120,6 @@ python Main.py
 unstable version can make comflicts with you python libraries. to
 create one type `python -m venv env` in the project folder.
 
-<!--
----
-## I want to know more about...
-If you want to know more about how to configure or do something in the
-software, you need to read the [wiki](https://github.com/samuel-de-oliveira/CanUseTimer/wiki)
-to learn more, have wiki for every OS. If you want to help with something
-you can make forks or report errors in github issues, you will help a
-lot :wink:.
-
-Also check our website: [**Fast link!**](https://samuel-de-oliveira.github.io/CanUseTimer-Web/)
--->
 ---
 ## Why use?
 - Lightweight program (Almost 1MB of space on Linux and 10MB for Windows);
