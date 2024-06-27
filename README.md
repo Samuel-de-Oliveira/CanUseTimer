@@ -2,7 +2,7 @@
 
 ---
 ---
-<b>[Downloads (stable)](#install) •
+<b>[Downloads (stable)](#install)</b> •
 <b>[Contributing](#can-i-contribute-to-project)</b> •
 <b>[Disclaimers](#disclaimers-%EF%B8%8F)</b>
 
