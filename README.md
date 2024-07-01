@@ -1,4 +1,4 @@
-<img src="Images/CanUseTimer-Logo.svg" width="50%" align="center">
+<img src="Images/CanUseTimer-Logo.svg" width="55%" align="center">
 
 ---
 ---
@@ -7,7 +7,7 @@
 <b>[Disclaimers](#disclaimers-%EF%B8%8F)</b>
 
 ## What is it?
-<img src="Images/Overview.png" width=65% align="right">
+<img src="Images/Overview.png" width=70% align="right">
 
 CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
 timer created to work in a terminal or command prompt window. Because 
@@ -89,16 +89,7 @@ install using the follow comand: `./install.sh`. To update type
 
 There's not installers for Windows, but if you want you can compile
 the Python code using the [Pyinstaller](https://pyinstaller.org) project.
-
-Firstly you need to clone thies repository:
-
-```bash
-git clone https://github.com/Samuel-de-Oliveira/CanUseTimer
-cd CanUseTimer
-```
-
-after this you should enter in the `Windows_Compiler` directory and compile
-it. Meanwhile to compile you may click [here](Windows_Compiler) to take a tutorial.
+Click [here](Windows_Compiler) to take a tutorial about the compilation.
 
 Also if you want to update to see what came, you can just type `git pull` and recompile
 everything.
