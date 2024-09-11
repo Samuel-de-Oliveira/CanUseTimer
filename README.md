@@ -9,8 +9,8 @@
 ## What is it?
 <img src="Images/Overview.png" width=70% align="right">
 
-CanUseTimer is an open source, writed in Python, speedcubing, multiplatform
-timer created to work in a terminal or command prompt window. Because 
+CanUseTimer is an open source, writed in Python, speedcubing and multiplatform
+timer created to work in a terminal or command prompt window (CLI interface). Because 
 this the program is soft and run anywhere, it means that it can run in 
 probally any computer with bad hardware and any operating system
 (Windows, Linux and MacOS X). And It's Open Source project, it means that
@@ -27,8 +27,8 @@ in a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categ
 ## Can I contribute to project?
 Yes, you can! I will verify your issue or pull request, and if I like the ideia, I will implement in my software. So don't be shy to share something good.
 
-- Comment a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues)
-- Create a [pull request](https://github.com/Samuel-de-Oliveira/CanUseTimer/pulls)
+- Comment a [Issue](https://github.com/Samuel-de-Oliveira/CanUseTimer/discussions/categories/issues);
+- Create a [pull request](https://github.com/Samuel-de-Oliveira/CanUseTimer/pulls).
 
 ---
 ## Release notes 🗒️
@@ -87,7 +87,7 @@ install using the follow comand: `./install.sh`. To update type
 
 **Windows**
 
-There's not installers for Windows, but if you want you can compile
+There's no installers for Windows, but if you want you can compile
 the Python code using the [Pyinstaller](https://pyinstaller.org) project.
 Click [here](Windows_Compiler) to take a tutorial about the compilation.
 
@@ -122,7 +122,7 @@ create one type `python -m venv env` in the project folder.
 ## Disclaimers! ⚠️
 - This is the terminal version, without grafical interface;
 - This program is tested only in Linux and Windows, and not else;
-- this is a BETA version, this means that the final version is on progress;
+- this is a BETA version, means that the final version is on progress;
 - If you found bugs please report to fast fixing in Github issues.
 
 ---
