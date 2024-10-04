@@ -1,2 +1,2 @@
-keyboard
-pyinstaller
+keyboard==0.13.5
+pyinstaller==6.10.0
