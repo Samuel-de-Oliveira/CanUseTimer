@@ -6,6 +6,9 @@
 #                                                    #
 #-*------------------------------------------------*-#
 
+## TODO: Implement more coments to make the documentation
+## better.
+
 # Random module
 from random import randint
 

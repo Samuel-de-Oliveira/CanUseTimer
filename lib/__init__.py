@@ -17,24 +17,29 @@ import os
 import json
 
 # Version constant #
+# TODO: Change the version to 0.2.3 BETA (Unstable release)
 __version__ = "0.2.2.1 BETA (Stable Release)"
 
 # Time list saver class
 class timesSaved():
     def __init__(self) -> None:
         if not os.path.exists("timesSaved.json"):
-                with open('timesSaved.json', 'w') as f:
-                    f.write(json.dumps(
+            ## TODO: Change JSON to SQL for new features ##
+            with open('timesSaved.json', 'w') as f:
+                f.write(
+                    json.dumps(
                         {"3x3": [],
-                         "2x2": [],
-                         "4x4": [],
-                         "5x5": [],
-                         "6x6": [],
-                         "7x7": [],
-                         "pyra": [],
-                         "skewb": [],
-                         "sq1": []},
-                         indent=True))
+                        "2x2": [],
+                        "4x4": [],
+                        "5x5": [],
+                        "6x6": [],
+                        "7x7": [],
+                        "pyra": [],
+                        "skewb": [],
+                        "sq1": []},
+                        indent=True
+                    )
+                )
         else: pass
 
         with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
@@ -161,7 +166,8 @@ class settings():
             alert(intensity='high')
             return modality
 
-
+    
+    # Sound setting
     def setSound(self) -> None:
         self.load['sound'] = not self.load['sound']
         self.Save()
@@ -272,6 +278,8 @@ def startTimer(modality: str) -> None:
                     while is_pressed('space'): timer = time()
 
                     # Timer working
+                    ## TODO: Change timer window for a \r print method
+                    ## to fix Windows flicking
                     while True:
                         totalTime = time() - timer
                         if is_pressed('space'): break
@@ -300,10 +308,11 @@ def startTimer(modality: str) -> None:
                     # End
                     break
 
-                # In case you don't waited the cooldown
+                # In case of user doesn't waited the cooldown
                 else:
                     consoleClear()
-                    window('The timer doesn\'t start, you need press until have 0.85 secondss.')
+                    window('The timer doesn\'t start, you need hold spacebar until have 0.85 seconds '
+                           'or press escape to exit timer.')
                 
             # Exit Timer
             if is_pressed('escape'):
