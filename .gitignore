@@ -8,5 +8,6 @@ lib64
 pyvenv.cfg
 *.iss
 *.exe
+*.bin
 Main.spec
 *.json
