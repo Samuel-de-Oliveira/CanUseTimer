@@ -3,6 +3,7 @@
 # Imports
 import os
 import json
+import time
 
 # Windows import
 if os.name in ('nt', 'dos'):
@@ -61,6 +62,18 @@ def alert(intensity='low') -> None:
 def consoleClear() -> None:
     if os.name in ('nt', 'dos'): os.system('cls')
     else: os.system('clear')
+
+
+# \r print
+class rPrint():
+    def __init__(self, msg: str) -> None:
+        self.message = msg    
+        self.msgSize = len(msg)
+        print(msg, end='\r')
+    
+
+    def flush(self) -> None:
+        print(' ' * self.msgSize)
 
 
 if __name__ == "__main__": print("Run the Main.py file to start program...")

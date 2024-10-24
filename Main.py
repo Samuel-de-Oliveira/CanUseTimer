@@ -10,7 +10,7 @@
 # Creator:       Samuel de Oliveira (Samuel-de-Oliveira)            #
 # Contribuitors: Francisco Lucas (LucasAlfare)                      #
 # Repository:    https://gihub.com/Samuel-de-Oliveira/CanUseTimer   #
-# Version:       0.2.2.1 BETA (Stable)                              #
+# Version:       0.2.3 BETA (Unstable)                              #
 #                                                                   #
 #--*-------------------------------------------------------------*--#
 
@@ -25,17 +25,19 @@ from time import sleep
 import json
 
 # Setting config
-print("Please, wait everything be ready...", end="\r")
+loadingMsg = rPrint("Please, wait everything be ready...")
 param = argv[1:]
 sets = settings()
+loadingMsg.flush()
 
-# CanUseTimer Parameters
+### -*- CanUseTimer Parameters -*- ###
 if len(param) >= 1:
 
+    # Counting the corrects parameters
     param_count = 0
 
     for i, p in enumerate(param):
-        # Time list
+        # --show parameter
         if p in ('--show', '-s'):
             param_count += 1
             window('Show the current time list', 'double_line')
@@ -60,7 +62,7 @@ if len(param) >= 1:
                    '\t\t\033[32;1m--show or -s:\033[m Show the current time list (canusetimer -s)\n'
                    '\t\t\033[32;1m--change-modality\033[m or -C: Change the modality (canusetimer -C [modality])\n')
 
-    # if not find the writed parameter
+    # if not find a correct parameter
     if param_count <= 0:
         alert(intensity='high')
         print('\033[31;1mOops... Maybe you digit something wrong!\033[m\n'
@@ -68,7 +70,7 @@ if len(param) >= 1:
         exit()
 
 
-# Run main interface
+### -*- Run main interface -*- ###
 if __name__ == "__main__":
     if len(param) == 0:
         # Starter window

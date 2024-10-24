@@ -17,8 +17,7 @@ import os
 import json
 
 # Version constant #
-# TODO: Change the version to 0.2.3 BETA (Unstable release)
-__version__ = "0.2.2.1 BETA (Stable Release)"
+__version__ = "0.2.3 BETA (Unstable Release)"
 
 # Time list saver class
 class timesSaved():
