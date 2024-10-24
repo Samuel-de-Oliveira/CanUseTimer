@@ -1,9 +1,11 @@
-FILE = Main.py
-PIP  = bin/pip
-CXX  = bin/pyinstaller
+FILE  = Main.py
+PIP   = bin/pip
+CXX   = bin/pyinstaller
+BIN   = /bin
+SHARE = /usr/share
 
 all:
-	$(CXX) -F ..\Main.py -i ..\Images\icon.ico
+	$(CXX) -F Main.py -i Images\icon.ico
 
 setup:
 	python -m venv .

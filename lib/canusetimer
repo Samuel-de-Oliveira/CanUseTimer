@@ -1,7 +1,8 @@
 #!/usr/bin/env sh
-if [ ! $USER == "root" ]; then
-	echo "it needs root to start program..."
-	exit
+if [ $USER == "root" ]; then
+	echo "Please start it with your normal user..."
+	exit 1
 fi
 
 cd /opt/CanUseTimer/
+sudo ./CanUseTimer
