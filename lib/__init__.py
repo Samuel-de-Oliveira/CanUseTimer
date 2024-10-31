@@ -61,15 +61,15 @@ class settings():
         # If the system isn't Windows
         if not os.name in ('nt', 'dos'):
             # Check if the setting file exists
-            if not os.path.exists("lib/setting.json"):
-                with open('lib/setting.json', 'w') as f:
+            if not os.path.exists("setting.json"):
+                with open('setting.json', 'w') as f:
                     f.write(json.dumps({"modality": "3x3",
                                         "ask+2": True,
                                         "sound": True},
                                         indent=True))
             else: pass
 
-            with open('lib/setting.json', 'r') as f: self.load = json.loads(f.read())
+            with open('setting.json', 'r') as f: self.load = json.loads(f.read())
 
         # Same process on Windows systems
         else:
@@ -88,7 +88,7 @@ class settings():
     # Save informations in "setting.json" file
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'): # Non-Windows systems
-            with open('lib/setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
         else: # Windows systems
             with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
 

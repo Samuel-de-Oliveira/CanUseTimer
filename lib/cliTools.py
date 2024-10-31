@@ -17,7 +17,7 @@ class readSettings():
     # Load file
     def __init__(self) -> None:
         if not os.name in ('nt', 'dos'):
-            with open('lib/setting.json', 'r') as f:
+            with open('setting.json', 'r') as f:
                 config = f.read()
                 self.load = json.loads(config)
         else:
