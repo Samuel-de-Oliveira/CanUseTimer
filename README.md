@@ -39,8 +39,8 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - optimization reworks;
 - Bug fixes.
 
-### [Unstable](#unstable) :construction:
-- **For while there's no unstable versions.**
+### [Unstable](#unstable) 0.2.3 :construction:
+- Timer style Changed
 
 ---
 ## Install

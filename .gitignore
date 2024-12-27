@@ -2,8 +2,10 @@ __pycache__/
 dist/
 build/
 lib/python3.12
+lib/site-packages
 bin/
 lib64
+Scripts/
 
 pyvenv.cfg
 *.iss
