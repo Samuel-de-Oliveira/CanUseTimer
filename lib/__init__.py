@@ -15,6 +15,8 @@ from keyboard import is_pressed
 from time import time, sleep
 import os
 import json
+import requests
+import sqlite3
 
 # Version constant #
 __version__ = "0.2.3 BETA (Unstable Release)"
