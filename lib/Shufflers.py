@@ -26,18 +26,18 @@ def s3x3_shuffler(cube: str) -> str:
     the conditions of how a scramble should looks like.
     '''
     def gen2x2() -> str:
-        moves = ("R", "U", "F")
-        directions = (" ", "' ", "2 ")
+        moves: tuple      = ("R", "U", "F")
+        directions: tuple = (" ", "' ", "2 ")
 
-        moveA = ""
-        scramble = []
+        moveA: str     = ""
+        scramble: list = []
 
         for i in range(0, 10 + randint(0, 3)):
             while True:
-                moveB = moves[randint(0, len(moves) - 1)]
+                moveB: str = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
             
-            moveA = moveB
+            moveA: str = moveB
             scramble.append(moveB + directions[randint(0, len(directions) - 1)])
 
         return scramble
@@ -49,8 +49,8 @@ def s3x3_shuffler(cube: str) -> str:
     the conditions of how a scramble should looks like.
     '''
     def gen3x3() -> str:
-        moves = ("Rx", "Uy", "Fz", "Lx", "Dy", "Bz")
-        directions = (" ", "' ", "2 ")
+        moves: tuple      = ("Rx", "Uy", "Fz", "Lx", "Dy", "Bz")
+        directions: tuple = (" ", "' ", "2 ")
 
         """
         Internal function to check if a group of 3 movements
@@ -59,19 +59,19 @@ def s3x3_shuffler(cube: str) -> str:
         Ex.: R L R, F B F, U D U, L R L, etc.
         """
         def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
-            concatened = moveA[1] + moveB[1] + moveC[1]
+            concatened: str = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
         
-        moveA = "  "
-        moveB = "  "
-        scramble = []
+        moveA: str     = "  "
+        moveB: str     = "  "
+        scramble: list = []
 
         for i in range(0, 21 + randint(0, 5)):
             while True:
-                moveC = moves[randint(0, len(moves) - 1)]
+                moveC: str = moves[randint(0, len(moves) - 1)]
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
-            moveA = moveB
-            moveB = moveC
+            moveA: str = moveB
+            moveB: str = moveC
             scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
 
         return scramble
@@ -81,43 +81,43 @@ def s3x3_shuffler(cube: str) -> str:
     else: return gen3x3()
 
 
-#-*--------------- pyranminx shuffler ----------*-#
-#                                                 #
-#   This shuffler work in: pyranmix and skewb     #
-#   The arguments are in lib/__init__.py file     #
-#                                                 #
-#-*---------------------------------------------*-#
+#-*------------- Pyranminx shuffler -------------*-#
+#                                                  #
+#   This shuffler work in: pyranmix and skewb      #
+#   The arguments are in lib/__init__.py file      #
+#                                                  #
+#-*----------------------------------------------*-#
 def pyra_shuffler(cube: str) -> str:
     def genpyra() -> str:
-        moves = ('r', 'l', 'u', 'b')
-        directions = (" ", "' ")
+        moves: tuple = ('r', 'l', 'u', 'b')
+        directions: tuple = (" ", "' ")
 
-        moveA = ''
-        scramble = genskewb()
+        moveA: str = ''
+        scramble: str = genskewb()
 
         for m in range(0, 1 + randint(0, 2)):
             while True:
-                moveB = moves[randint(0, len(moves) - 1)]
+                moveB: str = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
 
-            moveA = moveB
+            moveA: str = moveB
             scramble.append(moveB + directions[randint(0, len(directions) -1)])
 
         return scramble
 
     def genskewb() -> str:
-        moves = ('R', 'L', 'U', 'B')
-        directions = (" ", "' ")
+        moves: tuple      = ('R', 'L', 'U', 'B')
+        directions: tuple = (" ", "' ")
 
-        moveA = ''
-        scramble = []
+        moveA: str = ''
+        scramble: list = []
 
         for m in range(0, 8 + randint(0, 1)):
             while True:
-                moveB = moves[randint(0, len(moves) - 1)]
+                moveB: str = moves[randint(0, len(moves) - 1)]
                 if moveB != moveA: break
 
-            moveA = moveB
+            moveA: str = moveB
             scramble.append(moveB + directions[randint(0, len(directions) - 1)])
 
         return scramble
@@ -135,46 +135,46 @@ def pyra_shuffler(cube: str) -> str:
 #-*-----------------------------------------------*-#
 def s4x4_shuffler(cube: str) -> str:
     def gen4x4() -> str:
-        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
-        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
+        moves: tuple      = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions: tuple = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
-        moveA = "  "
-        moveB = "  "
-        scramble = []
+        moveA: str     = "  "
+        moveB: str     = "  "
+        scramble: list = []
 
         def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
-            concatened = moveA[1] + moveB[1] + moveC[1]
+            concatened: str = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
         for i in range(0, 41 + randint(0, 5)):
             while True:
-                moveC = moves[randint(0, len(moves) - 1)]
+                moveC: str = moves[randint(0, len(moves) - 1)]
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
-            moveA = moveB
-            moveB = moveC
+            moveA: str = moveB
+            moveB: str = moveC
             if moveC[0] in ["R", "U", "F"]: scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
             else: scramble.append(moveC[0] + directions[randint(0, len(directions) - 4)])
 
         return scramble
 
     def gen5x5() -> str:
-        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
-        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
+        moves: tuple      = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions: tuple = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
-        moveA = "  "
-        moveB = "  "
-        scramble = []
+        moveA: str     = "  "
+        moveB: str     = "  "
+        scramble: list = []
 
         def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
-            concatened = moveA[1] + moveB[1] + moveC[1]
+            concatened: str = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
         for i in range(0, 58 + randint(0, 5)):
             while True:
-                moveC = moves[randint(0, len(moves) - 1)]
+                moveC: str = moves[randint(0, len(moves) - 1)]
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
-            moveA = moveB
-            moveB = moveC
+            moveA: str = moveB
+            moveB: str = moveC
             scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
 
         return scramble
@@ -191,56 +191,56 @@ def s4x4_shuffler(cube: str) -> str:
 #-*--------------------------------------------*-#
 def s6x6_shuffler(cube: str) -> str:
     def gen6x6() -> str:
-        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
-        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
+        moves: tuple      = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions: tuple = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
-        moveA = "  "
-        moveB = "  "
-        scramble = []
+        moveA: str     = "  "
+        moveB: str     = "  "
+        scramble: list = []
 
         def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
-            concatened = moveA[1] + moveB[1] + moveC[1]
+            concatened: str = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
         for i in range(0, 63 + randint(0, 7)):
             while True:
-                moveC = moves[randint(0, len(moves) - 1)]
+                moveC: str = moves[randint(0, len(moves) - 1)]
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
-            moveA = moveB
-            moveB = moveC
+            moveA: str = moveB
+            moveB: str = moveC
             scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
         
         for n, i in enumerate(scramble):
             if 'w' in i:
-                add3 = randint(0, 1)
+                add3: int = randint(0, 1)
                 if i[0] in ['R', 'U', 'F']:
                     if add3: scramble[n] = '3' + scramble[n]
 
         return scramble
 
     def gen7x7() -> str:
-        moves = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
-        directions = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
+        moves: tuple      = ('Rx', 'Uy', 'Fz', 'Lx', 'Dy', 'Bz')
+        directions: tuple = (" ", "' ", "2 ", "w ", "w' ", "w2 ")
 
-        moveA = "  "
-        moveB = "  "
-        scramble = []
+        moveA: str     = "  "
+        moveB: str     = "  "
+        scramble: list = []
 
         def sameAxis(moveA: str, moveB: str, moveC: str) -> bool:
-            concatened = moveA[1] + moveB[1] + moveC[1]
+            concatened: str = moveA[1] + moveB[1] + moveC[1]
             return concatened == "xxx" or concatened == "yyy" or concatened == "zzz"
 
         for i in range(0, 72 + randint(0, 8)):
             while True:
-                moveC = moves[randint(0, len(moves) - 1)]
+                moveC: str = moves[randint(0, len(moves) - 1)]
                 if (not sameAxis(moveA, moveB, moveC)) and (moveC != moveB): break
-            moveA = moveB
-            moveB = moveC
+            moveA: str = moveB
+            moveB: str = moveC
             scramble.append(moveC[0] + directions[randint(0, len(directions) - 1)])
         
         for n, i in enumerate(scramble):
             if 'w' in i:
-                add3 = randint(0, 1)
+                add3: int = randint(0, 1)
                 if add3: scramble[n] = '3' + scramble[n]
 
         return scramble
@@ -256,15 +256,15 @@ def s6x6_shuffler(cube: str) -> str:
 #                                               #
 #-*-------------------------------------------*-#
 def sq1_shuffler() -> str:
-    moves = []
+    moves: list = []
     for move in range(1, 15):
-        w = ()
-        x = randint(-5, 6)
-        y = randint(-5, 6)
+        w: tuple = ()
+        x: int   = randint(-5, 6)
+        y: int   = randint(-5, 6)
         moves.append((x, y))
         if not move == 14: moves.append('/')
         else:
-            x = randint(0, 1)
+            x: int = randint(0, 1)
             if x == 1: moves.append('/')
 
     return moves

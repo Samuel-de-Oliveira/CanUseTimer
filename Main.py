@@ -26,7 +26,7 @@ import json
 
 # Setting config
 loadingMsg = rPrint("Please, wait everything be ready...")
-param = argv[1:]
+param: list = argv[1:]
 sets = settings()
 loadingMsg.flush()
 
@@ -34,7 +34,7 @@ loadingMsg.flush()
 if len(param) >= 1:
 
     # Counting the corrects parameters
-    param_count = 0
+    param_count: int = 0
 
     for i, p in enumerate(param):
         # --show parameter
@@ -47,7 +47,7 @@ if len(param) >= 1:
         elif p in ('--change-modality', '-C'):
             param_count += 1
             if param[i + 1] in ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1'):
-                sets.load['modality'] = param[1]
+                sets.load['modality']: str = param[1]
                 sets.Save()
             else:
                 alert()
@@ -90,7 +90,7 @@ if __name__ == "__main__":
                   "6: Remove time\n"
                   "0: Exit\033[m")
             line(style='double_line')
-            console = Console(size=6)
+            console: int = Console(size=6)
 
             consoleClear()
 

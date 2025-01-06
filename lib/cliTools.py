@@ -18,11 +18,11 @@ class readSettings():
     def __init__(self) -> None:
         if not os.name in ('nt', 'dos'):
             with open('setting.json', 'r') as f:
-                config = f.read()
+                config: str = f.read()
                 self.load = json.loads(config)
         else:
             with open('setting.json', 'r') as f:
-                config = f.read()
+                config: str = f.read()
                 self.load = json.loads(config)
 
 
@@ -67,8 +67,8 @@ def consoleClear() -> None:
 # \r print
 class rPrint():
     def __init__(self, msg: str) -> None:
-        self.message = msg    
-        self.msgSize = len(msg)
+        self.message: str = msg    
+        self.msgSize: int = len(msg)
         print(msg, end='\r')
     
 

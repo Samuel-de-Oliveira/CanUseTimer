@@ -19,7 +19,7 @@ import requests
 import sqlite3
 
 # Version constant #
-__version__ = "0.2.3 BETA (Unstable Release)"
+__version__: str = "0.2.3 BETA (Unstable Release)"
 
 # Time list saver class
 class timesSaved():
@@ -43,13 +43,18 @@ class timesSaved():
                 )
         else: pass
 
-        with open('timesSaved.json', 'r') as f: self.load = json.loads(f.read())
+        with open('timesSaved.json', 'r') as f:
+            self.load: dict = json.loads(f.read())
 
     # Save time list
     def Save(self) -> None:
         with open('timesSaved.json', 'w+') as f:
-            f.write(json.dumps(self.load,
-                               indent=True))
+            f.write(
+                json.dumps(
+                    self.load,
+                    indent=True
+                )
+            )
 
 
 # Init Time list
@@ -65,13 +70,16 @@ class settings():
             # Check if the setting file exists
             if not os.path.exists("setting.json"):
                 with open('setting.json', 'w') as f:
-                    f.write(json.dumps({"modality": "3x3",
-                                        "ask+2": True,
-                                        "sound": True},
-                                        indent=True))
+                    f.write(json.dumps(
+                        {"modality": "3x3",
+                         "ask+2": True,
+                         "sound": True},
+                        indent=True
+                    ))
             else: pass
 
-            with open('setting.json', 'r') as f: self.load = json.loads(f.read())
+            with open('setting.json', 'r') as f:
+                self.load: dict = json.loads(f.read())
 
         # Same process on Windows systems
         else:
@@ -84,15 +92,25 @@ class settings():
                                         indent=True))
             else: pass
 
-            with open('setting.json', 'r') as f: self.load = json.loads(f.read())
+            with open('setting.json', 'r') as f:
+                self.load: dict = json.loads(f.read())
 
 
     # Save informations in "setting.json" file
     def Save(self) -> None:
         if not os.name in ('nt', 'dos'): # Non-Windows systems
-            with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            with open('setting.json', 'w') as f: 
+                f.write(json.dumps(
+                    self.load,
+                    indent=True
+                ))
+
         else: # Windows systems
-            with open('setting.json', 'w') as f: f.write(json.dumps(self.load, indent=True))
+            with open('setting.json', 'w') as f:
+                f.write(json.dumps(
+                    self.load,
+                    indent=True
+            ))
 
 
     # Setting manager interface
@@ -105,10 +123,10 @@ class settings():
                      f'3: Sound >> {self.load["sound"]}\n'
                       '4: Close\033[m')
                 line(style='double_line')
-                self.numget = Console(size=4)
+                self.numget: int = Console(size=4)
 
                 consoleClear()
-                self.listWithFunctions = [
+                self.listWithFunctions: list = [
                     self.easterEgg, # Number 0
                     self.Modality, # Number 1
                     self.askP2, # Number 2
@@ -126,7 +144,7 @@ class settings():
 
     # Ask +2 configuration
     def askP2(self) -> None:
-        self.load['ask+2'] = not self.load['ask+2']
+        self.load['ask+2']: bool = not self.load['ask+2']
         self.Save()
         window(f'ask +2 now is: {self.load["ask+2"]}', 'double_line')
         alert()
@@ -136,9 +154,9 @@ class settings():
     def Modality(self) -> str:
         window('Change modality')
         
-        modality = self.load['modality']
+        modality: str = self.load['modality']
         # Show current modalities
-        modals = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
+        modals: tuple = ('3x3', '2x2', '4x4', '5x5', '6x6', '7x7', 'pyra', 'skewb', 'sq1')
         print('All modalities:', end='')
         for m in modals:
             if modality == m: print('\033[34;1m', end='')
@@ -150,13 +168,14 @@ class settings():
         # Break line
         print() 
 
-        x = input('Digit the modality\'s name: ')
+        # Get modality
+        x: str = input('Digit the modality\'s name: ')
         consoleClear()
 
         # Selecting modality
         if x in modals:
             # Changing modality
-            self.load['modality'] = x
+            self.load['modality']: str = x
             self.Save()
 
             window('Modality changed', 'double_line')
@@ -170,7 +189,7 @@ class settings():
     
     # Sound setting
     def setSound(self) -> None:
-        self.load['sound'] = not self.load['sound']
+        self.load['sound']: bool = not self.load['sound']
         self.Save()
         window(f'the sound now is: {self.load["sound"]}', 'double_line')
         alert()
@@ -178,7 +197,7 @@ class settings():
 
     # Easter Egg
     def easterEgg(self) -> None:
-        window('Oh no! zero maybe does not works... :P', 'double_line')
+        window('Oh no! Zero maybe does not works... :P', 'double_line')
         alert()
 
 
@@ -187,23 +206,25 @@ def timeRemoval(modality: str) -> None:
     if len(times.load[modality]) > 0:
         print('Digit the number of time you\'d like to remove: (Digit "0" to cancel)')
         timeList(modality)
-        removeTime = Console(size=len(times.load[modality]))
+        removeTime: int = Console(size=len(times.load[modality]))
         consoleClear()
 
         if removeTime == 0:
-            window('you\'ve caceled this operation', "double_line")
+            window('you\'ve canceled this operation', "double_line")
         else:
             del times.load[modality][removeTime - 1]
             window("Time removed successfully!", "double_line")
 
-    else: print('Is empty...')
+    else:
+        alert(intensity='high')
+        print('Is empty...')
 
 
 # Console to get the user input
 def Console(text='>>: ', size=2) -> int:
     while True:
         try:
-            read = int(input(text))
+            read: int = int(input(text))
             if 0 <= read <= size: return read
             else: print(f'\033[1;31mDigit a value in range of 1 to {size}\033[m')
         
@@ -216,11 +237,11 @@ def timeFormat(time: float) -> str:
     if not time == None:
         if time < 60: return f'{time:.2f}'
         else:
-            x = int(time // 60)
-            y = time % 60
+            x: int = int(time // 60)
+            y: int = time % 60
 
             if y < 10:
-                y = '0' + f'{y:.2f}'
+                y: str = '0' + f'{y:.2f}'
                 return f'{x}:{y}' 
             else: return f'{x}:{y:.2f}'
 
@@ -228,7 +249,7 @@ def timeFormat(time: float) -> str:
 # Ao5 function
 def showAverage(modality: str) -> float:
     if len(times.load[modality]) >= 5:
-        timesUse = 0
+        timesUse: int = 0
         for t in times.load[modality]: timesUse += float(t)
         timesUse -= float(max(times.load[modality]))
         timesUse -= float(min(times.load[modality]))
@@ -250,15 +271,15 @@ def timeList(modality: str) -> None:
 # The timer function (This is important for the program! =^-^=)
 def startTimer(modality: str) -> None:
     # To see the modalities shufflers check the file: Shufflers.py
-    modalities = {'3x3': s3x3_shuffler('3x3'),
-                  '2x2': s3x3_shuffler('2x2'),
-                  '4x4': s4x4_shuffler('4x4'),
-                  '5x5': s4x4_shuffler('5x5'),
-                  '6x6': s6x6_shuffler('6x6'),
-                  '7x7': s6x6_shuffler('7x7'),
-                  'pyra': pyra_shuffler('pyra'),
-                  'skewb': pyra_shuffler('skewb'),
-                  'sq1': sq1_shuffler()}
+    modalities: dict = {'3x3': s3x3_shuffler('3x3'),
+                        '2x2': s3x3_shuffler('2x2'),
+                        '4x4': s4x4_shuffler('4x4'),
+                        '5x5': s4x4_shuffler('5x5'),
+                        '6x6': s6x6_shuffler('6x6'),
+                        '7x7': s6x6_shuffler('7x7'),
+                        'pyra': pyra_shuffler('pyra'),
+                        'skewb': pyra_shuffler('skewb'),
+                        'sq1': sq1_shuffler()}
 
     # Show shuffler
     print(f'The current modality is: {modality}\n'
@@ -276,13 +297,13 @@ def startTimer(modality: str) -> None:
                 if is_pressed('space'):
                     consoleClear()
                     window('Leave spacebar...')
-                    while is_pressed('space'): timer = time()
+                    while is_pressed('space'): timer: float = time()
 
                     # Timer working
                     ## TODO: Change timer window for a \r print method
                     ## to fix Windows flicking
                     while True:
-                        totalTime = time() - timer
+                        totalTime: float = time() - timer
                         if is_pressed('space'): break
                         consoleClear()
                             
@@ -297,7 +318,7 @@ def startTimer(modality: str) -> None:
                         alert()
                         window(f'Time: {timeFormat(totalTime)}')
                         plustwo = str(input('Is this a +2? [Y/n]')).replace(' ', '')
-                        if plustwo in 'yY': totalTime = float(totalTime) + 2
+                        if plustwo in 'yY': totalTime: float = float(totalTime) + 2
 
                     # Time list
                     consoleClear()
@@ -312,7 +333,8 @@ def startTimer(modality: str) -> None:
                 # In case of user doesn't waited the cooldown
                 else:
                     consoleClear()
-                    window('The timer doesn\'t start, you need hold spacebar until have 0.85 seconds '
+                    window('The timer doesn\'t start, you need hold '
+                           'spacebar until have 0.85 seconds '
                            'or press escape to exit timer.')
                 
             # Exit Timer
