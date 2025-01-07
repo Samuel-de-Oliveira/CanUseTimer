@@ -18,8 +18,49 @@ import json
 import requests
 import sqlite3
 
-# Version constant #
+# Version #
 __version__: str = "0.2.3 BETA (Unstable Release)"
+software_version: list = [
+    "unstable",
+    "0.2.3",
+]
+
+# Update manager #
+class UpdateManager():
+    def __init__(self) -> None:
+        # Get request
+        try:
+            print('looking for updates...')
+            self.json_URL: str = "https://samuel-de-oliveira.github.io/CanUseTimer-Website/js/latest.json"
+            self.request = requests.get(self.json_URL)
+
+            if self.request.status_code == 200:
+                self.connection: bool = True
+                self.versions: dict   = self.request.json()
+            else:
+                self.connection: bool = False
+                self.versions: dict   = {}
+
+        # In case of no connection
+        except:
+            self.json_URL: str     = ''
+            self.request: NoneType = None
+            self.connection: bool  = False
+            self.versions: dict    = {}
+
+    # Verify
+    def verify(self) -> None:
+        if self.connection:
+            if software_version[1] != self.versions[software_version[0]]:
+                consoleClear()
+                window('There is new version!')
+                input(
+                    'Verify https://github.com/Samuel-de-Oliveira/CanUseTimer/ to check the update\n\n'
+                    '\033[1mPlease press return...\033[m'
+                )
+
+        else: pass
+
 
 # Time list saver class
 class timesSaved():

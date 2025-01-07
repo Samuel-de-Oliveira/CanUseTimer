@@ -28,6 +28,7 @@ import json
 loadingMsg = rPrint("Please, wait everything be ready...")
 param: list = argv[1:]
 sets = settings()
+update = UpdateManager()
 loadingMsg.flush()
 
 ### -*- CanUseTimer Parameters -*- ###
@@ -74,6 +75,7 @@ if len(param) >= 1:
 if __name__ == "__main__":
     if len(param) == 0:
         # Starter window
+        update.verify()
         consoleClear()
         window('Welcome to CanUseTimer!', 'double_line')
 
