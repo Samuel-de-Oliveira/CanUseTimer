@@ -11,5 +11,6 @@ pyvenv.cfg
 *.iss
 *.exe
 *.bin
+*.db
 Main.spec
 *.json

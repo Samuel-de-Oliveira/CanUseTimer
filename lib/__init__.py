@@ -30,7 +30,7 @@ class UpdateManager():
     def __init__(self) -> None:
         # Get request
         try:
-            print('looking for updates...')
+            rPrint('\033[1mlooking for updates...\033[m')
             self.json_URL: str = "https://samuel-de-oliveira.github.io/CanUseTimer-Website/js/latest.json"
             self.request = requests.get(self.json_URL)
 
@@ -53,10 +53,11 @@ class UpdateManager():
         if self.connection:
             if software_version[1] != self.versions[software_version[0]]:
                 consoleClear()
-                window('There is new version!')
+                window('There is new version!', 'double_line')
                 input(
-                    'Verify https://github.com/Samuel-de-Oliveira/CanUseTimer/ to check the update\n\n'
-                    '\033[1mPlease press return...\033[m'
+                    f'\033[34mThe new version is:\033[34m \033[32;1m{self.versions[software_version[0]]}\033[m\n'
+                     'Verify https://github.com/Samuel-de-Oliveira/CanUseTimer/ to check the update\n\n'
+                     '\033[1mPlease press return...\033[m'
                 )
 
         else: pass
@@ -85,6 +86,10 @@ class timesSaved():
         else: pass
 
         with open('timesSaved.json', 'r') as f:
+            # TODO: Create a system that works...
+            times_data_base = sqlite3.connect('timesSaved.db')
+            times_cursor    = times_data_base.cursor()
+
             self.load: dict = json.loads(f.read())
 
     # Save time list

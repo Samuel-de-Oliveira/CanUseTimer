@@ -123,7 +123,10 @@ if __name__ == "__main__":
                 print(f'\nCanUseTimer\'s version: \033[33m{__version__}\033[m.\n'
                     'This software is a Open Source project to free use, study code and contributing,\n'
                     'for more info: https://github.com/Samuel-de-Oliveira/CanUseTimer.\n')
-            
+
+                # TODO: Remove this part on final Version!!!!!!!
+                print(f'\033[1mUsername: {os.getlogin()}\033[m')
+
             # Show time list
             if console == 5:
                 window('Time list', 'double_line')
