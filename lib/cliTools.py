@@ -73,7 +73,10 @@ class rPrint():
     
 
     def flush(self) -> None:
-        print(' ' * self.msgSize)
+        print(
+            ' ' * self.msgSize,
+            end='\r'
+        )
 
 
 if __name__ == "__main__": print("Run the Main.py file to start program...")

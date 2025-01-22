@@ -48,6 +48,8 @@ class UpdateManager():
             self.connection: bool  = False
             self.versions: dict    = {}
 
+        sleep(1)
+
     # Verify
     def verify(self) -> None:
         if self.connection:
@@ -87,8 +89,17 @@ class timesSaved():
 
         with open('timesSaved.json', 'r') as f:
             # TODO: Create a system that works...
+            # Create DB
             times_data_base = sqlite3.connect('timesSaved.db')
             times_cursor    = times_data_base.cursor()
+
+            # Create table
+            times_cursor.execute("""
+                CREATE TABLE IF NOT EXISTS Cube3x3 (
+                    id INTEGER PRIMARY KEY AUTOINCREMENT,
+                    time REAL NOT NULL
+                );
+            """)
 
             self.load: dict = json.loads(f.read())
 
