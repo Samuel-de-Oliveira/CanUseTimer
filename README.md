@@ -40,7 +40,9 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 - Bug fixes.
 
 ### [Unstable](#unstable) 0.2.3 :construction:
-- Timer style Changed
+- Timer style Changed;
+- Times will be stocked in a Data base;
+- Bug fixes.
 
 ---
 ## Install
