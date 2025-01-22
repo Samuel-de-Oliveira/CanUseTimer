@@ -359,15 +359,23 @@ def startTimer(modality: str) -> None:
                     # Timer working
                     ## TODO: Change timer window for a \r print method
                     ## to fix Windows flicking
-                    while True:
-                        totalTime: float = time() - timer
-                        if is_pressed('space'): break
-                        consoleClear()
+                    try:
+                        while True:
+                            totalTime: float = time() - timer
+                            if is_pressed('space'): break
+                            consoleClear()
                             
-                        if is_pressed('space'): break
-                        window(timeFormat(totalTime))
+                            if is_pressed('space'): break
+                            window(timeFormat(totalTime))
 
-                        if is_pressed('space'): break
+                            if is_pressed('space'): break
+                    
+                    except Exception as exce:
+                        consoleClear()
+                        alert('high')
+                        window('Bang! The timer was out of order...', 'double_line')
+                        print(f'\033[31;1mThe error tipe is:\033[m {exce}\nplease, tell this to the developer!')
+                        break
 
                     # Ask +2
                     if settings().load['ask+2']:
