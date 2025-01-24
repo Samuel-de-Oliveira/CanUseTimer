@@ -9,6 +9,7 @@
 # Imports from the software lib 
 from lib.cliTools import *
 from lib.Shufflers import *
+from lib.data import *
 
 # Imports from other Python libraries
 from keyboard import is_pressed
@@ -88,19 +89,6 @@ class timesSaved():
         else: pass
 
         with open('timesSaved.json', 'r') as f:
-            # TODO: Create a system that works...
-            # Create DB
-            times_data_base = sqlite3.connect('timesSaved.db')
-            times_cursor    = times_data_base.cursor()
-
-            # Create table
-            times_cursor.execute("""
-                CREATE TABLE IF NOT EXISTS Cube3x3 (
-                    id INTEGER PRIMARY KEY AUTOINCREMENT,
-                    time REAL NOT NULL
-                );
-            """)
-
             self.load: dict = json.loads(f.read())
 
     # Save time list
