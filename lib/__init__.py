@@ -69,6 +69,8 @@ class UpdateManager():
 # Time list saver class
 class timesSaved():
     def __init__(self) -> None:
+        createDataBase()
+
         if not os.path.exists("timesSaved.json"):
             ## TODO: Change JSON to SQL for new features ##
             with open('timesSaved.json', 'w') as f:
@@ -100,6 +102,7 @@ class timesSaved():
                     indent=True
                 )
             )
+        saveDataBases()
 
 
 # Init Time list
@@ -316,15 +319,17 @@ def timeList(modality: str) -> None:
 # The timer function (This is important for the program! =^-^=)
 def startTimer(modality: str) -> None:
     # To see the modalities shufflers check the file: Shufflers.py
-    modalities: dict = {'3x3': s3x3_shuffler('3x3'),
-                        '2x2': s3x3_shuffler('2x2'),
-                        '4x4': s4x4_shuffler('4x4'),
-                        '5x5': s4x4_shuffler('5x5'),
-                        '6x6': s6x6_shuffler('6x6'),
-                        '7x7': s6x6_shuffler('7x7'),
-                        'pyra': pyra_shuffler('pyra'),
-                        'skewb': pyra_shuffler('skewb'),
-                        'sq1': sq1_shuffler()}
+    modalities: dict = {
+        '3x3': s3x3_shuffler('3x3'),
+        '2x2': s3x3_shuffler('2x2'),
+        '4x4': s4x4_shuffler('4x4'),
+        '5x5': s4x4_shuffler('5x5'),
+        '6x6': s6x6_shuffler('6x6'),
+        '7x7': s6x6_shuffler('7x7'),
+        'pyra': pyra_shuffler('pyra'),
+        'skewb': pyra_shuffler('skewb'),
+        'sq1': sq1_shuffler()
+    }
 
     # Show shuffler
     print(f'The current modality is: {modality}\n'
@@ -379,6 +384,14 @@ def startTimer(modality: str) -> None:
                     times.load[modality].append(totalTime)
                     timeList(modality)
                     print(f'Average of 5: {timeFormat(showAverage(modality))}')
+
+                    # Write time in a data base
+                    # "times_cursor" is at data.py file
+                    times_cursor.execute(f"""
+                        INSERT INTO {database_modality[modality]} (time) VALUES (
+                            {totalTime}
+                        );
+                    """)
 
                     # End
                     break
