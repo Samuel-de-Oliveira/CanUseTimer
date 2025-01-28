@@ -11,10 +11,10 @@
 
 CanUseTimer is an open source, writed in Python, speedcubing and multiplatform
 timer created to work in a terminal or command prompt window (CLI interface). Because 
-this the program is soft and run anywhere, it means that it can run in 
-probally any computer with bad hardware and any operating system
-(Windows, Linux and MacOS X). And It's Open Source project, it means that
-you can install it for free and study the source code of program if you want.
+this the program is soft and run anywhere, it means that it might run on
+any computer with bad hardware and any operating system (Windows, Linux and
+MacOS X). And It's Open Source project, it means that you can install it for
+free, distribute and study the source code of program if you want.
 
 In future I will create a grafical
 interface based on it, but I don't know a good grafical interface
@@ -48,7 +48,7 @@ Yes, you can! I will verify your issue or pull request, and if I like the ideia,
 ## Install
 ### Stable
 The stable version is the most recommended to install in your machine
-because there's less bugs, have installers for all systems and you
+because there's less bugs, there is installers for all systems and you
 don't need know about programing and Python to run it.
 
 #### Install
@@ -64,7 +64,7 @@ Old Versions [here.](https://github.com/Samuel-de-Oliveira/CanUseTimer/releases/
 
 ### Unstable
 The unstable version is a version that is in constant development
-and you can see new features constantly, but this version may come
+and you will see new features constantly, but this version may come
 with bugs of new implementations, recommended only if you want to
 check what is comming and test it.
 
@@ -118,7 +118,8 @@ create one type `python -m venv env` in the project folder.
 - Lightweight program (Almost 1MB of space on Linux and 10MB for Windows);
 - Run all platforms (Windows, Linux :penguin:);
 - Don't need internet (but you can't update it);
-- Open source (Read the GPLv3 licensse for more info). 🔓 
+- Open source (Read the GPLv3 licensse for more info); 🔓
+- Made with love. ♥️
 
 ---
 ## Disclaimers! ⚠️
