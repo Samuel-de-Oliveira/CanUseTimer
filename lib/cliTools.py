@@ -27,20 +27,20 @@ class readSettings():
 
 
 # create a line
-def line(size=40, style='basic') -> None:
+def line(size=40, style: str='basic') -> None:
     if style == 'basic': print('-' * size)
     elif style == 'double_line': print('=' * size)
 
 
 # create the windown in top
-def window(msg: str, style='basic') -> None:
+def window(msg: str, style: str='basic') -> None:
     line(len(msg) + 10, style)
     print(f'|    {msg}    |')
     line(len(msg) + 10, style)
 
 
 # Alert sound
-def alert(intensity='low') -> None:
+def alert(intensity: str='low') -> None:
     # load settings
     sets = readSettings()
 

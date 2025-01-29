@@ -269,7 +269,7 @@ def timeRemoval(modality: str) -> None:
 
 
 # Console to get the user input
-def Console(text='>>: ', size=2) -> int:
+def Console(text: str='>>: ', size: int=2) -> int:
     while True:
         try:
             read: int = int(input(text))
