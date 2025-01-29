@@ -70,6 +70,7 @@ class UpdateManager():
 class timesSaved():
     def __init__(self) -> None:
         createDataBase()
+        self.load: dict = loadDataBase()
 
         if not os.path.exists("timesSaved.json"):
             ## TODO: Change JSON to SQL for new features ##

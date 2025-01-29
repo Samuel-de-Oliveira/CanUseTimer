@@ -93,6 +93,26 @@ def createDataBase() -> None:
   """)
 
 
+def loadDataBase() -> dict:
+  try:
+    resp = times_cursor.execute(f"""
+      SELECT time FROM {database_modality["2x2"]}
+    """)
+    values:     list = resp.fetchall()
+    get_values: list = []
+    for v in values: 
+      print(v[0])
+      get_values.append(v[0])
+
+    return {
+      '2x2': get_values
+    }
+
+  except Exception as exce:
+    print(f'Error: {exce}')
+    exit()
+
+
 def saveDataBases() -> None:
   times_data_base.commit()
 
