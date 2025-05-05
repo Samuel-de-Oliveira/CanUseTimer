@@ -1,3 +1,4 @@
+# Make file for Linux
 FILE   = Main.py
 PIP    = bin/pip
 CXX    = bin/pyinstaller
